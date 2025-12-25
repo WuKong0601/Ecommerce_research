@@ -1,0 +1,11 @@
+2025-12-23 23:54:38 | INFO     | utils.logger:setup_logger:42 - Logger initialized. Logs saved to: logs\cofars_20251223_235438.log
+2025-12-23 23:54:38 | INFO     | __main__:main:388 - ================================================================================
+2025-12-23 23:54:38 | INFO     | __main__:main:389 - STEP 3: CALCULATE JS DIVERGENCE
+2025-12-23 23:54:38 | INFO     | __main__:main:390 - ================================================================================
+2025-12-23 23:54:38 | INFO     | __main__:load_context_distributions:29 - Loading context distributions...
+2025-12-23 23:54:38 | INFO     | __main__:load_context_distributions:37 - Loaded distributions for 10 contexts
+2025-12-23 23:54:38 | INFO     | __main__:calculate_all_pairwise_js_divergences:179 - Calculating pairwise JS divergences...
+2025-12-23 23:54:38 | INFO     | __main__:calculate_all_pairwise_js_divergences:197 - Attribute vocabulary sizes:
+2025-12-23 23:54:38 | INFO     | __main__:calculate_all_pairwise_js_divergences:198 -   Categories: 12
+2025-12-23 23:54:38 | INFO     | __main__:calculate_all_pairwise_js_divergences:199 -   Price buckets: 4
+2025-12-23 23:54:38 | INFO     | __main__:calculate_all_pairwise_js_divergences:200 -   Rating levels: 4

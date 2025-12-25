@@ -1,0 +1,20 @@
+2025-12-24 16:18:45 | INFO     | src.utils.logger:setup_logger:42 - Logger initialized. Logs saved to: logs\cofars_20251224_161845.log
+2025-12-24 16:18:45 | INFO     | __main__:main:117 - ================================================================================
+2025-12-24 16:18:45 | INFO     | __main__:main:118 - TRAINING COFARS-SPARSE
+2025-12-24 16:18:45 | INFO     | __main__:main:119 - ================================================================================
+2025-12-24 16:18:45 | INFO     | __main__:main:123 - Using device: cpu
+2025-12-24 16:18:45 | INFO     | __main__:main:126 - Loading data...
+2025-12-24 16:18:48 | INFO     | __main__:main:135 - Data loaded:
+2025-12-24 16:18:48 | INFO     | __main__:main:136 -   Train: 196780 samples
+2025-12-24 16:18:48 | INFO     | __main__:main:137 -   Val: 24480 samples
+2025-12-24 16:18:48 | INFO     | __main__:main:138 -   Test: 24500 samples
+2025-12-24 16:18:48 | INFO     | __main__:main:139 -   Users: 40522
+2025-12-24 16:18:48 | INFO     | __main__:main:140 -   Items: 11746
+2025-12-24 16:18:48 | INFO     | __main__:main:141 -   Contexts: 10
+2025-12-24 16:18:48 | INFO     | __main__:main:163 - Creating model...
+2025-12-24 16:18:48 | INFO     | __main__:main:173 - Model parameters: 246,582
+2025-12-24 16:18:48 | INFO     | __main__:main:193 - Learning rate scheduler enabled (ReduceLROnPlateau)
+2025-12-24 16:18:48 | INFO     | __main__:main:199 - Early stopping: patience=10, min_delta=0.001
+2025-12-24 16:18:48 | INFO     | __main__:main:207 - Starting training for 50 epochs...
+2025-12-24 16:18:48 | INFO     | __main__:main:210 - 
+Epoch 1/50

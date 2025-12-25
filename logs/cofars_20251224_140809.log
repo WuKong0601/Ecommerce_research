@@ -1,0 +1,15 @@
+2025-12-24 14:08:09 | INFO     | src.utils.logger:setup_logger:42 - Logger initialized. Logs saved to: logs\cofars_20251224_140809.log
+2025-12-24 14:08:09 | INFO     | __main__:main:109 - ================================================================================
+2025-12-24 14:08:09 | INFO     | __main__:main:110 - TRAINING COFARS-SPARSE
+2025-12-24 14:08:09 | INFO     | __main__:main:111 - ================================================================================
+2025-12-24 14:08:09 | INFO     | __main__:main:115 - Using device: cpu
+2025-12-24 14:08:09 | INFO     | __main__:main:118 - Loading data...
+2025-12-24 14:08:11 | INFO     | __main__:main:126 - Data loaded:
+2025-12-24 14:08:11 | INFO     | __main__:main:127 -   Train: 39356 samples
+2025-12-24 14:08:11 | INFO     | __main__:main:128 -   Val: 4896 samples
+2025-12-24 14:08:11 | INFO     | __main__:main:129 -   Test: 4900 samples
+2025-12-24 14:08:11 | INFO     | __main__:main:130 -   Users: 40522
+2025-12-24 14:08:11 | INFO     | __main__:main:131 -   Items: 11746
+2025-12-24 14:08:11 | INFO     | __main__:main:132 -   Contexts: 10
+2025-12-24 14:08:11 | INFO     | __main__:main:154 - Creating model...
+2025-12-24 14:08:11 | INFO     | __main__:main:164 - Model parameters: 246,582

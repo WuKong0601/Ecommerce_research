@@ -1,0 +1,28 @@
+================================================================================
+JS DIVERGENCE STATISTICS
+================================================================================
+
+Total contexts: 10
+Total pairwise comparisons: 100
+
+JS Divergence Distribution:
+  Mean: 0.0005
+  Std: 0.0002
+  Min: 0.0000
+  Max: 0.0008
+
+Most Similar Context Pairs:
+--------------------------------------------------------------------------------
+  evening_weekday           <-> late_night_weekday       : 0.9998
+  late_night_weekday        <-> evening_weekday          : 0.9998
+  afternoon_weekday         <-> unknown_weekday          : 0.9998
+  unknown_weekday           <-> afternoon_weekday        : 0.9998
+  afternoon_weekday         <-> evening_weekday          : 0.9998
+
+Least Similar Context Pairs:
+--------------------------------------------------------------------------------
+  late_night_weekend        <-> evening_weekday          : 0.9992
+  evening_weekend           <-> late_night_weekend       : 0.9992
+  late_night_weekend        <-> evening_weekend          : 0.9992
+  evening_weekend           <-> unknown_weekend          : 0.9992
+  unknown_weekend           <-> evening_weekend          : 0.9992

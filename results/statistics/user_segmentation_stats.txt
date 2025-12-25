@@ -1,0 +1,50 @@
+================================================================================
+USER SEGMENTATION STATISTICS (CoFARS-Sparse)
+================================================================================
+
+SEGMENTATION STRATEGY:
+--------------------------------------------------------------------------------
+  Power users: ≥5 interactions (full CoFARS)
+  Regular users: 2-4 interactions (hybrid approach)
+  Cold-start users: 1 interaction (context-based)
+
+
+POWER SEGMENT:
+--------------------------------------------------------------------------------
+  num_users: 344
+  num_reviews: 2,607
+  avg_interactions: 7.58
+  total_products: 1,103
+  avg_products_per_user: 6.70
+  contexts_covered: 10
+  avg_rating: 4.81
+
+REGULAR SEGMENT:
+--------------------------------------------------------------------------------
+  num_users: 4,927
+  num_reviews: 11,294
+  avg_interactions: 2.29
+  total_products: 2,715
+  avg_products_per_user: 2.15
+  contexts_covered: 10
+  avg_rating: 4.56
+
+COLD_START SEGMENT:
+--------------------------------------------------------------------------------
+  num_users: 35,251
+  num_reviews: 35,251
+  avg_interactions: 1.00
+  total_products: 3,602
+  avg_products_per_user: 1.00
+  contexts_covered: 10
+  avg_rating: 4.29
+
+================================================================================
+HYBRID MODELING STRATEGY:
+================================================================================
+  Total users: 40,522
+  Total reviews: 49,152
+
+  Power: 0.8% users, 5.3% reviews
+  Regular: 12.2% users, 23.0% reviews
+  Cold_start: 87.0% users, 71.7% reviews

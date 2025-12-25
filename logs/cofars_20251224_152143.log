@@ -1,0 +1,385 @@
+2025-12-24 15:21:43 | INFO     | src.utils.logger:setup_logger:42 - Logger initialized. Logs saved to: logs\cofars_20251224_152143.log
+2025-12-24 15:21:43 | INFO     | __main__:main:117 - ================================================================================
+2025-12-24 15:21:43 | INFO     | __main__:main:118 - TRAINING COFARS-SPARSE
+2025-12-24 15:21:43 | INFO     | __main__:main:119 - ================================================================================
+2025-12-24 15:21:43 | INFO     | __main__:main:123 - Using device: cpu
+2025-12-24 15:21:43 | INFO     | __main__:main:126 - Loading data...
+2025-12-24 15:21:46 | INFO     | __main__:main:135 - Data loaded:
+2025-12-24 15:21:46 | INFO     | __main__:main:136 -   Train: 196780 samples
+2025-12-24 15:21:46 | INFO     | __main__:main:137 -   Val: 24480 samples
+2025-12-24 15:21:46 | INFO     | __main__:main:138 -   Test: 24500 samples
+2025-12-24 15:21:46 | INFO     | __main__:main:139 -   Users: 40522
+2025-12-24 15:21:46 | INFO     | __main__:main:140 -   Items: 11746
+2025-12-24 15:21:46 | INFO     | __main__:main:141 -   Contexts: 10
+2025-12-24 15:21:46 | INFO     | __main__:main:163 - Creating model...
+2025-12-24 15:21:46 | INFO     | __main__:main:173 - Model parameters: 246,582
+2025-12-24 15:21:46 | INFO     | __main__:main:193 - Learning rate scheduler enabled (ReduceLROnPlateau)
+2025-12-24 15:21:46 | INFO     | __main__:main:199 - Early stopping: patience=10, min_delta=0.001
+2025-12-24 15:21:46 | INFO     | __main__:main:207 - Starting training for 50 epochs...
+2025-12-24 15:21:46 | INFO     | __main__:main:210 - 
+Epoch 1/50
+2025-12-24 15:22:51 | INFO     | __main__:main:217 - Train Loss: 0.4695
+2025-12-24 15:22:51 | INFO     | __main__:main:218 -   Components: {'rec': 0.4694489672561971, 'js': 0.0, 'ind': 0.03167594558279204}
+2025-12-24 15:22:52 | INFO     | __main__:main:223 - Val Loss: 0.3918
+2025-12-24 15:22:52 | INFO     | __main__:main:224 - Val AUC: 0.8305
+2025-12-24 15:22:52 | INFO     | __main__:main:225 - Val AP: 0.5350
+2025-12-24 15:22:52 | INFO     | __main__:main:249 - ✓ Saved best model (AUC: 0.8305)
+2025-12-24 15:22:52 | INFO     | __main__:main:210 - 
+Epoch 2/50
+2025-12-24 15:23:51 | INFO     | __main__:main:217 - Train Loss: 0.3508
+2025-12-24 15:23:51 | INFO     | __main__:main:218 -   Components: {'rec': 0.35073650808353735, 'js': 0.0, 'ind': 0.03018437872633217}
+2025-12-24 15:23:53 | INFO     | __main__:main:223 - Val Loss: 0.3211
+2025-12-24 15:23:53 | INFO     | __main__:main:224 - Val AUC: 0.8895
+2025-12-24 15:23:53 | INFO     | __main__:main:225 - Val AP: 0.6194
+2025-12-24 15:23:53 | INFO     | __main__:main:249 - ✓ Saved best model (AUC: 0.8895)
+2025-12-24 15:23:53 | INFO     | __main__:main:210 - 
+Epoch 3/50
+2025-12-24 15:24:52 | INFO     | __main__:main:217 - Train Loss: 0.3062
+2025-12-24 15:24:52 | INFO     | __main__:main:218 -   Components: {'rec': 0.3062069638885134, 'js': 0.0, 'ind': 0.03018366855758477}
+2025-12-24 15:24:54 | INFO     | __main__:main:223 - Val Loss: 0.2988
+2025-12-24 15:24:54 | INFO     | __main__:main:224 - Val AUC: 0.9023
+2025-12-24 15:24:54 | INFO     | __main__:main:225 - Val AP: 0.6380
+2025-12-24 15:24:54 | INFO     | __main__:main:249 - ✓ Saved best model (AUC: 0.9023)
+2025-12-24 15:24:54 | INFO     | __main__:main:210 - 
+Epoch 4/50
+2025-12-24 15:25:56 | INFO     | __main__:main:217 - Train Loss: 0.2877
+2025-12-24 15:25:56 | INFO     | __main__:main:218 -   Components: {'rec': 0.28770844431427434, 'js': 0.0, 'ind': 0.030183852431250782}
+2025-12-24 15:25:57 | INFO     | __main__:main:223 - Val Loss: 0.2899
+2025-12-24 15:25:57 | INFO     | __main__:main:224 - Val AUC: 0.9075
+2025-12-24 15:25:57 | INFO     | __main__:main:225 - Val AP: 0.6462
+2025-12-24 15:25:57 | INFO     | __main__:main:249 - ✓ Saved best model (AUC: 0.9075)
+2025-12-24 15:25:57 | INFO     | __main__:main:210 - 
+Epoch 5/50
+2025-12-24 15:27:01 | INFO     | __main__:main:217 - Train Loss: 0.2779
+2025-12-24 15:27:01 | INFO     | __main__:main:218 -   Components: {'rec': 0.27782595693095913, 'js': 0.0, 'ind': 0.03018374481155136}
+2025-12-24 15:27:02 | INFO     | __main__:main:223 - Val Loss: 0.2836
+2025-12-24 15:27:02 | INFO     | __main__:main:224 - Val AUC: 0.9120
+2025-12-24 15:27:02 | INFO     | __main__:main:225 - Val AP: 0.6512
+2025-12-24 15:27:02 | INFO     | __main__:main:249 - ✓ Saved best model (AUC: 0.9120)
+2025-12-24 15:27:02 | INFO     | __main__:main:272 - Saved checkpoint: results/models\checkpoint_epoch_5.pt
+2025-12-24 15:27:02 | INFO     | __main__:main:210 - 
+Epoch 6/50
+2025-12-24 15:28:09 | INFO     | __main__:main:217 - Train Loss: 0.2736
+2025-12-24 15:28:09 | INFO     | __main__:main:218 -   Components: {'rec': 0.2735940875948929, 'js': 0.0, 'ind': 0.030183821643392245}
+2025-12-24 15:28:10 | INFO     | __main__:main:223 - Val Loss: 0.2808
+2025-12-24 15:28:10 | INFO     | __main__:main:224 - Val AUC: 0.9128
+2025-12-24 15:28:10 | INFO     | __main__:main:225 - Val AP: 0.6565
+2025-12-24 15:28:10 | INFO     | __main__:main:252 - No improvement for 1 epoch(s)
+2025-12-24 15:28:10 | INFO     | __main__:main:210 - 
+Epoch 7/50
+2025-12-24 15:29:17 | INFO     | __main__:main:217 - Train Loss: 0.2701
+2025-12-24 15:29:17 | INFO     | __main__:main:218 -   Components: {'rec': 0.27008652975646463, 'js': 0.0, 'ind': 0.030184095252335556}
+2025-12-24 15:29:18 | INFO     | __main__:main:223 - Val Loss: 0.2786
+2025-12-24 15:29:18 | INFO     | __main__:main:224 - Val AUC: 0.9154
+2025-12-24 15:29:18 | INFO     | __main__:main:225 - Val AP: 0.6644
+2025-12-24 15:29:18 | INFO     | __main__:main:249 - ✓ Saved best model (AUC: 0.9154)
+2025-12-24 15:29:18 | INFO     | __main__:main:210 - 
+Epoch 8/50
+2025-12-24 15:30:25 | INFO     | __main__:main:217 - Train Loss: 0.2656
+2025-12-24 15:30:25 | INFO     | __main__:main:218 -   Components: {'rec': 0.2656175825435941, 'js': 0.0, 'ind': 0.030184050051540862}
+2025-12-24 15:30:27 | INFO     | __main__:main:223 - Val Loss: 0.2752
+2025-12-24 15:30:27 | INFO     | __main__:main:224 - Val AUC: 0.9176
+2025-12-24 15:30:27 | INFO     | __main__:main:225 - Val AP: 0.6842
+2025-12-24 15:30:27 | INFO     | __main__:main:249 - ✓ Saved best model (AUC: 0.9176)
+2025-12-24 15:30:27 | INFO     | __main__:main:210 - 
+Epoch 9/50
+2025-12-24 15:31:35 | INFO     | __main__:main:217 - Train Loss: 0.2609
+2025-12-24 15:31:35 | INFO     | __main__:main:218 -   Components: {'rec': 0.2609181741073849, 'js': 0.0, 'ind': 0.030184933990845837}
+2025-12-24 15:31:36 | INFO     | __main__:main:223 - Val Loss: 0.2719
+2025-12-24 15:31:36 | INFO     | __main__:main:224 - Val AUC: 0.9202
+2025-12-24 15:31:36 | INFO     | __main__:main:225 - Val AP: 0.6969
+2025-12-24 15:31:36 | INFO     | __main__:main:249 - ✓ Saved best model (AUC: 0.9202)
+2025-12-24 15:31:36 | INFO     | __main__:main:210 - 
+Epoch 10/50
+2025-12-24 15:32:45 | INFO     | __main__:main:217 - Train Loss: 0.2567
+2025-12-24 15:32:45 | INFO     | __main__:main:218 -   Components: {'rec': 0.2567107074362476, 'js': 0.0, 'ind': 0.030188538323694128}
+2025-12-24 15:32:46 | INFO     | __main__:main:223 - Val Loss: 0.2702
+2025-12-24 15:32:46 | INFO     | __main__:main:224 - Val AUC: 0.9221
+2025-12-24 15:32:46 | INFO     | __main__:main:225 - Val AP: 0.7040
+2025-12-24 15:32:46 | INFO     | __main__:main:249 - ✓ Saved best model (AUC: 0.9221)
+2025-12-24 15:32:46 | INFO     | __main__:main:272 - Saved checkpoint: results/models\checkpoint_epoch_10.pt
+2025-12-24 15:32:46 | INFO     | __main__:main:210 - 
+Epoch 11/50
+2025-12-24 15:33:55 | INFO     | __main__:main:217 - Train Loss: 0.2542
+2025-12-24 15:33:55 | INFO     | __main__:main:218 -   Components: {'rec': 0.2541990502021177, 'js': 0.0, 'ind': 0.03019247089459644}
+2025-12-24 15:33:56 | INFO     | __main__:main:223 - Val Loss: 0.2707
+2025-12-24 15:33:56 | INFO     | __main__:main:224 - Val AUC: 0.9208
+2025-12-24 15:33:56 | INFO     | __main__:main:225 - Val AP: 0.6968
+2025-12-24 15:33:56 | INFO     | __main__:main:252 - No improvement for 1 epoch(s)
+2025-12-24 15:33:56 | INFO     | __main__:main:210 - 
+Epoch 12/50
+2025-12-24 15:35:07 | INFO     | __main__:main:217 - Train Loss: 0.2510
+2025-12-24 15:35:07 | INFO     | __main__:main:218 -   Components: {'rec': 0.2509211862232627, 'js': 0.0, 'ind': 0.030198037411745003}
+2025-12-24 15:35:08 | INFO     | __main__:main:223 - Val Loss: 0.2669
+2025-12-24 15:35:08 | INFO     | __main__:main:224 - Val AUC: 0.9237
+2025-12-24 15:35:08 | INFO     | __main__:main:225 - Val AP: 0.7159
+2025-12-24 15:35:08 | INFO     | __main__:main:249 - ✓ Saved best model (AUC: 0.9237)
+2025-12-24 15:35:08 | INFO     | __main__:main:210 - 
+Epoch 13/50
+2025-12-24 15:36:19 | INFO     | __main__:main:217 - Train Loss: 0.2485
+2025-12-24 15:36:19 | INFO     | __main__:main:218 -   Components: {'rec': 0.24843125943972813, 'js': 0.0, 'ind': 0.030202008316187353}
+2025-12-24 15:36:20 | INFO     | __main__:main:223 - Val Loss: 0.2671
+2025-12-24 15:36:20 | INFO     | __main__:main:224 - Val AUC: 0.9227
+2025-12-24 15:36:20 | INFO     | __main__:main:225 - Val AP: 0.7102
+2025-12-24 15:36:20 | INFO     | __main__:main:252 - No improvement for 1 epoch(s)
+2025-12-24 15:36:20 | INFO     | __main__:main:210 - 
+Epoch 14/50
+2025-12-24 15:37:32 | INFO     | __main__:main:217 - Train Loss: 0.2464
+2025-12-24 15:37:32 | INFO     | __main__:main:218 -   Components: {'rec': 0.2463786083774838, 'js': 0.0, 'ind': 0.030200731161285223}
+2025-12-24 15:37:33 | INFO     | __main__:main:223 - Val Loss: 0.2664
+2025-12-24 15:37:33 | INFO     | __main__:main:224 - Val AUC: 0.9231
+2025-12-24 15:37:33 | INFO     | __main__:main:225 - Val AP: 0.7176
+2025-12-24 15:37:33 | INFO     | __main__:main:252 - No improvement for 2 epoch(s)
+2025-12-24 15:37:33 | INFO     | __main__:main:210 - 
+Epoch 15/50
+2025-12-24 15:38:46 | INFO     | __main__:main:217 - Train Loss: 0.2442
+2025-12-24 15:38:46 | INFO     | __main__:main:218 -   Components: {'rec': 0.2442058355294592, 'js': 0.0, 'ind': 0.030206415344907984}
+2025-12-24 15:38:48 | INFO     | __main__:main:223 - Val Loss: 0.2652
+2025-12-24 15:38:48 | INFO     | __main__:main:224 - Val AUC: 0.9240
+2025-12-24 15:38:48 | INFO     | __main__:main:225 - Val AP: 0.7191
+2025-12-24 15:38:48 | INFO     | __main__:main:252 - No improvement for 3 epoch(s)
+2025-12-24 15:38:48 | INFO     | __main__:main:272 - Saved checkpoint: results/models\checkpoint_epoch_15.pt
+2025-12-24 15:38:48 | INFO     | __main__:main:210 - 
+Epoch 16/50
+2025-12-24 15:40:01 | INFO     | __main__:main:217 - Train Loss: 0.2420
+2025-12-24 15:40:01 | INFO     | __main__:main:218 -   Components: {'rec': 0.24196435275601177, 'js': 0.0, 'ind': 0.030207673114974323}
+2025-12-24 15:40:02 | INFO     | __main__:main:223 - Val Loss: 0.2633
+2025-12-24 15:40:02 | INFO     | __main__:main:224 - Val AUC: 0.9252
+2025-12-24 15:40:02 | INFO     | __main__:main:225 - Val AP: 0.7217
+2025-12-24 15:40:02 | INFO     | __main__:main:249 - ✓ Saved best model (AUC: 0.9252)
+2025-12-24 15:40:02 | INFO     | __main__:main:210 - 
+Epoch 17/50
+2025-12-24 15:41:17 | INFO     | __main__:main:217 - Train Loss: 0.2391
+2025-12-24 15:41:17 | INFO     | __main__:main:218 -   Components: {'rec': 0.23906962774148802, 'js': 0.0, 'ind': 0.030211333998335085}
+2025-12-24 15:41:18 | INFO     | __main__:main:223 - Val Loss: 0.2635
+2025-12-24 15:41:18 | INFO     | __main__:main:224 - Val AUC: 0.9255
+2025-12-24 15:41:18 | INFO     | __main__:main:225 - Val AP: 0.7267
+2025-12-24 15:41:18 | INFO     | __main__:main:252 - No improvement for 1 epoch(s)
+2025-12-24 15:41:18 | INFO     | __main__:main:210 - 
+Epoch 18/50
+2025-12-24 15:42:33 | INFO     | __main__:main:217 - Train Loss: 0.2368
+2025-12-24 15:42:33 | INFO     | __main__:main:218 -   Components: {'rec': 0.2367715086975718, 'js': 0.0, 'ind': 0.030214227855326684}
+2025-12-24 15:42:34 | INFO     | __main__:main:223 - Val Loss: 0.2658
+2025-12-24 15:42:34 | INFO     | __main__:main:224 - Val AUC: 0.9232
+2025-12-24 15:42:34 | INFO     | __main__:main:225 - Val AP: 0.7200
+2025-12-24 15:42:34 | INFO     | __main__:main:252 - No improvement for 2 epoch(s)
+2025-12-24 15:42:34 | INFO     | __main__:main:210 - 
+Epoch 19/50
+2025-12-24 15:43:49 | INFO     | __main__:main:217 - Train Loss: 0.2341
+2025-12-24 15:43:49 | INFO     | __main__:main:218 -   Components: {'rec': 0.23408222126040032, 'js': 0.0, 'ind': 0.03021641832905087}
+2025-12-24 15:43:51 | INFO     | __main__:main:223 - Val Loss: 0.2671
+2025-12-24 15:43:51 | INFO     | __main__:main:224 - Val AUC: 0.9230
+2025-12-24 15:43:51 | INFO     | __main__:main:225 - Val AP: 0.7205
+2025-12-24 15:43:51 | INFO     | __main__:main:252 - No improvement for 3 epoch(s)
+2025-12-24 15:43:51 | INFO     | __main__:main:210 - 
+Epoch 20/50
+2025-12-24 15:45:06 | INFO     | __main__:main:217 - Train Loss: 0.2318
+2025-12-24 15:45:06 | INFO     | __main__:main:218 -   Components: {'rec': 0.23180094026695422, 'js': 0.0, 'ind': 0.03021891326378516}
+2025-12-24 15:45:08 | INFO     | __main__:main:223 - Val Loss: 0.2646
+2025-12-24 15:45:08 | INFO     | __main__:main:224 - Val AUC: 0.9238
+2025-12-24 15:45:08 | INFO     | __main__:main:225 - Val AP: 0.7237
+2025-12-24 15:45:08 | INFO     | __main__:main:252 - No improvement for 4 epoch(s)
+2025-12-24 15:45:08 | INFO     | __main__:main:272 - Saved checkpoint: results/models\checkpoint_epoch_20.pt
+2025-12-24 15:45:08 | INFO     | __main__:main:210 - 
+Epoch 21/50
+2025-12-24 15:46:24 | INFO     | __main__:main:217 - Train Loss: 0.2301
+2025-12-24 15:46:24 | INFO     | __main__:main:218 -   Components: {'rec': 0.2300380119754047, 'js': 0.0, 'ind': 0.030221763886814194}
+2025-12-24 15:46:25 | INFO     | __main__:main:223 - Val Loss: 0.2665
+2025-12-24 15:46:25 | INFO     | __main__:main:224 - Val AUC: 0.9226
+2025-12-24 15:46:25 | INFO     | __main__:main:225 - Val AP: 0.7240
+2025-12-24 15:46:25 | INFO     | __main__:main:252 - No improvement for 5 epoch(s)
+2025-12-24 15:46:25 | INFO     | __main__:main:210 - 
+Epoch 22/50
+2025-12-24 15:47:40 | INFO     | __main__:main:217 - Train Loss: 0.2289
+2025-12-24 15:47:40 | INFO     | __main__:main:218 -   Components: {'rec': 0.22889609081231482, 'js': 0.0, 'ind': 0.03023504313778102}
+2025-12-24 15:47:42 | INFO     | __main__:main:223 - Val Loss: 0.2645
+2025-12-24 15:47:42 | INFO     | __main__:main:224 - Val AUC: 0.9260
+2025-12-24 15:47:42 | INFO     | __main__:main:225 - Val AP: 0.7300
+2025-12-24 15:47:42 | INFO     | __main__:main:252 - No improvement for 6 epoch(s)
+2025-12-24 15:47:42 | INFO     | __main__:main:210 - 
+Epoch 23/50
+2025-12-24 15:48:58 | INFO     | __main__:main:217 - Train Loss: 0.2269
+2025-12-24 15:48:58 | INFO     | __main__:main:218 -   Components: {'rec': 0.22687980818070047, 'js': 0.0, 'ind': 0.030236371794972964}
+2025-12-24 15:48:59 | INFO     | __main__:main:223 - Val Loss: 0.2643
+2025-12-24 15:48:59 | INFO     | __main__:main:224 - Val AUC: 0.9270
+2025-12-24 15:48:59 | INFO     | __main__:main:225 - Val AP: 0.7293
+2025-12-24 15:48:59 | INFO     | __main__:main:249 - ✓ Saved best model (AUC: 0.9270)
+2025-12-24 15:48:59 | INFO     | __main__:main:210 - 
+Epoch 24/50
+2025-12-24 15:50:15 | INFO     | __main__:main:217 - Train Loss: 0.2256
+2025-12-24 15:50:15 | INFO     | __main__:main:218 -   Components: {'rec': 0.22554052388280388, 'js': 0.0, 'ind': 0.030232831223951123}
+2025-12-24 15:50:16 | INFO     | __main__:main:223 - Val Loss: 0.2696
+2025-12-24 15:50:16 | INFO     | __main__:main:224 - Val AUC: 0.9236
+2025-12-24 15:50:16 | INFO     | __main__:main:225 - Val AP: 0.7294
+2025-12-24 15:50:16 | INFO     | __main__:main:252 - No improvement for 1 epoch(s)
+2025-12-24 15:50:16 | INFO     | __main__:main:210 - 
+Epoch 25/50
+2025-12-24 15:51:32 | INFO     | __main__:main:217 - Train Loss: 0.2249
+2025-12-24 15:51:32 | INFO     | __main__:main:218 -   Components: {'rec': 0.2248437506336022, 'js': 0.0, 'ind': 0.030235442449528027}
+2025-12-24 15:51:33 | INFO     | __main__:main:223 - Val Loss: 0.2668
+2025-12-24 15:51:33 | INFO     | __main__:main:224 - Val AUC: 0.9257
+2025-12-24 15:51:33 | INFO     | __main__:main:225 - Val AP: 0.7325
+2025-12-24 15:51:33 | INFO     | __main__:main:252 - No improvement for 2 epoch(s)
+2025-12-24 15:51:33 | INFO     | __main__:main:272 - Saved checkpoint: results/models\checkpoint_epoch_25.pt
+2025-12-24 15:51:33 | INFO     | __main__:main:210 - 
+Epoch 26/50
+2025-12-24 15:52:50 | INFO     | __main__:main:217 - Train Loss: 0.2231
+2025-12-24 15:52:50 | INFO     | __main__:main:218 -   Components: {'rec': 0.22306647130871207, 'js': 0.0, 'ind': 0.030234475883889975}
+2025-12-24 15:52:51 | INFO     | __main__:main:223 - Val Loss: 0.2622
+2025-12-24 15:52:51 | INFO     | __main__:main:224 - Val AUC: 0.9275
+2025-12-24 15:52:51 | INFO     | __main__:main:225 - Val AP: 0.7356
+2025-12-24 15:52:51 | INFO     | __main__:main:252 - No improvement for 3 epoch(s)
+2025-12-24 15:52:51 | INFO     | __main__:main:210 - 
+Epoch 27/50
+2025-12-24 15:54:07 | INFO     | __main__:main:217 - Train Loss: 0.2220
+2025-12-24 15:54:07 | INFO     | __main__:main:218 -   Components: {'rec': 0.2219808907043643, 'js': 0.0, 'ind': 0.03023727341274905}
+2025-12-24 15:54:08 | INFO     | __main__:main:223 - Val Loss: 0.2659
+2025-12-24 15:54:08 | INFO     | __main__:main:224 - Val AUC: 0.9259
+2025-12-24 15:54:08 | INFO     | __main__:main:225 - Val AP: 0.7302
+2025-12-24 15:54:08 | INFO     | __main__:main:252 - No improvement for 4 epoch(s)
+2025-12-24 15:54:08 | INFO     | __main__:main:210 - 
+Epoch 28/50
+2025-12-24 15:55:23 | INFO     | __main__:main:217 - Train Loss: 0.2207
+2025-12-24 15:55:23 | INFO     | __main__:main:218 -   Components: {'rec': 0.2206852763018957, 'js': 0.0, 'ind': 0.030250356511735334}
+2025-12-24 15:55:25 | INFO     | __main__:main:223 - Val Loss: 0.2674
+2025-12-24 15:55:25 | INFO     | __main__:main:224 - Val AUC: 0.9270
+2025-12-24 15:55:25 | INFO     | __main__:main:225 - Val AP: 0.7381
+2025-12-24 15:55:25 | INFO     | __main__:main:252 - No improvement for 5 epoch(s)
+2025-12-24 15:55:25 | INFO     | __main__:main:210 - 
+Epoch 29/50
+2025-12-24 15:56:40 | INFO     | __main__:main:217 - Train Loss: 0.2204
+2025-12-24 15:56:40 | INFO     | __main__:main:218 -   Components: {'rec': 0.2204173720876376, 'js': 0.0, 'ind': 0.030248874389543767}
+2025-12-24 15:56:42 | INFO     | __main__:main:223 - Val Loss: 0.2673
+2025-12-24 15:56:42 | INFO     | __main__:main:224 - Val AUC: 0.9256
+2025-12-24 15:56:42 | INFO     | __main__:main:225 - Val AP: 0.7333
+2025-12-24 15:56:42 | INFO     | __main__:main:252 - No improvement for 6 epoch(s)
+2025-12-24 15:56:42 | INFO     | __main__:main:210 - 
+Epoch 30/50
+2025-12-24 15:57:57 | INFO     | __main__:main:217 - Train Loss: 0.2195
+2025-12-24 15:57:57 | INFO     | __main__:main:218 -   Components: {'rec': 0.21950267278082003, 'js': 0.0, 'ind': 0.030249037437322664}
+2025-12-24 15:57:58 | INFO     | __main__:main:223 - Val Loss: 0.2649
+2025-12-24 15:57:58 | INFO     | __main__:main:224 - Val AUC: 0.9283
+2025-12-24 15:57:58 | INFO     | __main__:main:225 - Val AP: 0.7399
+2025-12-24 15:57:58 | INFO     | __main__:main:249 - ✓ Saved best model (AUC: 0.9283)
+2025-12-24 15:57:58 | INFO     | __main__:main:272 - Saved checkpoint: results/models\checkpoint_epoch_30.pt
+2025-12-24 15:57:58 | INFO     | __main__:main:210 - 
+Epoch 31/50
+2025-12-24 15:59:14 | INFO     | __main__:main:217 - Train Loss: 0.2180
+2025-12-24 15:59:14 | INFO     | __main__:main:218 -   Components: {'rec': 0.21792586071219872, 'js': 0.0, 'ind': 0.030256340506721317}
+2025-12-24 15:59:15 | INFO     | __main__:main:223 - Val Loss: 0.2642
+2025-12-24 15:59:15 | INFO     | __main__:main:224 - Val AUC: 0.9276
+2025-12-24 15:59:15 | INFO     | __main__:main:225 - Val AP: 0.7436
+2025-12-24 15:59:15 | INFO     | __main__:main:252 - No improvement for 1 epoch(s)
+2025-12-24 15:59:15 | INFO     | __main__:main:210 - 
+Epoch 32/50
+2025-12-24 16:00:31 | INFO     | __main__:main:217 - Train Loss: 0.2172
+2025-12-24 16:00:31 | INFO     | __main__:main:218 -   Components: {'rec': 0.21713615279372145, 'js': 0.0, 'ind': 0.03026612218620816}
+2025-12-24 16:00:32 | INFO     | __main__:main:223 - Val Loss: 0.2761
+2025-12-24 16:00:32 | INFO     | __main__:main:224 - Val AUC: 0.9216
+2025-12-24 16:00:32 | INFO     | __main__:main:225 - Val AP: 0.7327
+2025-12-24 16:00:32 | INFO     | __main__:main:252 - No improvement for 2 epoch(s)
+2025-12-24 16:00:32 | INFO     | __main__:main:210 - 
+Epoch 33/50
+2025-12-24 16:01:48 | INFO     | __main__:main:217 - Train Loss: 0.2158
+2025-12-24 16:01:48 | INFO     | __main__:main:218 -   Components: {'rec': 0.21573473746335603, 'js': 0.0, 'ind': 0.030257003715610117}
+2025-12-24 16:01:50 | INFO     | __main__:main:223 - Val Loss: 0.2628
+2025-12-24 16:01:50 | INFO     | __main__:main:224 - Val AUC: 0.9289
+2025-12-24 16:01:50 | INFO     | __main__:main:225 - Val AP: 0.7439
+2025-12-24 16:01:50 | INFO     | __main__:main:252 - No improvement for 3 epoch(s)
+2025-12-24 16:01:50 | INFO     | __main__:main:210 - 
+Epoch 34/50
+2025-12-24 16:03:03 | INFO     | __main__:main:217 - Train Loss: 0.2150
+2025-12-24 16:03:03 | INFO     | __main__:main:218 -   Components: {'rec': 0.2150003836358466, 'js': 0.0, 'ind': 0.030265619304121995}
+2025-12-24 16:03:04 | INFO     | __main__:main:223 - Val Loss: 0.2691
+2025-12-24 16:03:04 | INFO     | __main__:main:224 - Val AUC: 0.9274
+2025-12-24 16:03:04 | INFO     | __main__:main:225 - Val AP: 0.7479
+2025-12-24 16:03:04 | INFO     | __main__:main:252 - No improvement for 4 epoch(s)
+2025-12-24 16:03:04 | INFO     | __main__:main:210 - 
+Epoch 35/50
+2025-12-24 16:04:18 | INFO     | __main__:main:217 - Train Loss: 0.2142
+2025-12-24 16:04:18 | INFO     | __main__:main:218 -   Components: {'rec': 0.2141278233906118, 'js': 0.0, 'ind': 0.030263947140031715}
+2025-12-24 16:04:19 | INFO     | __main__:main:223 - Val Loss: 0.2632
+2025-12-24 16:04:19 | INFO     | __main__:main:224 - Val AUC: 0.9301
+2025-12-24 16:04:19 | INFO     | __main__:main:225 - Val AP: 0.7442
+2025-12-24 16:04:19 | INFO     | __main__:main:249 - ✓ Saved best model (AUC: 0.9301)
+2025-12-24 16:04:19 | INFO     | __main__:main:272 - Saved checkpoint: results/models\checkpoint_epoch_35.pt
+2025-12-24 16:04:19 | INFO     | __main__:main:210 - 
+Epoch 36/50
+2025-12-24 16:05:32 | INFO     | __main__:main:217 - Train Loss: 0.2128
+2025-12-24 16:05:32 | INFO     | __main__:main:218 -   Components: {'rec': 0.21280270852693697, 'js': 0.0, 'ind': 0.03026956060128968}
+2025-12-24 16:05:34 | INFO     | __main__:main:223 - Val Loss: 0.2595
+2025-12-24 16:05:34 | INFO     | __main__:main:224 - Val AUC: 0.9309
+2025-12-24 16:05:34 | INFO     | __main__:main:225 - Val AP: 0.7491
+2025-12-24 16:05:34 | INFO     | __main__:main:252 - No improvement for 1 epoch(s)
+2025-12-24 16:05:34 | INFO     | __main__:main:210 - 
+Epoch 37/50
+2025-12-24 16:06:47 | INFO     | __main__:main:217 - Train Loss: 0.2121
+2025-12-24 16:06:47 | INFO     | __main__:main:218 -   Components: {'rec': 0.21211895587483073, 'js': 0.0, 'ind': 0.03027462399829694}
+2025-12-24 16:06:48 | INFO     | __main__:main:223 - Val Loss: 0.2679
+2025-12-24 16:06:48 | INFO     | __main__:main:224 - Val AUC: 0.9284
+2025-12-24 16:06:48 | INFO     | __main__:main:225 - Val AP: 0.7506
+2025-12-24 16:06:48 | INFO     | __main__:main:252 - No improvement for 2 epoch(s)
+2025-12-24 16:06:48 | INFO     | __main__:main:210 - 
+Epoch 38/50
+2025-12-24 16:08:01 | INFO     | __main__:main:217 - Train Loss: 0.2116
+2025-12-24 16:08:01 | INFO     | __main__:main:218 -   Components: {'rec': 0.21161022402406707, 'js': 0.0, 'ind': 0.030276281146741496}
+2025-12-24 16:08:02 | INFO     | __main__:main:223 - Val Loss: 0.2691
+2025-12-24 16:08:02 | INFO     | __main__:main:224 - Val AUC: 0.9277
+2025-12-24 16:08:02 | INFO     | __main__:main:225 - Val AP: 0.7441
+2025-12-24 16:08:02 | INFO     | __main__:main:252 - No improvement for 3 epoch(s)
+2025-12-24 16:08:02 | INFO     | __main__:main:210 - 
+Epoch 39/50
+2025-12-24 16:09:15 | INFO     | __main__:main:217 - Train Loss: 0.2103
+2025-12-24 16:09:15 | INFO     | __main__:main:218 -   Components: {'rec': 0.21031715939563464, 'js': 0.0, 'ind': 0.030284464875978183}
+2025-12-24 16:09:16 | INFO     | __main__:main:223 - Val Loss: 0.2640
+2025-12-24 16:09:16 | INFO     | __main__:main:224 - Val AUC: 0.9313
+2025-12-24 16:09:16 | INFO     | __main__:main:225 - Val AP: 0.7538
+2025-12-24 16:09:16 | INFO     | __main__:main:249 - ✓ Saved best model (AUC: 0.9313)
+2025-12-24 16:09:16 | INFO     | __main__:main:210 - 
+Epoch 40/50
+2025-12-24 16:10:29 | INFO     | __main__:main:217 - Train Loss: 0.2097
+2025-12-24 16:10:29 | INFO     | __main__:main:218 -   Components: {'rec': 0.2097180316482133, 'js': 0.0, 'ind': 0.03027675945220924}
+2025-12-24 16:10:31 | INFO     | __main__:main:223 - Val Loss: 0.2783
+2025-12-24 16:10:31 | INFO     | __main__:main:224 - Val AUC: 0.9227
+2025-12-24 16:10:31 | INFO     | __main__:main:225 - Val AP: 0.7410
+2025-12-24 16:10:31 | INFO     | __main__:main:252 - No improvement for 1 epoch(s)
+2025-12-24 16:10:31 | INFO     | __main__:main:272 - Saved checkpoint: results/models\checkpoint_epoch_40.pt
+2025-12-24 16:10:31 | INFO     | __main__:main:210 - 
+Epoch 41/50
+2025-12-24 16:11:43 | INFO     | __main__:main:217 - Train Loss: 0.2078
+2025-12-24 16:11:43 | INFO     | __main__:main:218 -   Components: {'rec': 0.20781177877168344, 'js': 0.0, 'ind': 0.030286884951761097}
+2025-12-24 16:11:45 | INFO     | __main__:main:223 - Val Loss: 0.2665
+2025-12-24 16:11:45 | INFO     | __main__:main:224 - Val AUC: 0.9300
+2025-12-24 16:11:45 | INFO     | __main__:main:225 - Val AP: 0.7403
+2025-12-24 16:11:45 | INFO     | __main__:main:252 - No improvement for 2 epoch(s)
+2025-12-24 16:11:45 | INFO     | __main__:main:210 - 
+Epoch 42/50
+2025-12-24 16:12:57 | INFO     | __main__:main:217 - Train Loss: 0.2073
+2025-12-24 16:12:57 | INFO     | __main__:main:218 -   Components: {'rec': 0.20723267345772525, 'js': 0.0, 'ind': 0.030293239299965097}
+2025-12-24 16:12:58 | INFO     | __main__:main:223 - Val Loss: 0.2668
+2025-12-24 16:12:58 | INFO     | __main__:main:224 - Val AUC: 0.9298
+2025-12-24 16:12:58 | INFO     | __main__:main:225 - Val AP: 0.7478
+2025-12-24 16:12:58 | INFO     | __main__:main:252 - No improvement for 3 epoch(s)
+2025-12-24 16:12:58 | INFO     | __main__:main:210 - 
+Epoch 43/50
+2025-12-24 16:14:10 | INFO     | __main__:main:217 - Train Loss: 0.2059
+2025-12-24 16:14:10 | INFO     | __main__:main:218 -   Components: {'rec': 0.20586529188160974, 'js': 0.0, 'ind': 0.030302082851407973}
+2025-12-24 16:14:11 | INFO     | __main__:main:223 - Val Loss: 0.2673
+2025-12-24 16:14:11 | INFO     | __main__:main:224 - Val AUC: 0.9303
+2025-12-24 16:14:11 | INFO     | __main__:main:225 - Val AP: 0.7516
+2025-12-24 16:14:11 | INFO     | __main__:main:252 - No improvement for 4 epoch(s)
+2025-12-24 16:14:11 | INFO     | __main__:main:210 - 
+Epoch 44/50
+2025-12-24 16:15:23 | INFO     | __main__:main:217 - Train Loss: 0.2048
+2025-12-24 16:15:23 | INFO     | __main__:main:218 -   Components: {'rec': 0.2047593751695098, 'js': 0.0, 'ind': 0.03029858657136196}
+2025-12-24 16:15:25 | INFO     | __main__:main:223 - Val Loss: 0.2720
+2025-12-24 16:15:25 | INFO     | __main__:main:224 - Val AUC: 0.9262
+2025-12-24 16:15:25 | INFO     | __main__:main:225 - Val AP: 0.7448
+2025-12-24 16:15:25 | INFO     | __main__:main:252 - No improvement for 5 epoch(s)
+2025-12-24 16:15:25 | INFO     | __main__:main:210 - 
+Epoch 45/50
+2025-12-24 16:16:37 | INFO     | __main__:main:217 - Train Loss: 0.2045
+2025-12-24 16:16:37 | INFO     | __main__:main:218 -   Components: {'rec': 0.2044643353882844, 'js': 0.0, 'ind': 0.0303145546653891}
+2025-12-24 16:16:38 | INFO     | __main__:main:223 - Val Loss: 0.2684
+2025-12-24 16:16:38 | INFO     | __main__:main:224 - Val AUC: 0.9303
+2025-12-24 16:16:38 | INFO     | __main__:main:225 - Val AP: 0.7519

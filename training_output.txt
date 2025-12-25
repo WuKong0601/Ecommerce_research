@@ -1,0 +1,111 @@
+﻿python : [32m2025-12-24 14:11:01[0m | [1mINFO    
+[0m | [36msrc.utils.logger[0m:[36msetup_logger[
+0m:[36m42[0m - [1mLogger initialized. Logs saved 
+to: logs\cofars_20251224_141101.log[0m
+At line:1 char:1
++ python src/train.py 2>&1 | Out-File -FilePath 
+"training_output.txt" - ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([32m2 
+   025-12-24..._141101.log[0m:String) [], RemoteE  
+  xception
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[32m2025-12-24 14:11:01[0m | [1mINFO    [0m | 
+[36m__main__[0m:[36mmain[0m:[36m109[0m - [1m=
+====================================================
+===========================[0m
+[32m2025-12-24 14:11:01[0m | [1mINFO    [0m | 
+[36m__main__[0m:[36mmain[0m:[36m110[0m - 
+[1mTRAINING COFARS-SPARSE[0m
+[32m2025-12-24 14:11:01[0m | [1mINFO    [0m | 
+[36m__main__[0m:[36mmain[0m:[36m111[0m - [1m=
+====================================================
+===========================[0m
+[32m2025-12-24 14:11:01[0m | [1mINFO    [0m | 
+[36m__main__[0m:[36mmain[0m:[36m115[0m - 
+[1mUsing device: cpu[0m
+[32m2025-12-24 14:11:01[0m | [1mINFO    [0m | 
+[36m__main__[0m:[36mmain[0m:[36m118[0m - 
+[1mLoading data...[0m
+[32m2025-12-24 14:11:03[0m | [1mINFO    [0m | 
+[36m__main__[0m:[36mmain[0m:[36m126[0m - 
+[1mData loaded:[0m
+[32m2025-12-24 14:11:03[0m | [1mINFO    [0m | 
+[36m__main__[0m:[36mmain[0m:[36m127[0m - [1m 
+ Train: 39356 samples[0m
+[32m2025-12-24 14:11:03[0m | [1mINFO    [0m | 
+[36m__main__[0m:[36mmain[0m:[36m128[0m - [1m 
+ Val: 4896 samples[0m
+[32m2025-12-24 14:11:03[0m | [1mINFO    [0m | 
+[36m__main__[0m:[36mmain[0m:[36m129[0m - [1m 
+ Test: 4900 samples[0m
+[32m2025-12-24 14:11:03[0m | [1mINFO    [0m | 
+[36m__main__[0m:[36mmain[0m:[36m130[0m - [1m 
+ Users: 40522[0m
+[32m2025-12-24 14:11:03[0m | [1mINFO    [0m | 
+[36m__main__[0m:[36mmain[0m:[36m131[0m - [1m 
+ Items: 11746[0m
+[32m2025-12-24 14:11:03[0m | [1mINFO    [0m | 
+[36m__main__[0m:[36mmain[0m:[36m132[0m - [1m 
+ Contexts: 10[0m
+[32m2025-12-24 14:11:03[0m | [1mINFO    [0m | 
+[36m__main__[0m:[36mmain[0m:[36m154[0m - 
+[1mCreating model...[0m
+[32m2025-12-24 14:11:03[0m | [1mINFO    [0m | 
+[36m__main__[0m:[36mmain[0m:[36m164[0m - 
+[1mModel parameters: 246,582[0m
+[32m2025-12-24 14:11:03[0m | [1mINFO    [0m | 
+[36m__main__[0m:[36mmain[0m:[36m179[0m - 
+[1mStarting training for 5 epochs...[0m
+[32m2025-12-24 14:11:03[0m | [1mINFO    [0m | 
+[36m__main__[0m:[36mmain[0m:[36m182[0m - [1m
+Epoch 1/5[0m
+
+Training:   0%|          | 0/615 [00:00<?, ?it/s]
+Training:   0%|          | 0/615 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File 
+"D:\NCKH\Ecommerce_recommendation\src\train.py", 
+line 244, in <module>
+    main()
+  File 
+"D:\NCKH\Ecommerce_recommendation\src\train.py", 
+line 185, in main
+    train_loss, train_components = train_epoch(
+                                   ^^^^^^^^^^^^
+  File 
+"D:\NCKH\Ecommerce_recommendation\src\train.py", 
+line 36, in train_epoch
+    scores, auxiliary = model(batch)
+                        ^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python
+\Python311\Lib\site-packages\torch\nn\modules\module
+.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\NCKH\Ecommerce_recommendation\src\models\
+cofars_sparse.py", line 120, in forward
+    user_item_embeddings = 
+self.item_embeddings(batch['user_item_ids'])  # 
+(batch_size, seq_len, emb_dim)
+                           
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python
+\Python311\Lib\site-packages\torch\nn\modules\module
+.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python
+\Python311\Lib\site-packages\torch\nn\modules\sparse
+.py", line 162, in forward
+    return F.embedding(
+           ^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python
+\Python311\Lib\site-packages\torch\nn\functional.py"
+, line 2210, in embedding
+    return torch.embedding(weight, input, 
+padding_idx, scale_grad_by_freq, sparse)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: index out of range in self

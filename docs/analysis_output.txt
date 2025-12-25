@@ -1,0 +1,110 @@
+﻿Loading data...
+
+================================================================================
+DATASET OVERVIEW
+================================================================================
+Total products: 11,746
+Total reviews: 53,009
+
+================================================================================
+USER BEHAVIOR SEQUENCE ANALYSIS
+================================================================================
+Total unique users: 40,522
+
+Sequence length statistics:
+  Mean: 1.31
+  Median: 1
+  Min: 1
+  Max: 81
+  Std: 1.20
+
+User distribution by sequence length:
+  Users with 1 interaction: 33,030
+  Users with 2-5 interactions: 7,196
+  Users with 6-10 interactions: 258
+  Users with 11-50 interactions: 33
+  Users with 51-100 interactions: 5
+  Users with >100 interactions: 0
+
+================================================================================
+CONTEXTUAL FEATURES ANALYSIS
+================================================================================
+
+1. Time slot distribution:
+  afternoon: 12,257 (23.1%)
+  evening: 11,996 (22.6%)
+  morning: 11,893 (22.4%)
+  noon: 10,716 (20.2%)
+  late_night: 6,147 (11.6%)
+
+2. Day of week distribution:
+  Monday: 7,839 (14.8%)
+  Tuesday: 7,597 (14.3%)
+  Wednesday: 7,807 (14.7%)
+  Thursday: 7,785 (14.7%)
+  Friday: 7,541 (14.2%)
+  Saturday: 7,107 (13.4%)
+  Sunday: 7,333 (13.8%)
+
+3. Weekend vs Weekday:
+  Weekday: 38,569 (72.8%)
+  Weekend: 14,440 (27.2%)
+
+4. Total unique context keys: 35
+Top 10 context keys:
+  afternoon_wd4: 1,817
+  afternoon_wd0: 1,811
+  morning_wd3: 1,811
+  evening_wd2: 1,808
+  morning_wd0: 1,799
+  evening_wd3: 1,799
+  afternoon_wd6: 1,795
+  evening_wd0: 1,789
+  evening_wd1: 1,780
+  afternoon_wd3: 1,763
+
+================================================================================
+PRODUCT ATTRIBUTES ANALYSIS
+================================================================================
+
+1. Price statistics:
+  Mean price: 1,223,342
+  Median price: 220,000
+  Min price: 1,120
+  Max price: 151,950,000
+
+2. Price bucket distribution:
+  low_<100k: 3,505 (29.8%)
+  high_>700k: 3,420 (29.1%)
+  mid_100k_300k: 3,051 (26.0%)
+  mid_high_300k_700k: 1,770 (15.1%)
+
+3. Rating statistics:
+  Mean rating: 1.35
+  Products with rating: 11,746
+
+4. Product categories (top 10):
+python : Traceback (most recent call last):
+At line:1 char:1
++ python analyze_dataset.py 2>&1 | Out-File 
+-FilePath analysis_output.t ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceb 
+   ack (most recent call last)::String) [], Remote  
+  Exception
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "D:\NCKH\Ecommerce_recommendation\analyze_dat
+aset.py", line 82, in <module>
+    print(f"  {cat}: {count:,} 
+({count/len(products)*100:.1f}%)")
+  File "C:\Users\Admin\AppData\Local\Programs\Python
+\Python311\Lib\encodings\cp1252.py", line 19, in 
+encode
+    return codecs.charmap_encode(input,self.errors,e
+ncoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode 
+character '\u1ee5' in position 3: character maps to 
+<undefined>

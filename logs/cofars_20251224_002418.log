@@ -1,0 +1,45 @@
+2025-12-24 00:24:18 | INFO     | utils.logger:setup_logger:42 - Logger initialized. Logs saved to: logs\cofars_20251224_002418.log
+2025-12-24 00:24:18 | INFO     | __main__:main:218 - ================================================================================
+2025-12-24 00:24:18 | INFO     | __main__:main:219 - STEP 4: USER SEGMENTATION (CoFARS-Sparse)
+2025-12-24 00:24:18 | INFO     | __main__:main:220 - ================================================================================
+2025-12-24 00:24:18 | INFO     | __main__:load_reviews_with_contexts:27 - Loading reviews with contexts...
+2025-12-24 00:24:19 | INFO     | __main__:load_reviews_with_contexts:33 - Loaded 49,152 reviews
+2025-12-24 00:24:19 | INFO     | __main__:segment_users:44 - Segmenting users...
+2025-12-24 00:24:19 | INFO     | __main__:segment_users:64 - User segmentation results:
+2025-12-24 00:24:19 | INFO     | __main__:segment_users:65 -   Power users (≥5 interactions): 344
+2025-12-24 00:24:19 | INFO     | __main__:segment_users:66 -   Regular users (2-4 interactions): 4,927
+2025-12-24 00:24:19 | INFO     | __main__:segment_users:67 -   Cold-start users (1 interaction): 35,251
+2025-12-24 00:24:19 | INFO     | __main__:analyze_segments:73 - Analyzing segment characteristics...
+2025-12-24 00:24:19 | INFO     | __main__:analyze_segments:91 - 
+POWER SEGMENT:
+2025-12-24 00:24:19 | INFO     | __main__:analyze_segments:92 -   Users: 344
+2025-12-24 00:24:19 | INFO     | __main__:analyze_segments:93 -   Reviews: 2,607 (5.3%)
+2025-12-24 00:24:19 | INFO     | __main__:analyze_segments:94 -   Avg interactions/user: 7.58
+2025-12-24 00:24:19 | INFO     | __main__:analyze_segments:95 -   Avg products/user: 6.70
+2025-12-24 00:24:19 | INFO     | __main__:analyze_segments:96 -   Contexts covered: 10/10
+2025-12-24 00:24:19 | INFO     | __main__:analyze_segments:97 -   Avg rating: 4.81
+2025-12-24 00:24:19 | INFO     | __main__:analyze_segments:91 - 
+REGULAR SEGMENT:
+2025-12-24 00:24:19 | INFO     | __main__:analyze_segments:92 -   Users: 4,927
+2025-12-24 00:24:19 | INFO     | __main__:analyze_segments:93 -   Reviews: 11,294 (23.0%)
+2025-12-24 00:24:19 | INFO     | __main__:analyze_segments:94 -   Avg interactions/user: 2.29
+2025-12-24 00:24:19 | INFO     | __main__:analyze_segments:95 -   Avg products/user: 2.15
+2025-12-24 00:24:19 | INFO     | __main__:analyze_segments:96 -   Contexts covered: 10/10
+2025-12-24 00:24:19 | INFO     | __main__:analyze_segments:97 -   Avg rating: 4.56
+2025-12-24 00:24:19 | INFO     | __main__:analyze_segments:91 - 
+COLD_START SEGMENT:
+2025-12-24 00:24:19 | INFO     | __main__:analyze_segments:92 -   Users: 35,251
+2025-12-24 00:24:19 | INFO     | __main__:analyze_segments:93 -   Reviews: 35,251 (71.7%)
+2025-12-24 00:24:19 | INFO     | __main__:analyze_segments:94 -   Avg interactions/user: 1.00
+2025-12-24 00:24:19 | INFO     | __main__:analyze_segments:95 -   Avg products/user: 1.00
+2025-12-24 00:24:19 | INFO     | __main__:analyze_segments:96 -   Contexts covered: 10/10
+2025-12-24 00:24:19 | INFO     | __main__:analyze_segments:97 -   Avg rating: 4.29
+2025-12-24 00:24:19 | INFO     | __main__:create_segment_visualizations:103 - Creating segment visualizations...
+2025-12-24 00:24:20 | INFO     | __main__:create_segment_visualizations:155 - Saved segmentation visualization to: results/figures\user_segmentation.png
+2025-12-24 00:24:20 | INFO     | __main__:save_segmentation_results:159 - Saving segmentation results...
+2025-12-24 00:24:20 | INFO     | __main__:save_segmentation_results:168 - Saved user segments to: processed_data\segmentation\user_segments.csv
+2025-12-24 00:24:20 | INFO     | __main__:save_segmentation_results:208 - Saved statistics to: results/statistics\user_segmentation_stats.txt
+2025-12-24 00:24:20 | INFO     | __main__:main:237 - ================================================================================
+2025-12-24 00:24:20 | INFO     | __main__:main:238 - USER SEGMENTATION COMPLETE!
+2025-12-24 00:24:20 | INFO     | __main__:main:239 - ================================================================================
+2025-12-24 00:24:20 | INFO     | __main__:main:240 - Segments saved to: processed_data\segmentation\user_segments.csv

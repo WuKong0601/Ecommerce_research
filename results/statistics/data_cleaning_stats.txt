@@ -1,0 +1,32 @@
+================================================================================
+DATA CLEANING STATISTICS
+================================================================================
+Cleaning Date: 2025-12-23 23:47:21
+
+PRODUCTS CLEANING:
+--------------------------------------------------------------------------------
+  initial_count: 11,746
+  final_count: 11,746
+  removed_total: 0
+
+REVIEWS CLEANING:
+--------------------------------------------------------------------------------
+  initial_count: 53,009
+  duplicates_removed: 3,804
+  missing_customer_id: 53
+  invalid_time_slot: 9,903
+  final_count: 49,152
+  removed_total: 3,857
+
+INTERACTION FILTERING:
+--------------------------------------------------------------------------------
+  removed_invalid_products: 0
+
+================================================================================
+FINAL DATA SUMMARY:
+================================================================================
+  Total Products: 11,746
+  Total Reviews: 49,152
+  Total Users: 40,522
+  Avg Reviews per User: 1.21
+  Avg Reviews per Product: 4.18

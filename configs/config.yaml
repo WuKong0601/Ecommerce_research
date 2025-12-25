@@ -1,0 +1,107 @@
+# CoFARS Configuration File
+
+# Data paths
+data:
+  raw_dir: "data"
+  processed_dir: "processed_data"
+  products_file: "home_life_products_details.csv"
+  reviews_file: "home_life_reviews.csv"
+
+# Data preprocessing
+preprocessing:
+  # Context building (Option B)
+  context_type: "time_slot_weekend"  # time_slot + is_weekend
+  
+  # User filtering
+  min_interactions: 5  # Minimum interactions per user
+  max_sequence_length: 1000  # Maximum sequence length to keep
+  
+  # Product attributes
+  price_buckets: 5  # Number of price buckets if not pre-defined
+  rating_buckets: 3  # Low (1-2), Medium (3-4), High (5)
+  
+  # Data splits
+  test_ratio: 0.2
+  val_ratio: 0.1
+  random_seed: 42
+
+# Context settings
+context:
+  # Available time slots
+  time_slots: ['morning', 'afternoon', 'evening', 'night', 'late_night']
+  # Will combine with is_weekend to create contexts
+
+# JS Divergence
+divergence:
+  attributes:
+    - 'category'  # group field
+    - 'price_bucket'
+    - 'rating_level'
+  smoothing: 1e-8  # Small value to avoid log(0)
+
+# Model hyperparameters
+model:
+  embedding_dim: 16
+  num_prototypes: 30
+  gru_hidden_dim: 64
+  gnn_layers: 2
+  dropout: 0.1
+  
+# Training
+training:
+  batch_size: 64
+  epochs: 50  # Full extended training
+  learning_rate: 5e-4
+  weight_decay: 1e-5
+  
+  # Learning rate scheduler
+  lr_scheduler:
+    type: "ReduceLROnPlateau"  # Reduce LR when validation plateaus
+    patience: 5  # Wait 5 epochs before reducing
+    factor: 0.5  # Reduce by half
+    min_lr: 1e-6  # Minimum learning rate
+  
+  # Early stopping
+  early_stopping:
+    patience: 10  # Stop if no improvement for 10 epochs
+    min_delta: 0.001  # Minimum improvement threshold
+  
+  # Checkpointing
+  save_every_n_epochs: 5  # Save checkpoint every 5 epochs
+  keep_last_n_checkpoints: 3  # Keep only last 3 checkpoints
+  
+  # Loss weights
+  gamma: 0.05  # L_MSE weight
+  lambda: 0.001  # L_IND weight
+  tau_p: 0.1  # Gumbel temperature
+  
+  # Short-term preference
+  short_term_length: 10
+  
+  # Negative sampling
+  neg_sample_ratio: 4  # 1:4 positive:negative
+
+# Evaluation
+evaluation:
+  metrics:
+    - 'auc'
+    - 'precision@5'
+    - 'precision@10'
+    - 'recall@5'
+    - 'recall@10'
+    - 'ndcg@5'
+    - 'ndcg@10'
+    - 'hit_rate@5'
+    - 'hit_rate@10'
+
+# Logging
+logging:
+  log_dir: "logs"
+  log_level: "INFO"
+  save_frequency: 10  # Save every N epochs
+  
+# Results
+results:
+  figures_dir: "results/figures"
+  statistics_dir: "results/statistics"
+  models_dir: "results/models"

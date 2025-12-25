@@ -1,0 +1,62 @@
+2025-12-24 14:25:05 | INFO     | src.utils.logger:setup_logger:42 - Logger initialized. Logs saved to: logs\cofars_20251224_142505.log
+2025-12-24 14:25:05 | INFO     | __main__:main:117 - ================================================================================
+2025-12-24 14:25:05 | INFO     | __main__:main:118 - TRAINING COFARS-SPARSE
+2025-12-24 14:25:05 | INFO     | __main__:main:119 - ================================================================================
+2025-12-24 14:25:05 | INFO     | __main__:main:123 - Using device: cpu
+2025-12-24 14:25:05 | INFO     | __main__:main:126 - Loading data...
+2025-12-24 14:25:08 | INFO     | __main__:main:135 - Data loaded:
+2025-12-24 14:25:08 | INFO     | __main__:main:136 -   Train: 196780 samples
+2025-12-24 14:25:08 | INFO     | __main__:main:137 -   Val: 4896 samples
+2025-12-24 14:25:08 | INFO     | __main__:main:138 -   Test: 4900 samples
+2025-12-24 14:25:08 | INFO     | __main__:main:139 -   Users: 40522
+2025-12-24 14:25:08 | INFO     | __main__:main:140 -   Items: 11746
+2025-12-24 14:25:08 | INFO     | __main__:main:141 -   Contexts: 10
+2025-12-24 14:25:08 | INFO     | __main__:main:163 - Creating model...
+2025-12-24 14:25:08 | INFO     | __main__:main:173 - Model parameters: 246,582
+2025-12-24 14:25:08 | INFO     | __main__:main:188 - Starting training for 5 epochs...
+2025-12-24 14:25:08 | INFO     | __main__:main:191 - 
+Epoch 1/5
+2025-12-24 14:26:09 | INFO     | __main__:main:198 - Train Loss: 0.4701
+2025-12-24 14:26:09 | INFO     | __main__:main:199 -   Components: {'rec': 0.4700992703825478, 'js': 0.0, 'ind': 0.031650087346996716}
+2025-12-24 14:26:09 | INFO     | __main__:main:204 - Val Loss: 1.1128
+2025-12-24 14:26:09 | INFO     | __main__:main:205 - Val AUC: 0.5000
+2025-12-24 14:26:09 | INFO     | __main__:main:206 - Val AP: 1.0000
+2025-12-24 14:26:09 | INFO     | __main__:main:219 - ✓ Saved best model (AUC: 0.5000)
+2025-12-24 14:26:09 | INFO     | __main__:main:191 - 
+Epoch 2/5
+2025-12-24 14:27:06 | INFO     | __main__:main:198 - Train Loss: 0.3524
+2025-12-24 14:27:06 | INFO     | __main__:main:199 -   Components: {'rec': 0.3523493195258505, 'js': 0.0, 'ind': 0.030184021804754328}
+2025-12-24 14:27:06 | INFO     | __main__:main:204 - Val Loss: 0.9380
+2025-12-24 14:27:06 | INFO     | __main__:main:205 - Val AUC: 0.5000
+2025-12-24 14:27:06 | INFO     | __main__:main:206 - Val AP: 1.0000
+2025-12-24 14:27:06 | INFO     | __main__:main:191 - 
+Epoch 3/5
+2025-12-24 14:28:00 | INFO     | __main__:main:198 - Train Loss: 0.3071
+2025-12-24 14:28:00 | INFO     | __main__:main:199 -   Components: {'rec': 0.30708630497378064, 'js': 0.0, 'ind': 0.030183788244801807}
+2025-12-24 14:28:00 | INFO     | __main__:main:204 - Val Loss: 0.7878
+2025-12-24 14:28:00 | INFO     | __main__:main:205 - Val AUC: 0.5000
+2025-12-24 14:28:00 | INFO     | __main__:main:206 - Val AP: 1.0000
+2025-12-24 14:28:00 | INFO     | __main__:main:191 - 
+Epoch 4/5
+2025-12-24 14:28:54 | INFO     | __main__:main:198 - Train Loss: 0.2892
+2025-12-24 14:28:54 | INFO     | __main__:main:199 -   Components: {'rec': 0.28915464958039727, 'js': 0.0, 'ind': 0.030183781200065846}
+2025-12-24 14:28:54 | INFO     | __main__:main:204 - Val Loss: 0.8440
+2025-12-24 14:28:54 | INFO     | __main__:main:205 - Val AUC: 0.5000
+2025-12-24 14:28:54 | INFO     | __main__:main:206 - Val AP: 1.0000
+2025-12-24 14:28:54 | INFO     | __main__:main:191 - 
+Epoch 5/5
+2025-12-24 14:29:49 | INFO     | __main__:main:198 - Train Loss: 0.2801
+2025-12-24 14:29:49 | INFO     | __main__:main:199 -   Components: {'rec': 0.2801136272103806, 'js': 0.0, 'ind': 0.030183871419328014}
+2025-12-24 14:29:49 | INFO     | __main__:main:204 - Val Loss: 0.8284
+2025-12-24 14:29:49 | INFO     | __main__:main:205 - Val AUC: 0.5000
+2025-12-24 14:29:49 | INFO     | __main__:main:206 - Val AP: 1.0000
+2025-12-24 14:29:49 | INFO     | __main__:main:221 - ================================================================================
+2025-12-24 14:29:49 | INFO     | __main__:main:222 - TRAINING COMPLETE!
+2025-12-24 14:29:49 | INFO     | __main__:main:223 - Best Val AUC: 0.5000
+2025-12-24 14:29:49 | INFO     | __main__:main:224 - ================================================================================
+2025-12-24 14:29:49 | INFO     | __main__:main:227 - 
+Evaluating on test set...
+2025-12-24 14:29:49 | INFO     | __main__:main:233 - Test Loss: 1.1010
+2025-12-24 14:29:49 | INFO     | __main__:main:234 - Test AUC: 0.5000
+2025-12-24 14:29:49 | INFO     | __main__:main:235 - Test AP: 1.0000
+2025-12-24 14:29:49 | INFO     | __main__:main:249 - Results saved to: results/statistics\training_results.json

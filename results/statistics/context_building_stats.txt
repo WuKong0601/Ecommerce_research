@@ -1,0 +1,25 @@
+================================================================================
+CONTEXT BUILDING STATISTICS
+================================================================================
+
+CONTEXT CONFIGURATION:
+--------------------------------------------------------------------------------
+  Strategy: Option B (time_slot + is_weekend)
+  Total contexts: 10
+  Total interactions: 49,152
+  Avg interactions/context: 4915.2
+
+CONTEXT DISTRIBUTION:
+--------------------------------------------------------------------------------
+  morning_weekday          :  8,188 ( 16.7%)
+  evening_weekday          :  8,146 ( 16.6%)
+  afternoon_weekday        :  8,125 ( 16.5%)
+  unknown_weekday          :  7,201 ( 14.7%)
+  late_night_weekday       :  4,106 (  8.4%)
+  afternoon_weekend        :  3,208 (  6.5%)
+  evening_weekend          :  2,981 (  6.1%)
+  morning_weekend          :  2,914 (  5.9%)
+  unknown_weekend          :  2,702 (  5.5%)
+  late_night_weekend       :  1,581 (  3.2%)
+
+================================================================================

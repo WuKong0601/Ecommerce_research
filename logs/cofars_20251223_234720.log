@@ -1,0 +1,27 @@
+2025-12-23 23:47:20 | INFO     | utils.logger:setup_logger:42 - Logger initialized. Logs saved to: logs\cofars_20251223_234720.log
+2025-12-23 23:47:20 | INFO     | __main__:main:248 - ================================================================================
+2025-12-23 23:47:20 | INFO     | __main__:main:249 - STEP 1: DATA CLEANING
+2025-12-23 23:47:20 | INFO     | __main__:main:250 - ================================================================================
+2025-12-23 23:47:20 | INFO     | __main__:load_raw_data:28 - Loading raw data...
+2025-12-23 23:47:20 | INFO     | __main__:load_raw_data:36 - Loaded 11,746 products and 53,009 reviews
+2025-12-23 23:47:20 | INFO     | __main__:clean_products:42 - Cleaning products data...
+2025-12-23 23:47:20 | INFO     | __main__:clean_products:55 - Handling missing values in products...
+2025-12-23 23:47:20 | INFO     | __main__:clean_products:87 - Products cleaning complete: 11,746 → 11,746 (-0)
+2025-12-23 23:47:20 | INFO     | __main__:clean_reviews:93 - Cleaning reviews data...
+2025-12-23 23:47:20 | WARNING  | __main__:clean_reviews:101 - Found 3804 duplicate reviews - keeping first occurrence
+2025-12-23 23:47:20 | INFO     | __main__:clean_reviews:106 - Handling missing values in reviews...
+2025-12-23 23:47:20 | WARNING  | __main__:clean_reviews:120 - Removing 53 reviews with missing customer_id (cannot build sequences)
+2025-12-23 23:47:20 | WARNING  | __main__:clean_reviews:147 - Found 9903 reviews with invalid time_slot - setting to 'unknown'
+2025-12-23 23:47:20 | INFO     | __main__:clean_reviews:161 - Reviews cleaning complete: 53,009 → 49,152 (-3,857)
+2025-12-23 23:47:20 | INFO     | __main__:filter_valid_interactions:167 - Filtering valid product-review interactions...
+2025-12-23 23:47:20 | INFO     | __main__:filter_valid_interactions:179 - Valid interactions: 49,152
+2025-12-23 23:47:20 | INFO     | __main__:save_cleaned_data:185 - Saving cleaned data...
+2025-12-23 23:47:21 | INFO     | __main__:save_cleaned_data:198 - Saved cleaned products to: processed_data\cleaned\products_cleaned.csv
+2025-12-23 23:47:21 | INFO     | __main__:save_cleaned_data:199 - Saved cleaned reviews to: processed_data\cleaned\reviews_cleaned.csv
+2025-12-23 23:47:21 | INFO     | __main__:save_cleaned_data:237 - Saved cleaning statistics to: results/statistics\data_cleaning_stats.txt
+2025-12-23 23:47:21 | INFO     | __main__:main:269 - ================================================================================
+2025-12-23 23:47:21 | INFO     | __main__:main:270 - DATA CLEANING COMPLETE!
+2025-12-23 23:47:21 | INFO     | __main__:main:271 - ================================================================================
+2025-12-23 23:47:21 | INFO     | __main__:main:272 - Cleaned products: processed_data\cleaned\products_cleaned.csv
+2025-12-23 23:47:21 | INFO     | __main__:main:273 - Cleaned reviews: processed_data\cleaned\reviews_cleaned.csv
+2025-12-23 23:47:21 | INFO     | __main__:main:274 - Statistics: results/statistics\data_cleaning_stats.txt

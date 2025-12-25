@@ -1,0 +1,312 @@
+{
+  "afternoon_weekday": {
+    "count": 8125,
+    "distributions": {
+      "category": {
+        "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 0.19163076923076924,
+        "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 0.12061538461538461,
+        "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 0.10326153846153846,
+        "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 0.10252307692307693,
+        "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 0.0900923076923077,
+        "Nh\u1ea1c c\u1ee5": 0.0864,
+        "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 0.06744615384615385,
+        "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 0.06596923076923077,
+        "Trang tr\u00ed nh\u00e0 c\u1eeda": 0.060061538461538465,
+        "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 0.05981538461538462,
+        "\u0110\u1ed3 th\u1edd c\u00fang": 0.034953846153846155,
+        "N\u1ed9i th\u1ea5t": 0.01723076923076923
+      },
+      "price_bucket": {
+        "low_<100k": 0.48726153846153847,
+        "mid_100k_300k": 0.28073846153846155,
+        "mid_high_300k_700k": 0.1184,
+        "high_>700k": 0.1136
+      },
+      "rating_level": {
+        "High": 0.7222153846153846,
+        "Unknown": 0.15827692307692307,
+        "Medium": 0.10892307692307693,
+        "Low": 0.010584615384615385
+      }
+    }
+  },
+  "afternoon_weekend": {
+    "count": 3208,
+    "distributions": {
+      "category": {
+        "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 0.1935785536159601,
+        "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 0.128428927680798,
+        "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 0.10754364089775562,
+        "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 0.09819201995012469,
+        "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 0.09102244389027432,
+        "Nh\u1ea1c c\u1ee5": 0.07948877805486285,
+        "Trang tr\u00ed nh\u00e0 c\u1eeda": 0.07418952618453865,
+        "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 0.06608478802992519,
+        "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 0.061408977556109724,
+        "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 0.05517456359102244,
+        "\u0110\u1ed3 th\u1edd c\u00fang": 0.02680798004987531,
+        "N\u1ed9i th\u1ea5t": 0.01807980049875312
+      },
+      "price_bucket": {
+        "low_<100k": 0.49968827930174564,
+        "mid_100k_300k": 0.27618453865336656,
+        "mid_high_300k_700k": 0.11814214463840399,
+        "high_>700k": 0.1059850374064838
+      },
+      "rating_level": {
+        "High": 0.7312967581047382,
+        "Unknown": 0.1555486284289277,
+        "Medium": 0.10349127182044887,
+        "Low": 0.009663341645885287
+      }
+    }
+  },
+  "evening_weekday": {
+    "count": 8146,
+    "distributions": {
+      "category": {
+        "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 0.18892708077584092,
+        "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 0.12693346427694574,
+        "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 0.10459121041001719,
+        "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 0.09464767984286766,
+        "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 0.09305180456665849,
+        "Nh\u1ea1c c\u1ee5": 0.07930272526393321,
+        "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 0.06997299287994108,
+        "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 0.06678124232752271,
+        "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 0.06518536705131353,
+        "Trang tr\u00ed nh\u00e0 c\u1eeda": 0.05892462558310827,
+        "\u0110\u1ed3 th\u1edd c\u00fang": 0.03081266879450037,
+        "N\u1ed9i th\u1ea5t": 0.020869138227350845
+      },
+      "price_bucket": {
+        "low_<100k": 0.47507979376381043,
+        "mid_100k_300k": 0.28664375153449545,
+        "mid_high_300k_700k": 0.12153204026516082,
+        "high_>700k": 0.11674441443653327
+      },
+      "rating_level": {
+        "High": 0.7283329241345445,
+        "Unknown": 0.1603240854407071,
+        "Medium": 0.09955806530812669,
+        "Low": 0.011784925116621655
+      }
+    }
+  },
+  "evening_weekend": {
+    "count": 2981,
+    "distributions": {
+      "category": {
+        "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 0.1969137873196914,
+        "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 0.13284132841328414,
+        "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 0.10130828581013084,
+        "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 0.09493458570949345,
+        "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 0.0872190540087219,
+        "Nh\u1ea1c c\u1ee5": 0.0717879906071788,
+        "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 0.07044615900704461,
+        "Trang tr\u00ed nh\u00e0 c\u1eeda": 0.06440791680644078,
+        "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 0.0637370010063737,
+        "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 0.06340154310634015,
+        "\u0110\u1ed3 th\u1edd c\u00fang": 0.0315330426031533,
+        "N\u1ed9i th\u1ea5t": 0.02146930560214693
+      },
+      "price_bucket": {
+        "low_<100k": 0.4750083864475008,
+        "mid_100k_300k": 0.282120093928212,
+        "mid_high_300k_700k": 0.1261321704126132,
+        "high_>700k": 0.11673934921167393
+      },
+      "rating_level": {
+        "High": 0.74740020127474,
+        "Unknown": 0.14122777591412278,
+        "Medium": 0.10097282791009728,
+        "Low": 0.01039919490103992
+      }
+    }
+  },
+  "late_night_weekday": {
+    "count": 4106,
+    "distributions": {
+      "category": {
+        "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 0.1892352654651729,
+        "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 0.13248904042864101,
+        "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 0.10107160253287871,
+        "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 0.0974184120798831,
+        "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 0.09035557720409157,
+        "Nh\u1ea1c c\u1ee5": 0.08597174866049684,
+        "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 0.07111544081831467,
+        "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 0.06600097418412079,
+        "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 0.05747686312713103,
+        "Trang tr\u00ed nh\u00e0 c\u1eeda": 0.05528494885533366,
+        "\u0110\u1ed3 th\u1edd c\u00fang": 0.0314174378957623,
+        "N\u1ed9i th\u1ea5t": 0.022162688748173405
+      },
+      "price_bucket": {
+        "low_<100k": 0.4785679493424257,
+        "mid_100k_300k": 0.28494885533365805,
+        "high_>700k": 0.11933755479785679,
+        "mid_high_300k_700k": 0.11714564052605943
+      },
+      "rating_level": {
+        "High": 0.7277155382367267,
+        "Unknown": 0.1573307355090112,
+        "Medium": 0.10301997077447637,
+        "Low": 0.011933755479785679
+      }
+    }
+  },
+  "late_night_weekend": {
+    "count": 1581,
+    "distributions": {
+      "category": {
+        "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 0.19987349778621125,
+        "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 0.1454775458570525,
+        "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 0.09867172675521822,
+        "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 0.08981657179000632,
+        "Nh\u1ea1c c\u1ee5": 0.0866540164452878,
+        "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 0.07653383934218849,
+        "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 0.06767868437697659,
+        "Trang tr\u00ed nh\u00e0 c\u1eeda": 0.06325110689437065,
+        "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 0.05945604048070841,
+        "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 0.053763440860215055,
+        "\u0110\u1ed3 th\u1edd c\u00fang": 0.03795066413662239,
+        "N\u1ed9i th\u1ea5t": 0.020872865275142316
+      },
+      "price_bucket": {
+        "low_<100k": 0.49968374446552816,
+        "mid_100k_300k": 0.26691967109424414,
+        "high_>700k": 0.12017710309930424,
+        "mid_high_300k_700k": 0.11321948134092347
+      },
+      "rating_level": {
+        "High": 0.7286527514231499,
+        "Unknown": 0.16192283364958887,
+        "Medium": 0.10056925996204934,
+        "Low": 0.008855154965211892
+      }
+    }
+  },
+  "morning_weekday": {
+    "count": 8188,
+    "distributions": {
+      "category": {
+        "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 0.1895456765999023,
+        "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 0.13409868099658037,
+        "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 0.10661944308744505,
+        "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 0.10564240351734246,
+        "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 0.09306301905227161,
+        "Nh\u1ea1c c\u1ee5": 0.08219345383488032,
+        "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 0.06069858329262335,
+        "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 0.06033219345383488,
+        "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 0.058866634098680995,
+        "Trang tr\u00ed nh\u00e0 c\u1eeda": 0.057889594528578406,
+        "\u0110\u1ed3 th\u1edd c\u00fang": 0.03309721543722521,
+        "N\u1ed9i th\u1ea5t": 0.017953102100635075
+      },
+      "price_bucket": {
+        "low_<100k": 0.4843673668783586,
+        "mid_100k_300k": 0.2793111871030777,
+        "high_>700k": 0.12176355642403518,
+        "mid_high_300k_700k": 0.11455788959452858
+      },
+      "rating_level": {
+        "High": 0.7370542256961407,
+        "Unknown": 0.15376160234489497,
+        "Medium": 0.0986809965803615,
+        "Low": 0.010503175378602833
+      }
+    }
+  },
+  "morning_weekend": {
+    "count": 2914,
+    "distributions": {
+      "category": {
+        "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 0.18531228551818807,
+        "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 0.1369251887439945,
+        "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 0.09849004804392587,
+        "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 0.09643102264927934,
+        "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 0.07995881949210706,
+        "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 0.07961564859299931,
+        "Nh\u1ea1c c\u1ee5": 0.07652711050102952,
+        "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 0.06829100892244337,
+        "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 0.0634866163349348,
+        "Trang tr\u00ed nh\u00e0 c\u1eeda": 0.062113932738503776,
+        "\u0110\u1ed3 th\u1edd c\u00fang": 0.03397391901166781,
+        "N\u1ed9i th\u1ea5t": 0.01887439945092656
+      },
+      "price_bucket": {
+        "low_<100k": 0.4938229238160604,
+        "mid_100k_300k": 0.28414550446122167,
+        "high_>700k": 0.1122168840082361,
+        "mid_high_300k_700k": 0.10981468771448182
+      },
+      "rating_level": {
+        "High": 0.7367879203843514,
+        "Unknown": 0.15099519560741248,
+        "Medium": 0.10020590253946465,
+        "Low": 0.012010981468771447
+      }
+    }
+  },
+  "unknown_weekday": {
+    "count": 7201,
+    "distributions": {
+      "category": {
+        "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 0.19650048604360507,
+        "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 0.129843077350368,
+        "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 0.0984585474239689,
+        "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 0.09526454659075129,
+        "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 0.09234828496042216,
+        "Nh\u1ea1c c\u1ee5": 0.0835995000694348,
+        "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 0.06749062630190251,
+        "Trang tr\u00ed nh\u00e0 c\u1eeda": 0.06443549507012915,
+        "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 0.060269407026801836,
+        "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 0.058880711012359394,
+        "\u0110\u1ed3 th\u1edd c\u00fang": 0.03430079155672823,
+        "N\u1ed9i th\u1ea5t": 0.018608526593528678
+      },
+      "price_bucket": {
+        "low_<100k": 0.49756978197472573,
+        "mid_100k_300k": 0.2751006804610471,
+        "mid_high_300k_700k": 0.11692820441605332,
+        "high_>700k": 0.11040133314817387
+      },
+      "rating_level": {
+        "High": 0.7171226218580753,
+        "Unknown": 0.16386612970420775,
+        "Medium": 0.10887376753228718,
+        "Low": 0.010137480905429801
+      }
+    }
+  },
+  "unknown_weekend": {
+    "count": 2702,
+    "distributions": {
+      "category": {
+        "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 0.2068837897853442,
+        "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 0.1225018504811251,
+        "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 0.09400444115470022,
+        "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 0.0928941524796447,
+        "Nh\u1ea1c c\u1ee5": 0.08697261287934863,
+        "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 0.08697261287934863,
+        "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 0.06846780162842339,
+        "Trang tr\u00ed nh\u00e0 c\u1eeda": 0.06772760917838638,
+        "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 0.06439674315321983,
+        "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 0.05662472242783124,
+        "\u0110\u1ed3 th\u1edd c\u00fang": 0.03626943005181347,
+        "N\u1ed9i th\u1ea5t": 0.01628423390081421
+      },
+      "price_bucket": {
+        "low_<100k": 0.5074019245003701,
+        "mid_100k_300k": 0.2749814951887491,
+        "mid_high_300k_700k": 0.11065877128053293,
+        "high_>700k": 0.10695780903034789
+      },
+      "rating_level": {
+        "High": 0.7276091783863805,
+        "Unknown": 0.16321243523316062,
+        "Medium": 0.09622501850481126,
+        "Low": 0.012953367875647668
+      }
+    }
+  }
+}

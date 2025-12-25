@@ -1,0 +1,28 @@
+{
+  "categories": [
+    "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch",
+    "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp",
+    "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn",
+    "Nh\u1ea1c c\u1ee5",
+    "N\u1ed9i th\u1ea5t",
+    "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda",
+    "Trang tr\u00ed nh\u00e0 c\u1eeda",
+    "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng",
+    "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm",
+    "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7",
+    "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n",
+    "\u0110\u1ed3 th\u1edd c\u00fang"
+  ],
+  "price_buckets": [
+    "high_>700k",
+    "low_<100k",
+    "mid_100k_300k",
+    "mid_high_300k_700k"
+  ],
+  "rating_levels": [
+    "High",
+    "Low",
+    "Medium",
+    "Unknown"
+  ]
+}

@@ -1,0 +1,42 @@
+2025-12-23 23:59:40 | INFO     | utils.logger:setup_logger:42 - Logger initialized. Logs saved to: logs\cofars_20251223_235940.log
+2025-12-23 23:59:40 | INFO     | __main__:main:410 - ================================================================================
+2025-12-23 23:59:40 | INFO     | __main__:main:411 - STEP 3: CALCULATE JS DIVERGENCE
+2025-12-23 23:59:40 | INFO     | __main__:main:412 - ================================================================================
+2025-12-23 23:59:40 | INFO     | __main__:load_context_distributions:29 - Loading context distributions...
+2025-12-23 23:59:40 | INFO     | __main__:load_context_distributions:37 - Loaded distributions for 10 contexts
+2025-12-23 23:59:40 | INFO     | __main__:calculate_all_pairwise_js_divergences:210 - Calculating pairwise JS divergences...
+2025-12-23 23:59:40 | INFO     | __main__:calculate_all_pairwise_js_divergences:219 - Attribute vocabulary sizes:
+2025-12-23 23:59:40 | INFO     | __main__:calculate_all_pairwise_js_divergences:220 -   Categories: 12
+2025-12-23 23:59:40 | INFO     | __main__:calculate_all_pairwise_js_divergences:221 -   Price buckets: 4
+2025-12-23 23:59:40 | INFO     | __main__:calculate_all_pairwise_js_divergences:222 -   Rating levels: 4
+2025-12-23 23:59:40 | INFO     | __main__:calculate_all_pairwise_js_divergences:258 - Calculated 100 pairwise divergences
+2025-12-23 23:59:40 | INFO     | __main__:calculate_all_pairwise_js_divergences:261 - 
+Example JS divergences:
+2025-12-23 23:59:40 | INFO     | __main__:calculate_all_pairwise_js_divergences:264 -   JS(afternoon_weekday, afternoon_weekday) = 0.0000, Similarity = 1.0000
+2025-12-23 23:59:40 | INFO     | __main__:calculate_all_pairwise_js_divergences:264 -   JS(afternoon_weekday, afternoon_weekend) = 0.0006, Similarity = 0.9994
+2025-12-23 23:59:40 | INFO     | __main__:calculate_all_pairwise_js_divergences:264 -   JS(afternoon_weekend, afternoon_weekday) = 0.0006, Similarity = 0.9994
+2025-12-23 23:59:40 | INFO     | __main__:calculate_all_pairwise_js_divergences:264 -   JS(afternoon_weekday, evening_weekday) = 0.0002, Similarity = 0.9998
+2025-12-23 23:59:40 | INFO     | __main__:calculate_all_pairwise_js_divergences:264 -   JS(evening_weekday, afternoon_weekday) = 0.0002, Similarity = 0.9998
+2025-12-23 23:59:40 | INFO     | __main__:create_similarity_heatmap:272 - Creating similarity heatmap...
+2025-12-23 23:59:40 | INFO     | __main__:create_similarity_heatmap:313 - Saved similarity heatmap to: results/figures\context_similarity_heatmap.png
+2025-12-23 23:59:40 | INFO     | __main__:analyze_similarity_patterns:317 - Analyzing similarity patterns...
+2025-12-23 23:59:40 | INFO     | __main__:analyze_similarity_patterns:332 - 
+Most similar context pairs:
+2025-12-23 23:59:40 | INFO     | __main__:analyze_similarity_patterns:334 -   evening_weekday <-> late_night_weekday: 0.9998
+2025-12-23 23:59:40 | INFO     | __main__:analyze_similarity_patterns:334 -   late_night_weekday <-> evening_weekday: 0.9998
+2025-12-23 23:59:40 | INFO     | __main__:analyze_similarity_patterns:334 -   afternoon_weekday <-> unknown_weekday: 0.9998
+2025-12-23 23:59:40 | INFO     | __main__:analyze_similarity_patterns:334 -   unknown_weekday <-> afternoon_weekday: 0.9998
+2025-12-23 23:59:40 | INFO     | __main__:analyze_similarity_patterns:334 -   afternoon_weekday <-> evening_weekday: 0.9998
+2025-12-23 23:59:40 | INFO     | __main__:analyze_similarity_patterns:336 - 
+Least similar context pairs:
+2025-12-23 23:59:40 | INFO     | __main__:analyze_similarity_patterns:338 -   late_night_weekend <-> evening_weekday: 0.9992
+2025-12-23 23:59:40 | INFO     | __main__:analyze_similarity_patterns:338 -   evening_weekend <-> late_night_weekend: 0.9992
+2025-12-23 23:59:40 | INFO     | __main__:analyze_similarity_patterns:338 -   late_night_weekend <-> evening_weekend: 0.9992
+2025-12-23 23:59:40 | INFO     | __main__:analyze_similarity_patterns:338 -   evening_weekend <-> unknown_weekend: 0.9992
+2025-12-23 23:59:40 | INFO     | __main__:analyze_similarity_patterns:338 -   unknown_weekend <-> evening_weekend: 0.9992
+2025-12-23 23:59:40 | INFO     | __main__:save_divergence_results:344 - Saving divergence results...
+2025-12-23 23:59:40 | INFO     | __main__:save_divergence_results:401 - Saved divergence results to: processed_data\divergences
+2025-12-23 23:59:40 | INFO     | __main__:save_divergence_results:402 - Saved statistics to: results/statistics\js_divergence_stats.txt
+2025-12-23 23:59:40 | INFO     | __main__:main:431 - ================================================================================
+2025-12-23 23:59:40 | INFO     | __main__:main:432 - JS DIVERGENCE CALCULATION COMPLETE!
+2025-12-23 23:59:40 | INFO     | __main__:main:433 - ================================================================================

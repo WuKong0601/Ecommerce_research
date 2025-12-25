@@ -1,0 +1,922 @@
+{
+  "afternoon_weekday": {
+    "context": "afternoon_weekday",
+    "total_users": 7338,
+    "total_interactions": 8125,
+    "total_products": 2393,
+    "avg_rating": 4.372676923076923,
+    "avg_price": 326291.03113846155,
+    "top_products": {
+      "216178722": 18,
+      "68736740": 16,
+      "133918074": 15,
+      "70659242": 15,
+      "48623075": 14,
+      "52049950": 14,
+      "131407951": 13,
+      "82946400": 13,
+      "14453723": 13,
+      "160875472": 12,
+      "62231649": 12,
+      "104104632": 12,
+      "51251851": 12,
+      "52354974": 12,
+      "28307053": 12,
+      "75146872": 12,
+      "54644755": 12,
+      "35919874": 12,
+      "185922606": 12,
+      "91165526": 12
+    },
+    "category_counts": {
+      "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 1557,
+      "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 980,
+      "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 839,
+      "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 833,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 732,
+      "Nh\u1ea1c c\u1ee5": 702,
+      "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 548,
+      "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 536,
+      "Trang tr\u00ed nh\u00e0 c\u1eeda": 488,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 486,
+      "\u0110\u1ed3 th\u1edd c\u00fang": 284,
+      "N\u1ed9i th\u1ea5t": 140
+    },
+    "category_dist": {
+      "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 0.19163076923076924,
+      "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 0.12061538461538461,
+      "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 0.10326153846153846,
+      "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 0.10252307692307693,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 0.0900923076923077,
+      "Nh\u1ea1c c\u1ee5": 0.0864,
+      "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 0.06744615384615385,
+      "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 0.06596923076923077,
+      "Trang tr\u00ed nh\u00e0 c\u1eeda": 0.060061538461538465,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 0.05981538461538462,
+      "\u0110\u1ed3 th\u1edd c\u00fang": 0.034953846153846155,
+      "N\u1ed9i th\u1ea5t": 0.01723076923076923
+    },
+    "price_bucket_counts": {
+      "low_<100k": 3959,
+      "mid_100k_300k": 2281,
+      "mid_high_300k_700k": 962,
+      "high_>700k": 923
+    },
+    "price_bucket_dist": {
+      "low_<100k": 0.48726153846153847,
+      "mid_100k_300k": 0.28073846153846155,
+      "mid_high_300k_700k": 0.1184,
+      "high_>700k": 0.1136
+    },
+    "rating_level_counts": {
+      "High": 5868,
+      "Unknown": 1286,
+      "Medium": 885,
+      "Low": 86
+    },
+    "rating_level_dist": {
+      "High": 0.7222153846153846,
+      "Unknown": 0.15827692307692307,
+      "Medium": 0.10892307692307693,
+      "Low": 0.010584615384615385
+    },
+    "segment_counts": {
+      "cold_start": 5743,
+      "regular": 1859,
+      "power": 523
+    },
+    "segment_dist": {
+      "cold_start": 0.7068307692307693,
+      "regular": 0.2288,
+      "power": 0.06436923076923078
+    }
+  },
+  "afternoon_weekend": {
+    "context": "afternoon_weekend",
+    "total_users": 2980,
+    "total_interactions": 3208,
+    "total_products": 1553,
+    "avg_rating": 4.375311720698255,
+    "avg_price": 300384.1558603491,
+    "top_products": {
+      "68716605": 10,
+      "104104632": 7,
+      "55834681": 7,
+      "183057936": 7,
+      "76252649": 7,
+      "14584977": 7,
+      "42054529": 7,
+      "54929494": 7,
+      "86403292": 7,
+      "7719963": 7,
+      "216178722": 7,
+      "59598451": 7,
+      "42234545": 7,
+      "85482946": 6,
+      "100379752": 6,
+      "54344814": 6,
+      "11660212": 6,
+      "186558014": 6,
+      "1404097": 6,
+      "14506316": 6
+    },
+    "category_counts": {
+      "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 621,
+      "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 412,
+      "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 345,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 315,
+      "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 292,
+      "Nh\u1ea1c c\u1ee5": 255,
+      "Trang tr\u00ed nh\u00e0 c\u1eeda": 238,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 212,
+      "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 197,
+      "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 177,
+      "\u0110\u1ed3 th\u1edd c\u00fang": 86,
+      "N\u1ed9i th\u1ea5t": 58
+    },
+    "category_dist": {
+      "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 0.1935785536159601,
+      "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 0.128428927680798,
+      "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 0.10754364089775562,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 0.09819201995012469,
+      "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 0.09102244389027432,
+      "Nh\u1ea1c c\u1ee5": 0.07948877805486285,
+      "Trang tr\u00ed nh\u00e0 c\u1eeda": 0.07418952618453865,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 0.06608478802992519,
+      "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 0.061408977556109724,
+      "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 0.05517456359102244,
+      "\u0110\u1ed3 th\u1edd c\u00fang": 0.02680798004987531,
+      "N\u1ed9i th\u1ea5t": 0.01807980049875312
+    },
+    "price_bucket_counts": {
+      "low_<100k": 1603,
+      "mid_100k_300k": 886,
+      "mid_high_300k_700k": 379,
+      "high_>700k": 340
+    },
+    "price_bucket_dist": {
+      "low_<100k": 0.49968827930174564,
+      "mid_100k_300k": 0.27618453865336656,
+      "mid_high_300k_700k": 0.11814214463840399,
+      "high_>700k": 0.1059850374064838
+    },
+    "rating_level_counts": {
+      "High": 2346,
+      "Unknown": 499,
+      "Medium": 332,
+      "Low": 31
+    },
+    "rating_level_dist": {
+      "High": 0.7312967581047382,
+      "Unknown": 0.1555486284289277,
+      "Medium": 0.10349127182044887,
+      "Low": 0.009663341645885287
+    },
+    "segment_counts": {
+      "cold_start": 2257,
+      "regular": 778,
+      "power": 173
+    },
+    "segment_dist": {
+      "cold_start": 0.7035536159600998,
+      "regular": 0.24251870324189526,
+      "power": 0.05392768079800499
+    }
+  },
+  "evening_weekday": {
+    "context": "evening_weekday",
+    "total_users": 7484,
+    "total_interactions": 8146,
+    "total_products": 2382,
+    "avg_rating": 4.344831819297815,
+    "avg_price": 327683.8756444881,
+    "top_products": {
+      "111842814": 15,
+      "52582326": 14,
+      "58855270": 14,
+      "186256010": 13,
+      "24157085": 13,
+      "9793357": 13,
+      "43118531": 13,
+      "160875472": 13,
+      "21582013": 13,
+      "984150": 13,
+      "162875961": 12,
+      "135321378": 12,
+      "41619873": 12,
+      "56315413": 12,
+      "509870": 12,
+      "36338525": 12,
+      "72798213": 12,
+      "802051": 12,
+      "83344636": 12,
+      "25122296": 12
+    },
+    "category_counts": {
+      "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 1539,
+      "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 1034,
+      "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 852,
+      "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 771,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 758,
+      "Nh\u1ea1c c\u1ee5": 646,
+      "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 570,
+      "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 544,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 531,
+      "Trang tr\u00ed nh\u00e0 c\u1eeda": 480,
+      "\u0110\u1ed3 th\u1edd c\u00fang": 251,
+      "N\u1ed9i th\u1ea5t": 170
+    },
+    "category_dist": {
+      "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 0.18892708077584092,
+      "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 0.12693346427694574,
+      "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 0.10459121041001719,
+      "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 0.09464767984286766,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 0.09305180456665849,
+      "Nh\u1ea1c c\u1ee5": 0.07930272526393321,
+      "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 0.06997299287994108,
+      "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 0.06678124232752271,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 0.06518536705131353,
+      "Trang tr\u00ed nh\u00e0 c\u1eeda": 0.05892462558310827,
+      "\u0110\u1ed3 th\u1edd c\u00fang": 0.03081266879450037,
+      "N\u1ed9i th\u1ea5t": 0.020869138227350845
+    },
+    "price_bucket_counts": {
+      "low_<100k": 3870,
+      "mid_100k_300k": 2335,
+      "mid_high_300k_700k": 990,
+      "high_>700k": 951
+    },
+    "price_bucket_dist": {
+      "low_<100k": 0.47507979376381043,
+      "mid_100k_300k": 0.28664375153449545,
+      "mid_high_300k_700k": 0.12153204026516082,
+      "high_>700k": 0.11674441443653327
+    },
+    "rating_level_counts": {
+      "High": 5933,
+      "Unknown": 1306,
+      "Medium": 811,
+      "Low": 96
+    },
+    "rating_level_dist": {
+      "High": 0.7283329241345445,
+      "Unknown": 0.1603240854407071,
+      "Medium": 0.09955806530812669,
+      "Low": 0.011784925116621655
+    },
+    "segment_counts": {
+      "cold_start": 5876,
+      "regular": 1908,
+      "power": 362
+    },
+    "segment_dist": {
+      "cold_start": 0.7213356248465504,
+      "regular": 0.2342253866928554,
+      "power": 0.04443898846059416
+    }
+  },
+  "evening_weekend": {
+    "context": "evening_weekend",
+    "total_users": 2789,
+    "total_interactions": 2981,
+    "total_products": 1535,
+    "avg_rating": 4.437437101643743,
+    "avg_price": 338319.8416638712,
+    "top_products": {
+      "64700139": 10,
+      "116155839": 9,
+      "137860014": 8,
+      "56259814": 8,
+      "19577980": 8,
+      "35958689": 7,
+      "575974": 7,
+      "17509244": 7,
+      "23818057": 7,
+      "195891839": 7,
+      "93760107": 7,
+      "52354974": 7,
+      "204083681": 7,
+      "208128843": 7,
+      "74415759": 7,
+      "115243711": 6,
+      "125084260": 6,
+      "14640564": 6,
+      "76539039": 6,
+      "148814464": 6
+    },
+    "category_counts": {
+      "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 587,
+      "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 396,
+      "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 302,
+      "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 283,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 260,
+      "Nh\u1ea1c c\u1ee5": 214,
+      "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 210,
+      "Trang tr\u00ed nh\u00e0 c\u1eeda": 192,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 190,
+      "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 189,
+      "\u0110\u1ed3 th\u1edd c\u00fang": 94,
+      "N\u1ed9i th\u1ea5t": 64
+    },
+    "category_dist": {
+      "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 0.1969137873196914,
+      "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 0.13284132841328414,
+      "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 0.10130828581013084,
+      "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 0.09493458570949345,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 0.0872190540087219,
+      "Nh\u1ea1c c\u1ee5": 0.0717879906071788,
+      "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 0.07044615900704461,
+      "Trang tr\u00ed nh\u00e0 c\u1eeda": 0.06440791680644078,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 0.0637370010063737,
+      "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 0.06340154310634015,
+      "\u0110\u1ed3 th\u1edd c\u00fang": 0.0315330426031533,
+      "N\u1ed9i th\u1ea5t": 0.02146930560214693
+    },
+    "price_bucket_counts": {
+      "low_<100k": 1416,
+      "mid_100k_300k": 841,
+      "mid_high_300k_700k": 376,
+      "high_>700k": 348
+    },
+    "price_bucket_dist": {
+      "low_<100k": 0.4750083864475008,
+      "mid_100k_300k": 0.282120093928212,
+      "mid_high_300k_700k": 0.1261321704126132,
+      "high_>700k": 0.11673934921167393
+    },
+    "rating_level_counts": {
+      "High": 2228,
+      "Unknown": 421,
+      "Medium": 301,
+      "Low": 31
+    },
+    "rating_level_dist": {
+      "High": 0.74740020127474,
+      "Unknown": 0.14122777591412278,
+      "Medium": 0.10097282791009728,
+      "Low": 0.01039919490103992
+    },
+    "segment_counts": {
+      "cold_start": 2111,
+      "regular": 700,
+      "power": 170
+    },
+    "segment_dist": {
+      "cold_start": 0.7081516269708151,
+      "regular": 0.23482053002348205,
+      "power": 0.05702784300570279
+    }
+  },
+  "late_night_weekday": {
+    "context": "late_night_weekday",
+    "total_users": 3835,
+    "total_interactions": 4106,
+    "total_products": 1727,
+    "avg_rating": 4.40818314661471,
+    "avg_price": 352350.6025328787,
+    "top_products": {
+      "186883908": 12,
+      "56592082": 10,
+      "56260911": 10,
+      "172447892": 9,
+      "273347199": 9,
+      "115092053": 9,
+      "77035619": 8,
+      "44264069": 8,
+      "107394357": 8,
+      "97817455": 8,
+      "55460112": 8,
+      "14848208": 8,
+      "93206862": 7,
+      "184282768": 7,
+      "58536862": 7,
+      "58546909": 7,
+      "20025922": 7,
+      "526588": 7,
+      "10645248": 7,
+      "19405133": 7
+    },
+    "category_counts": {
+      "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 777,
+      "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 544,
+      "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 415,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 400,
+      "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 371,
+      "Nh\u1ea1c c\u1ee5": 353,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 292,
+      "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 271,
+      "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 236,
+      "Trang tr\u00ed nh\u00e0 c\u1eeda": 227,
+      "\u0110\u1ed3 th\u1edd c\u00fang": 129,
+      "N\u1ed9i th\u1ea5t": 91
+    },
+    "category_dist": {
+      "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 0.1892352654651729,
+      "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 0.13248904042864101,
+      "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 0.10107160253287871,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 0.0974184120798831,
+      "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 0.09035557720409157,
+      "Nh\u1ea1c c\u1ee5": 0.08597174866049684,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 0.07111544081831467,
+      "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 0.06600097418412079,
+      "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 0.05747686312713103,
+      "Trang tr\u00ed nh\u00e0 c\u1eeda": 0.05528494885533366,
+      "\u0110\u1ed3 th\u1edd c\u00fang": 0.0314174378957623,
+      "N\u1ed9i th\u1ea5t": 0.022162688748173405
+    },
+    "price_bucket_counts": {
+      "low_<100k": 1965,
+      "mid_100k_300k": 1170,
+      "high_>700k": 490,
+      "mid_high_300k_700k": 481
+    },
+    "price_bucket_dist": {
+      "low_<100k": 0.4785679493424257,
+      "mid_100k_300k": 0.28494885533365805,
+      "high_>700k": 0.11933755479785679,
+      "mid_high_300k_700k": 0.11714564052605943
+    },
+    "rating_level_counts": {
+      "High": 2988,
+      "Unknown": 646,
+      "Medium": 423,
+      "Low": 49
+    },
+    "rating_level_dist": {
+      "High": 0.7277155382367267,
+      "Unknown": 0.1573307355090112,
+      "Medium": 0.10301997077447637,
+      "Low": 0.011933755479785679
+    },
+    "segment_counts": {
+      "cold_start": 3038,
+      "regular": 899,
+      "power": 169
+    },
+    "segment_dist": {
+      "cold_start": 0.7398928397467122,
+      "regular": 0.21894788114953725,
+      "power": 0.04115927910375061
+    }
+  },
+  "late_night_weekend": {
+    "context": "late_night_weekend",
+    "total_users": 1502,
+    "total_interactions": 1581,
+    "total_products": 1065,
+    "avg_rating": 4.427577482605946,
+    "avg_price": 352316.146742568,
+    "top_products": {
+      "46172285": 5,
+      "69197971": 5,
+      "141472707": 5,
+      "193524332": 5,
+      "508484": 5,
+      "16348405": 5,
+      "426104": 5,
+      "133786373": 4,
+      "38464506": 4,
+      "48519235": 4,
+      "3842751": 4,
+      "23813643": 4,
+      "44120270": 4,
+      "73467694": 4,
+      "36784924": 4,
+      "91302461": 4,
+      "137753122": 4,
+      "173636676": 4,
+      "877400": 4,
+      "49123718": 4
+    },
+    "category_counts": {
+      "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 316,
+      "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 230,
+      "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 156,
+      "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 142,
+      "Nh\u1ea1c c\u1ee5": 137,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 121,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 107,
+      "Trang tr\u00ed nh\u00e0 c\u1eeda": 100,
+      "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 94,
+      "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 85,
+      "\u0110\u1ed3 th\u1edd c\u00fang": 60,
+      "N\u1ed9i th\u1ea5t": 33
+    },
+    "category_dist": {
+      "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 0.19987349778621125,
+      "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 0.1454775458570525,
+      "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 0.09867172675521822,
+      "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 0.08981657179000632,
+      "Nh\u1ea1c c\u1ee5": 0.0866540164452878,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 0.07653383934218849,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 0.06767868437697659,
+      "Trang tr\u00ed nh\u00e0 c\u1eeda": 0.06325110689437065,
+      "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 0.05945604048070841,
+      "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 0.053763440860215055,
+      "\u0110\u1ed3 th\u1edd c\u00fang": 0.03795066413662239,
+      "N\u1ed9i th\u1ea5t": 0.020872865275142316
+    },
+    "price_bucket_counts": {
+      "low_<100k": 790,
+      "mid_100k_300k": 422,
+      "high_>700k": 190,
+      "mid_high_300k_700k": 179
+    },
+    "price_bucket_dist": {
+      "low_<100k": 0.49968374446552816,
+      "mid_100k_300k": 0.26691967109424414,
+      "high_>700k": 0.12017710309930424,
+      "mid_high_300k_700k": 0.11321948134092347
+    },
+    "rating_level_counts": {
+      "High": 1152,
+      "Unknown": 256,
+      "Medium": 159,
+      "Low": 14
+    },
+    "rating_level_dist": {
+      "High": 0.7286527514231499,
+      "Unknown": 0.16192283364958887,
+      "Medium": 0.10056925996204934,
+      "Low": 0.008855154965211892
+    },
+    "segment_counts": {
+      "cold_start": 1179,
+      "regular": 339,
+      "power": 63
+    },
+    "segment_dist": {
+      "cold_start": 0.74573055028463,
+      "regular": 0.2144212523719165,
+      "power": 0.03984819734345351
+    }
+  },
+  "morning_weekday": {
+    "context": "morning_weekday",
+    "total_users": 7505,
+    "total_interactions": 8188,
+    "total_products": 2321,
+    "avg_rating": 4.3743282852955545,
+    "avg_price": 341334.2447484123,
+    "top_products": {
+      "174614074": 14,
+      "202805930": 14,
+      "74346314": 13,
+      "6866413": 13,
+      "74345320": 13,
+      "74347296": 13,
+      "70659242": 13,
+      "984080": 12,
+      "20050948": 12,
+      "71526385": 12,
+      "119007194": 12,
+      "53261292": 12,
+      "208628673": 12,
+      "42491736": 12,
+      "48466163": 12,
+      "403497": 12,
+      "196518627": 12,
+      "19913975": 12,
+      "50748748": 12,
+      "181909421": 12
+    },
+    "category_counts": {
+      "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 1552,
+      "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 1098,
+      "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 873,
+      "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 865,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 762,
+      "Nh\u1ea1c c\u1ee5": 673,
+      "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 497,
+      "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 494,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 482,
+      "Trang tr\u00ed nh\u00e0 c\u1eeda": 474,
+      "\u0110\u1ed3 th\u1edd c\u00fang": 271,
+      "N\u1ed9i th\u1ea5t": 147
+    },
+    "category_dist": {
+      "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 0.1895456765999023,
+      "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 0.13409868099658037,
+      "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 0.10661944308744505,
+      "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 0.10564240351734246,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 0.09306301905227161,
+      "Nh\u1ea1c c\u1ee5": 0.08219345383488032,
+      "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 0.06069858329262335,
+      "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 0.06033219345383488,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 0.058866634098680995,
+      "Trang tr\u00ed nh\u00e0 c\u1eeda": 0.057889594528578406,
+      "\u0110\u1ed3 th\u1edd c\u00fang": 0.03309721543722521,
+      "N\u1ed9i th\u1ea5t": 0.017953102100635075
+    },
+    "price_bucket_counts": {
+      "low_<100k": 3966,
+      "mid_100k_300k": 2287,
+      "high_>700k": 997,
+      "mid_high_300k_700k": 938
+    },
+    "price_bucket_dist": {
+      "low_<100k": 0.4843673668783586,
+      "mid_100k_300k": 0.2793111871030777,
+      "high_>700k": 0.12176355642403518,
+      "mid_high_300k_700k": 0.11455788959452858
+    },
+    "rating_level_counts": {
+      "High": 6035,
+      "Unknown": 1259,
+      "Medium": 808,
+      "Low": 86
+    },
+    "rating_level_dist": {
+      "High": 0.7370542256961407,
+      "Unknown": 0.15376160234489497,
+      "Medium": 0.0986809965803615,
+      "Low": 0.010503175378602833
+    },
+    "segment_counts": {
+      "cold_start": 5900,
+      "regular": 1843,
+      "power": 445
+    },
+    "segment_dist": {
+      "cold_start": 0.7205666829506595,
+      "regular": 0.22508549096238398,
+      "power": 0.05434782608695652
+    }
+  },
+  "morning_weekend": {
+    "context": "morning_weekend",
+    "total_users": 2705,
+    "total_interactions": 2914,
+    "total_products": 1508,
+    "avg_rating": 4.404598490048044,
+    "avg_price": 334746.08991077554,
+    "top_products": {
+      "107713002": 11,
+      "193365988": 10,
+      "276328451": 9,
+      "42234549": 9,
+      "193433927": 7,
+      "124839848": 7,
+      "59318679": 7,
+      "74345946": 6,
+      "54639027": 6,
+      "34180303": 6,
+      "158601820": 6,
+      "38464506": 6,
+      "17978848": 6,
+      "186554067": 6,
+      "55834681": 6,
+      "45838799": 6,
+      "1634981": 6,
+      "57999394": 6,
+      "3842751": 6,
+      "45872449": 6
+    },
+    "category_counts": {
+      "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 540,
+      "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 399,
+      "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 287,
+      "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 281,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 233,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 232,
+      "Nh\u1ea1c c\u1ee5": 223,
+      "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 199,
+      "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 185,
+      "Trang tr\u00ed nh\u00e0 c\u1eeda": 181,
+      "\u0110\u1ed3 th\u1edd c\u00fang": 99,
+      "N\u1ed9i th\u1ea5t": 55
+    },
+    "category_dist": {
+      "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 0.18531228551818807,
+      "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 0.1369251887439945,
+      "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 0.09849004804392587,
+      "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 0.09643102264927934,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 0.07995881949210706,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 0.07961564859299931,
+      "Nh\u1ea1c c\u1ee5": 0.07652711050102952,
+      "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 0.06829100892244337,
+      "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 0.0634866163349348,
+      "Trang tr\u00ed nh\u00e0 c\u1eeda": 0.062113932738503776,
+      "\u0110\u1ed3 th\u1edd c\u00fang": 0.03397391901166781,
+      "N\u1ed9i th\u1ea5t": 0.01887439945092656
+    },
+    "price_bucket_counts": {
+      "low_<100k": 1439,
+      "mid_100k_300k": 828,
+      "high_>700k": 327,
+      "mid_high_300k_700k": 320
+    },
+    "price_bucket_dist": {
+      "low_<100k": 0.4938229238160604,
+      "mid_100k_300k": 0.28414550446122167,
+      "high_>700k": 0.1122168840082361,
+      "mid_high_300k_700k": 0.10981468771448182
+    },
+    "rating_level_counts": {
+      "High": 2147,
+      "Unknown": 440,
+      "Medium": 292,
+      "Low": 35
+    },
+    "rating_level_dist": {
+      "High": 0.7367879203843514,
+      "Unknown": 0.15099519560741248,
+      "Medium": 0.10020590253946465,
+      "Low": 0.012010981468771447
+    },
+    "segment_counts": {
+      "cold_start": 2017,
+      "regular": 722,
+      "power": 175
+    },
+    "segment_dist": {
+      "cold_start": 0.6921757035003432,
+      "regular": 0.2477693891557996,
+      "power": 0.06005490734385724
+    }
+  },
+  "unknown_weekday": {
+    "context": "unknown_weekday",
+    "total_users": 6622,
+    "total_interactions": 7201,
+    "total_products": 2198,
+    "avg_rating": 4.362310790168032,
+    "avg_price": 317127.1508123872,
+    "top_products": {
+      "273244363": 15,
+      "57763337": 14,
+      "54071386": 14,
+      "69200117": 14,
+      "54788881": 13,
+      "42460013": 13,
+      "135457183": 13,
+      "53583472": 13,
+      "4059695": 12,
+      "28068292": 12,
+      "800697": 12,
+      "107486345": 12,
+      "44803282": 12,
+      "32395709": 12,
+      "21478182": 12,
+      "69572812": 11,
+      "58401037": 11,
+      "19920808": 11,
+      "11195032": 11,
+      "52798665": 11
+    },
+    "category_counts": {
+      "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 1415,
+      "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 935,
+      "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 709,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 686,
+      "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 665,
+      "Nh\u1ea1c c\u1ee5": 602,
+      "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 486,
+      "Trang tr\u00ed nh\u00e0 c\u1eeda": 464,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 434,
+      "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 424,
+      "\u0110\u1ed3 th\u1edd c\u00fang": 247,
+      "N\u1ed9i th\u1ea5t": 134
+    },
+    "category_dist": {
+      "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 0.19650048604360507,
+      "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 0.129843077350368,
+      "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 0.0984585474239689,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 0.09526454659075129,
+      "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 0.09234828496042216,
+      "Nh\u1ea1c c\u1ee5": 0.0835995000694348,
+      "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 0.06749062630190251,
+      "Trang tr\u00ed nh\u00e0 c\u1eeda": 0.06443549507012915,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 0.060269407026801836,
+      "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 0.058880711012359394,
+      "\u0110\u1ed3 th\u1edd c\u00fang": 0.03430079155672823,
+      "N\u1ed9i th\u1ea5t": 0.018608526593528678
+    },
+    "price_bucket_counts": {
+      "low_<100k": 3583,
+      "mid_100k_300k": 1981,
+      "mid_high_300k_700k": 842,
+      "high_>700k": 795
+    },
+    "price_bucket_dist": {
+      "low_<100k": 0.49756978197472573,
+      "mid_100k_300k": 0.2751006804610471,
+      "mid_high_300k_700k": 0.11692820441605332,
+      "high_>700k": 0.11040133314817387
+    },
+    "rating_level_counts": {
+      "High": 5164,
+      "Unknown": 1180,
+      "Medium": 784,
+      "Low": 73
+    },
+    "rating_level_dist": {
+      "High": 0.7171226218580753,
+      "Unknown": 0.16386612970420775,
+      "Medium": 0.10887376753228718,
+      "Low": 0.010137480905429801
+    },
+    "segment_counts": {
+      "cold_start": 5181,
+      "regular": 1627,
+      "power": 393
+    },
+    "segment_dist": {
+      "cold_start": 0.7194834050826274,
+      "regular": 0.22594084154978475,
+      "power": 0.05457575336758783
+    }
+  },
+  "unknown_weekend": {
+    "context": "unknown_weekend",
+    "total_users": 2526,
+    "total_interactions": 2702,
+    "total_products": 1437,
+    "avg_rating": 4.381939304219097,
+    "avg_price": 328750.10806809773,
+    "top_products": {
+      "72223014": 7,
+      "152011209": 7,
+      "84714840": 7,
+      "46172285": 6,
+      "45262912": 6,
+      "143116837": 6,
+      "42190032": 6,
+      "277854945": 6,
+      "56539378": 6,
+      "3842751": 6,
+      "877404": 6,
+      "47488348": 6,
+      "454666": 6,
+      "53830678": 6,
+      "68716605": 6,
+      "53979018": 6,
+      "509870": 5,
+      "20222967": 5,
+      "74458728": 5,
+      "49682586": 5
+    },
+    "category_counts": {
+      "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 559,
+      "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 331,
+      "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 254,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 251,
+      "Nh\u1ea1c c\u1ee5": 235,
+      "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 235,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 185,
+      "Trang tr\u00ed nh\u00e0 c\u1eeda": 183,
+      "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 174,
+      "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 153,
+      "\u0110\u1ed3 th\u1edd c\u00fang": 98,
+      "N\u1ed9i th\u1ea5t": 44
+    },
+    "category_dist": {
+      "D\u1ee5ng c\u1ee5 nh\u00e0 b\u1ebfp": 0.2068837897853442,
+      "D\u1ee5ng c\u1ee5 & Thi\u1ebft b\u1ecb ti\u1ec7n \u00edch": 0.1225018504811251,
+      "S\u1eeda ch\u1eefa nh\u00e0 c\u1eeda": 0.09400444115470022,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng \u0103n": 0.0928941524796447,
+      "Nh\u1ea1c c\u1ee5": 0.08697261287934863,
+      "\u0110\u00e8n & thi\u1ebft b\u1ecb chi\u1ebfu s\u00e1ng": 0.08697261287934863,
+      "\u0110\u1ed3 d\u00f9ng ph\u00f2ng ng\u1ee7": 0.06846780162842339,
+      "Trang tr\u00ed nh\u00e0 c\u1eeda": 0.06772760917838638,
+      "Ngo\u00e0i tr\u1eddi & s\u00e2n v\u01b0\u1eddn": 0.06439674315321983,
+      "\u0110\u1ed3 d\u00f9ng & thi\u1ebft b\u1ecb nh\u00e0 t\u1eafm": 0.05662472242783124,
+      "\u0110\u1ed3 th\u1edd c\u00fang": 0.03626943005181347,
+      "N\u1ed9i th\u1ea5t": 0.01628423390081421
+    },
+    "price_bucket_counts": {
+      "low_<100k": 1371,
+      "mid_100k_300k": 743,
+      "mid_high_300k_700k": 299,
+      "high_>700k": 289
+    },
+    "price_bucket_dist": {
+      "low_<100k": 0.5074019245003701,
+      "mid_100k_300k": 0.2749814951887491,
+      "mid_high_300k_700k": 0.11065877128053293,
+      "high_>700k": 0.10695780903034789
+    },
+    "rating_level_counts": {
+      "High": 1966,
+      "Unknown": 441,
+      "Medium": 260,
+      "Low": 35
+    },
+    "rating_level_dist": {
+      "High": 0.7276091783863805,
+      "Unknown": 0.16321243523316062,
+      "Medium": 0.09622501850481126,
+      "Low": 0.012953367875647668
+    },
+    "segment_counts": {
+      "cold_start": 1949,
+      "regular": 619,
+      "power": 134
+    },
+    "segment_dist": {
+      "cold_start": 0.7213175425610658,
+      "regular": 0.22908956328645447,
+      "power": 0.049592894152479645
+    }
+  }
+}

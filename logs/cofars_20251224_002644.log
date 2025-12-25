@@ -1,0 +1,55 @@
+2025-12-24 00:26:44 | INFO     | utils.logger:setup_logger:42 - Logger initialized. Logs saved to: logs\cofars_20251224_002644.log
+2025-12-24 00:26:44 | INFO     | __main__:main:286 - ================================================================================
+2025-12-24 00:26:44 | INFO     | __main__:main:287 - STEP 5: CONTEXT AGGREGATION (CoFARS-Sparse)
+2025-12-24 00:26:44 | INFO     | __main__:main:288 - ================================================================================
+2025-12-24 00:26:44 | INFO     | __main__:load_data:27 - Loading data...
+2025-12-24 00:26:44 | INFO     | __main__:load_data:36 - Loaded 49,152 reviews, 11,746 products, 40,522 users
+2025-12-24 00:26:44 | INFO     | __main__:aggregate_context_profiles:47 - Building context-level preference profiles...
+2025-12-24 00:26:44 | INFO     | __main__:aggregate_context_profiles:98 - Built profiles for 10 contexts
+2025-12-24 00:26:44 | INFO     | __main__:add_segment_distribution:104 - Adding segment distribution to context profiles...
+2025-12-24 00:26:44 | INFO     | __main__:create_context_embeddings:132 - Creating initial context embeddings...
+2025-12-24 00:26:44 | INFO     | __main__:create_context_embeddings:150 - Vocabulary: 12 categories, 4 price buckets, 4 rating levels
+2025-12-24 00:26:44 | INFO     | __main__:create_context_embeddings:182 - Created embeddings with 23 dimensions
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:192 - Analyzing context differences...
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:195 - 
+Top category per context:
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:198 -   afternoon_weekday        : Dụng cụ nhà bếp                (19.2%)
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:198 -   afternoon_weekend        : Dụng cụ nhà bếp                (19.4%)
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:198 -   evening_weekday          : Dụng cụ nhà bếp                (18.9%)
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:198 -   evening_weekend          : Dụng cụ nhà bếp                (19.7%)
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:198 -   late_night_weekday       : Dụng cụ nhà bếp                (18.9%)
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:198 -   late_night_weekend       : Dụng cụ nhà bếp                (20.0%)
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:198 -   morning_weekday          : Dụng cụ nhà bếp                (19.0%)
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:198 -   morning_weekend          : Dụng cụ nhà bếp                (18.5%)
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:198 -   unknown_weekday          : Dụng cụ nhà bếp                (19.7%)
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:198 -   unknown_weekend          : Dụng cụ nhà bếp                (20.7%)
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:201 - 
+Average price per context:
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:203 -   afternoon_weekday        : 326,291 VND
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:203 -   afternoon_weekend        : 300,384 VND
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:203 -   evening_weekday          : 327,684 VND
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:203 -   evening_weekend          : 338,320 VND
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:203 -   late_night_weekday       : 352,351 VND
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:203 -   late_night_weekend       : 352,316 VND
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:203 -   morning_weekday          : 341,334 VND
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:203 -   morning_weekend          : 334,746 VND
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:203 -   unknown_weekday          : 317,127 VND
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:203 -   unknown_weekend          : 328,750 VND
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:206 - 
+User coverage per context:
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:210 -   afternoon_weekday        : 7,338 users (97.8% of max)
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:210 -   afternoon_weekend        : 2,980 users (39.7% of max)
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:210 -   evening_weekday          : 7,484 users (99.7% of max)
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:210 -   evening_weekend          : 2,789 users (37.2% of max)
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:210 -   late_night_weekday       : 3,835 users (51.1% of max)
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:210 -   late_night_weekend       : 1,502 users (20.0% of max)
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:210 -   morning_weekday          : 7,505 users (100.0% of max)
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:210 -   morning_weekend          : 2,705 users (36.0% of max)
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:210 -   unknown_weekday          : 6,622 users (88.2% of max)
+2025-12-24 00:26:44 | INFO     | __main__:analyze_context_differences:210 -   unknown_weekend          : 2,526 users (33.7% of max)
+2025-12-24 00:26:44 | INFO     | __main__:save_context_aggregation:214 - Saving context aggregation results...
+2025-12-24 00:26:44 | INFO     | __main__:save_context_aggregation:277 - Saved context aggregation to: processed_data\context_aggregation
+2025-12-24 00:26:44 | INFO     | __main__:save_context_aggregation:278 - Saved statistics to: results/statistics\context_aggregation_stats.txt
+2025-12-24 00:26:44 | INFO     | __main__:main:308 - ================================================================================
+2025-12-24 00:26:44 | INFO     | __main__:main:309 - CONTEXT AGGREGATION COMPLETE!
+2025-12-24 00:26:44 | INFO     | __main__:main:310 - ================================================================================

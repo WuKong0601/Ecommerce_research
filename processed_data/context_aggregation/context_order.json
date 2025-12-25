@@ -1,0 +1,12 @@
+[
+  "afternoon_weekday",
+  "afternoon_weekend",
+  "evening_weekday",
+  "evening_weekend",
+  "late_night_weekday",
+  "late_night_weekend",
+  "morning_weekday",
+  "morning_weekend",
+  "unknown_weekday",
+  "unknown_weekend"
+]

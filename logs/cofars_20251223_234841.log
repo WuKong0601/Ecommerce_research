@@ -1,0 +1,23 @@
+2025-12-23 23:48:41 | INFO     | utils.logger:setup_logger:42 - Logger initialized. Logs saved to: logs\cofars_20251223_234841.log
+2025-12-23 23:48:41 | INFO     | __main__:main:328 - ================================================================================
+2025-12-23 23:48:41 | INFO     | __main__:main:329 - STEP 2: BUILD CONTEXTS
+2025-12-23 23:48:41 | INFO     | __main__:main:330 - ================================================================================
+2025-12-23 23:48:41 | INFO     | __main__:load_cleaned_data:29 - Loading cleaned data...
+2025-12-23 23:48:41 | INFO     | __main__:load_cleaned_data:38 - Loaded 11,746 products and 49,152 reviews
+2025-12-23 23:48:41 | INFO     | __main__:create_contexts:50 - Creating contexts (Option B: time_slot + is_weekend)...
+2025-12-23 23:48:41 | INFO     | __main__:create_contexts:64 - Created 10 unique contexts
+2025-12-23 23:48:41 | INFO     | __main__:create_contexts:67 - Context examples:
+2025-12-23 23:48:41 | INFO     | __main__:create_contexts:69 -   afternoon_weekday: {'time_slot': 'afternoon', 'is_weekend': 'weekday'}
+2025-12-23 23:48:41 | INFO     | __main__:create_contexts:69 -   afternoon_weekend: {'time_slot': 'afternoon', 'is_weekend': 'weekend'}
+2025-12-23 23:48:41 | INFO     | __main__:create_contexts:69 -   evening_weekday: {'time_slot': 'evening', 'is_weekend': 'weekday'}
+2025-12-23 23:48:41 | INFO     | __main__:create_contexts:69 -   evening_weekend: {'time_slot': 'evening', 'is_weekend': 'weekend'}
+2025-12-23 23:48:41 | INFO     | __main__:create_contexts:69 -   late_night_weekday: {'time_slot': 'late_night', 'is_weekend': 'weekday'}
+2025-12-23 23:48:41 | INFO     | __main__:analyze_context_distribution:75 - Analyzing context distribution...
+2025-12-23 23:48:41 | INFO     | __main__:analyze_context_distribution:94 - Context distribution:
+2025-12-23 23:48:41 | INFO     | __main__:analyze_context_distribution:95 -   Total contexts: 10
+2025-12-23 23:48:41 | INFO     | __main__:analyze_context_distribution:96 -   Avg interactions per context: 4915.2
+2025-12-23 23:48:41 | INFO     | __main__:analyze_context_distribution:97 -   Min/Max: 1,581 / 8,188
+2025-12-23 23:48:41 | INFO     | __main__:create_context_distribution_plot:106 - Creating context distribution plot...
+2025-12-23 23:48:43 | INFO     | __main__:create_context_distribution_plot:133 - Saved context distribution plot to: results/figures\context_distribution.png
+2025-12-23 23:48:43 | INFO     | __main__:process_product_attributes:137 - Processing product attributes...
+2025-12-23 23:48:43 | INFO     | __main__:process_product_attributes:154 - Creating rating levels...

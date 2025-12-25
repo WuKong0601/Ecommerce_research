@@ -1,0 +1,130 @@
+================================================================================
+CONTEXT AGGREGATION STATISTICS
+================================================================================
+
+AGGREGATION STRATEGY:
+--------------------------------------------------------------------------------
+  Method: Aggregate ALL user interactions per context
+  Contexts: 10
+  Embedding dimension: 23
+
+
+AFTERNOON_WEEKDAY:
+--------------------------------------------------------------------------------
+  Users: 7,338
+  Interactions: 8,125
+  Products: 2,393
+  Avg rating: 4.37
+  Avg price: 326,291
+  Top categories:
+    - Dụng cụ nhà bếp: 19.2%
+    - Dụng cụ & Thiết bị tiện ích: 12.1%
+    - Đèn & thiết bị chiếu sáng: 10.3%
+
+AFTERNOON_WEEKEND:
+--------------------------------------------------------------------------------
+  Users: 2,980
+  Interactions: 3,208
+  Products: 1,553
+  Avg rating: 4.38
+  Avg price: 300,384
+  Top categories:
+    - Dụng cụ nhà bếp: 19.4%
+    - Dụng cụ & Thiết bị tiện ích: 12.8%
+    - Sửa chữa nhà cửa: 10.8%
+
+EVENING_WEEKDAY:
+--------------------------------------------------------------------------------
+  Users: 7,484
+  Interactions: 8,146
+  Products: 2,382
+  Avg rating: 4.34
+  Avg price: 327,684
+  Top categories:
+    - Dụng cụ nhà bếp: 18.9%
+    - Dụng cụ & Thiết bị tiện ích: 12.7%
+    - Sửa chữa nhà cửa: 10.5%
+
+EVENING_WEEKEND:
+--------------------------------------------------------------------------------
+  Users: 2,789
+  Interactions: 2,981
+  Products: 1,535
+  Avg rating: 4.44
+  Avg price: 338,320
+  Top categories:
+    - Dụng cụ nhà bếp: 19.7%
+    - Dụng cụ & Thiết bị tiện ích: 13.3%
+    - Sửa chữa nhà cửa: 10.1%
+
+LATE_NIGHT_WEEKDAY:
+--------------------------------------------------------------------------------
+  Users: 3,835
+  Interactions: 4,106
+  Products: 1,727
+  Avg rating: 4.41
+  Avg price: 352,351
+  Top categories:
+    - Dụng cụ nhà bếp: 18.9%
+    - Dụng cụ & Thiết bị tiện ích: 13.2%
+    - Sửa chữa nhà cửa: 10.1%
+
+LATE_NIGHT_WEEKEND:
+--------------------------------------------------------------------------------
+  Users: 1,502
+  Interactions: 1,581
+  Products: 1,065
+  Avg rating: 4.43
+  Avg price: 352,316
+  Top categories:
+    - Dụng cụ nhà bếp: 20.0%
+    - Dụng cụ & Thiết bị tiện ích: 14.5%
+    - Sửa chữa nhà cửa: 9.9%
+
+MORNING_WEEKDAY:
+--------------------------------------------------------------------------------
+  Users: 7,505
+  Interactions: 8,188
+  Products: 2,321
+  Avg rating: 4.37
+  Avg price: 341,334
+  Top categories:
+    - Dụng cụ nhà bếp: 19.0%
+    - Dụng cụ & Thiết bị tiện ích: 13.4%
+    - Sửa chữa nhà cửa: 10.7%
+
+MORNING_WEEKEND:
+--------------------------------------------------------------------------------
+  Users: 2,705
+  Interactions: 2,914
+  Products: 1,508
+  Avg rating: 4.40
+  Avg price: 334,746
+  Top categories:
+    - Dụng cụ nhà bếp: 18.5%
+    - Dụng cụ & Thiết bị tiện ích: 13.7%
+    - Đèn & thiết bị chiếu sáng: 9.8%
+
+UNKNOWN_WEEKDAY:
+--------------------------------------------------------------------------------
+  Users: 6,622
+  Interactions: 7,201
+  Products: 2,198
+  Avg rating: 4.36
+  Avg price: 317,127
+  Top categories:
+    - Dụng cụ nhà bếp: 19.7%
+    - Dụng cụ & Thiết bị tiện ích: 13.0%
+    - Đèn & thiết bị chiếu sáng: 9.8%
+
+UNKNOWN_WEEKEND:
+--------------------------------------------------------------------------------
+  Users: 2,526
+  Interactions: 2,702
+  Products: 1,437
+  Avg rating: 4.38
+  Avg price: 328,750
+  Top categories:
+    - Dụng cụ nhà bếp: 20.7%
+    - Dụng cụ & Thiết bị tiện ích: 12.3%
+    - Sửa chữa nhà cửa: 9.4%

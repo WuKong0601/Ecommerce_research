@@ -1,0 +1,36 @@
+{
+  "baselines": [
+    {
+      "name": "average_pooling",
+      "num_params": 190113,
+      "best_val_auc": 0.9136841962326188,
+      "test_auc": 0.9109453456892962,
+      "test_ap": 0.6430860973030013,
+      "test_loss": 0.29799356329067567
+    },
+    {
+      "name": "standard_gru",
+      "num_params": 208929,
+      "best_val_auc": 0.914612423915815,
+      "test_auc": 0.9128374167013744,
+      "test_ap": 0.6503556378621629,
+      "test_loss": 0.30326220165578255
+    },
+    {
+      "name": "din",
+      "num_params": 202338,
+      "best_val_auc": 0.9132909889258672,
+      "test_auc": 0.9105942732194918,
+      "test_ap": 0.6444500223703223,
+      "test_loss": 0.31269416796631977
+    }
+  ],
+  "cofars_sparse": {
+    "name": "CoFARS-Sparse",
+    "num_params": 246582,
+    "best_val_auc": 0.9287891628303351,
+    "test_auc": 0.9329734277384424,
+    "test_ap": 0.7557777761423418,
+    "test_loss": 0.25495845879921714
+  }
+}
