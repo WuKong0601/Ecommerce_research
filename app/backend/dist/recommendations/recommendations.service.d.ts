@@ -36,7 +36,7 @@ export declare class RecommendationsService {
         images: string[];
         isActive: boolean;
     }[]>;
-    getContextAwareRecommendations(userId: string, limit?: number): Promise<{
+    getContextAwareRecommendations(userId: string, timeSlot?: string, isWeekend?: boolean, limit?: number): Promise<{
         name: string;
         description: string;
         id: string;
@@ -53,5 +53,8 @@ export declare class RecommendationsService {
         isActive: boolean;
     }[]>;
     private getPopularProducts;
+    private getContextBasedRecommendations;
+    private getInteractionBasedRecommendations;
+    private calculateContextId;
     private getContextId;
 }

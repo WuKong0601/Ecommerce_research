@@ -9,6 +9,7 @@ import { OrdersPage } from './pages/OrdersPage'
 import { LoginPage } from './pages/LoginPage'
 import { RegisterPage } from './pages/RegisterPage'
 import { ProfilePage } from './pages/ProfilePage'
+import { RecommendationsPage } from './pages/RecommendationsPage'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="checkout" element={<CheckoutPage />} />
         <Route path="orders" element={<OrdersPage />} />
         <Route path="profile" element={<ProfilePage />} />
+        <Route path="recommendations" element={<RecommendationsPage />} />
       </Route>
     </Routes>
   )

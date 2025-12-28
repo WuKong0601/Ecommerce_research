@@ -24,8 +24,8 @@ let RecommendationsController = class RecommendationsController {
     getPersonalized(req, limit) {
         return this.recommendationsService.getPersonalizedRecommendations(req.user.userId, limit ? parseInt(limit) : 10);
     }
-    getContextAware(req, limit) {
-        return this.recommendationsService.getContextAwareRecommendations(req.user.userId, limit ? parseInt(limit) : 10);
+    getContextAware(req, timeSlot, isWeekend, limit) {
+        return this.recommendationsService.getContextAwareRecommendations(req.user.userId, timeSlot, isWeekend === 'true', limit ? parseInt(limit) : 10);
     }
     getSimilar(productId, limit) {
         return this.recommendationsService.getSimilarProducts(productId, limit ? parseInt(limit) : 6);
@@ -47,9 +47,11 @@ __decorate([
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     (0, swagger_1.ApiBearerAuth)(),
     __param(0, (0, common_1.Request)()),
-    __param(1, (0, common_1.Query)('limit')),
+    __param(1, (0, common_1.Query)('timeSlot')),
+    __param(2, (0, common_1.Query)('isWeekend')),
+    __param(3, (0, common_1.Query)('limit')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, String]),
+    __metadata("design:paramtypes", [Object, String, String, String]),
     __metadata("design:returntype", void 0)
 ], RecommendationsController.prototype, "getContextAware", null);
 __decorate([

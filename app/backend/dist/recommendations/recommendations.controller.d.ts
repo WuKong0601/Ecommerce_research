@@ -18,7 +18,7 @@ export declare class RecommendationsController {
         images: string[];
         isActive: boolean;
     }[]>;
-    getContextAware(req: any, limit?: string): Promise<{
+    getContextAware(req: any, timeSlot?: string, isWeekend?: string, limit?: string): Promise<{
         name: string;
         description: string;
         id: string;

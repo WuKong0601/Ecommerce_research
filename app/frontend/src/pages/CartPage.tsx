@@ -4,7 +4,8 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { apiClient } from '@/lib/api-client'
 import { useCartStore } from '@/store/cart'
-import { Trash2, Loader2 } from 'lucide-react'
+import { Trash2, Loader2, Minus, Plus } from 'lucide-react'
+import { formatVND } from '@/lib/utils'
 
 export function CartPage() {
   const queryClient = useQueryClient()
@@ -76,7 +77,7 @@ export function CartPage() {
                     <p className="text-sm text-muted-foreground mb-2">
                       {item.product.category}
                     </p>
-                    <p className="font-bold">${item.product.price}</p>
+                    <p className="font-bold">{formatVND(item.product.price)}</p>
                   </div>
 
                   <div className="flex flex-col items-end justify-between">
@@ -100,12 +101,13 @@ export function CartPage() {
         <div>
           <Card>
             <CardContent className="p-6 space-y-4">
+              <p className="text-3xl font-bold">{formatVND(cart.total)}</p>
               <h3 className="text-xl font-bold">Order Summary</h3>
               
               <div className="space-y-2">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Subtotal</span>
-                  <span>${cart.total.toFixed(2)}</span>
+                  <span>{formatVND(cart.total)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Shipping</span>
@@ -113,7 +115,7 @@ export function CartPage() {
                 </div>
                 <div className="border-t pt-2 flex justify-between font-bold text-lg">
                   <span>Total</span>
-                  <span>${cart.total.toFixed(2)}</span>
+                  <span>{formatVND(cart.total)}</span>
                 </div>
               </div>
 

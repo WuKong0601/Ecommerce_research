@@ -1,9 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
-import { Card, CardContent } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { apiClient } from '@/lib/api-client'
 import { Loader2, Package } from 'lucide-react'
+import { formatVND } from '@/lib/utils'
 
 export function OrdersPage() {
   const { data: orders, isLoading } = useQuery({
@@ -74,7 +75,7 @@ export function OrdersPage() {
                     <div className="flex-1">
                       <p className="font-medium">{item.product.name}</p>
                       <p className="text-sm text-muted-foreground">
-                        Qty: {item.quantity} × ${item.price}
+                        Qty: {item.quantity} × {formatVND(item.price)}
                       </p>
                     </div>
                   </div>

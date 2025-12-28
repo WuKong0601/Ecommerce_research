@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { apiClient } from '@/lib/api-client'
-import { ProductCard } from './ProductCard'
+import { ProductCard } from '@/components/product/ProductCard'
 import { Loader2 } from 'lucide-react'
 
 export function RecommendationSection() {

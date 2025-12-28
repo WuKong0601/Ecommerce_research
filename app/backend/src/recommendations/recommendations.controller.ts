@@ -33,10 +33,14 @@ export class RecommendationsController {
   @ApiBearerAuth()
   getContextAware(
     @Request() req,
+    @Query('timeSlot') timeSlot?: string,
+    @Query('isWeekend') isWeekend?: string,
     @Query('limit') limit?: string,
   ) {
     return this.recommendationsService.getContextAwareRecommendations(
       req.user.userId,
+      timeSlot,
+      isWeekend === 'true',
       limit ? parseInt(limit) : 10,
     );
   }

@@ -6,7 +6,7 @@ import { useAuthStore } from '@/store/auth'
 import { useCartStore } from '@/store/cart'
 
 export function Header() {
-  const { isAuthenticated, user, logout } = useAuthStore()
+  const { isAuthenticated, logout } = useAuthStore()
   const { items } = useCartStore()
 
   return (
@@ -35,6 +35,10 @@ export function Header() {
 
             {isAuthenticated ? (
               <>
+                <Link to="/recommendations">
+                  <Button variant="ghost">AI Recommendations</Button>
+                </Link>
+
                 <Link to="/cart" className="relative">
                   <Button variant="ghost" size="icon">
                     <ShoppingCart className="h-5 w-5" />
