@@ -1,0 +1,57 @@
+import { PrismaService } from '../prisma/prisma.service';
+import { MLService } from './ml-service/ml.service';
+export declare class RecommendationsService {
+    private prisma;
+    private mlService;
+    constructor(prisma: PrismaService, mlService: MLService);
+    getPersonalizedRecommendations(userId: string, limit?: number): Promise<{
+        name: string;
+        description: string;
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        price: import("@prisma/client/runtime/library").Decimal;
+        category: string;
+        group: string;
+        priceBucket: number;
+        ratingLevel: number;
+        stock: number;
+        imageUrl: string | null;
+        images: string[];
+        isActive: boolean;
+    }[]>;
+    getSimilarProducts(productId: string, limit?: number): Promise<{
+        name: string;
+        description: string;
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        price: import("@prisma/client/runtime/library").Decimal;
+        category: string;
+        group: string;
+        priceBucket: number;
+        ratingLevel: number;
+        stock: number;
+        imageUrl: string | null;
+        images: string[];
+        isActive: boolean;
+    }[]>;
+    getContextAwareRecommendations(userId: string, limit?: number): Promise<{
+        name: string;
+        description: string;
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        price: import("@prisma/client/runtime/library").Decimal;
+        category: string;
+        group: string;
+        priceBucket: number;
+        ratingLevel: number;
+        stock: number;
+        imageUrl: string | null;
+        images: string[];
+        isActive: boolean;
+    }[]>;
+    private getPopularProducts;
+    private getContextId;
+}

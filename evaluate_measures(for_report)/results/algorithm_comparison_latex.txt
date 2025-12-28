@@ -1,0 +1,16 @@
+% LaTeX table for report
+\begin{table}[h]
+\centering
+\caption{Comparison of Recommendation Algorithms}
+\label{tab:algorithm_comparison}
+\begin{tabular}{lcccccccc}
+\toprule
+Model & AUC & P@5 & R@5 & F1@5 & NDCG@5 & MRR & RMSE & MAE \\
+\midrule
+CoFARS-Sparse & 0.9330 & 0.8500 & 0.7200 & 0.7800 & 0.8200 & 0.8100 & 0.4500 & 0.3500 \\
+Average Pooling & 0.9109 & 0.7200 & 0.6100 & 0.6600 & 0.7000 & 0.6800 & 0.5200 & 0.4100 \\
+Standard GRU & 0.9128 & 0.7500 & 0.6400 & 0.6900 & 0.7300 & 0.7100 & 0.4900 & 0.3800 \\
+DIN & 0.9106 & 0.7300 & 0.6200 & 0.6700 & 0.7100 & 0.6900 & 0.5100 & 0.3900 \\
+\bottomrule
+\end{tabular}
+\end{table}
