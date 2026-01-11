@@ -1,0 +1,349 @@
+<mxfile host="app.diagrams.net" agent="CoFARS-Sparse Pipeline Diagram" version="29.2.3">
+  <diagram name="CoFARS-Sparse End-to-End Pipeline" id="cofars_sparse_pipeline">
+    <mxGraphModel dx="1800" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3600" pageHeight="2800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- TITLE -->
+        <mxCell id="title" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=24;" value="CoFARS-SPARSE: DATA PREPROCESSING → MODEL TRAINING → INFERENCE" vertex="1">
+          <mxGeometry x="160" y="20" width="1400" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== PHASE 1: RAW DATA ===================== -->
+        <mxCell id="sec-raw" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=top;fontStyle=1;fontSize=16;" value="PHASE 1: RAW DATA (data/)" vertex="1">
+          <mxGeometry x="160" y="120" width="340" height="200" as="geometry" />
+        </mxCell>
+
+        <mxCell id="raw-products" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#fff2cc;strokeColor=#d6b656;" value="products.csv&lt;br&gt;(11,746 sản phẩm)&lt;br&gt;asin, category, price, rating" vertex="1">
+          <mxGeometry x="190" y="170" width="130" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="raw-reviews" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#fff2cc;strokeColor=#d6b656;" value="reviews.csv&lt;br&gt;(48,131 reviews)&lt;br&gt;user_id, product_id,&lt;br&gt;rating, timestamp" vertex="1">
+          <mxGeometry x="340" y="170" width="130" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="raw-note" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontStyle=2;fontSize=11;" value="Amazon E-commerce Dataset" vertex="1">
+          <mxGeometry x="220" y="270" width="200" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== PHASE 2: PREPROCESSING ===================== -->
+        <mxCell id="sec-preprocess" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;verticalAlign=top;fontStyle=1;fontSize=16;" value="PHASE 2: DATA PREPROCESSING (src/data_processing/)" vertex="1">
+          <mxGeometry x="560" y="120" width="1000" height="450" as="geometry" />
+        </mxCell>
+
+        <!-- Step 1: Clean Data -->
+        <mxCell id="lbl-step1" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontSize=13;" value="STEP 1: Data Cleaning" vertex="1">
+          <mxGeometry x="580" y="160" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="step1-process" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="01_clean_data.py&lt;br&gt;━━━━━━━━━━━━&lt;br&gt;• Handle missing values&lt;br&gt;• Remove duplicates&lt;br&gt;• Validate data types&lt;br&gt;• Filter invalid records" vertex="1">
+          <mxGeometry x="580" y="190" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="step1-output" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Output:&lt;br&gt;cleaned_products.csv&lt;br&gt;cleaned_reviews.csv&lt;br&gt;cleaning_stats.json" vertex="1">
+          <mxGeometry x="580" y="310" width="180" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Step 2: Build Contexts -->
+        <mxCell id="lbl-step2" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontSize=13;" value="STEP 2: Context Building" vertex="1">
+          <mxGeometry x="790" y="160" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="step2-process" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="02_build_contexts.py&lt;br&gt;━━━━━━━━━━━━&lt;br&gt;• Extract time_slot&lt;br&gt; (morning/afternoon/&lt;br&gt;  evening/late_night)&lt;br&gt;• Extract is_weekend&lt;br&gt;• Create 10 contexts&lt;br&gt;• Bucket price (1-5)&lt;br&gt;• Bucket rating (1-3)" vertex="1">
+          <mxGeometry x="790" y="190" width="180" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="step2-output" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Output:&lt;br&gt;reviews_with_contexts.csv&lt;br&gt;context_mapping.json&lt;br&gt;context_distributions.json" vertex="1">
+          <mxGeometry x="790" y="350" width="180" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Context Grid Visualization -->
+        <mxCell id="context-grid" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="10 Contexts:&lt;br&gt;┌─────────┬─────────┐&lt;br&gt;│Weekday │Weekend│&lt;br&gt;├─────────┼─────────┤&lt;br&gt;│Morning │Morning │&lt;br&gt;│Afternoon│Afternoon│&lt;br&gt;│Evening │Evening │&lt;br&gt;│LateNight│LateNight│&lt;br&gt;│Unknown │Unknown │&lt;br&gt;└─────────┴─────────┘" vertex="1">
+          <mxGeometry x="790" y="450" width="180" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- Step 3: JS Divergence -->
+        <mxCell id="lbl-step3" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontSize=13;" value="STEP 3: JS Divergence" vertex="1">
+          <mxGeometry x="1000" y="160" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="step3-process" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="03_calculate_divergence.py&lt;br&gt;━━━━━━━━━━━━&lt;br&gt;• Calculate KL(P||Q)&lt;br&gt;• Calculate JS(P||Q)&lt;br&gt; = 0.5*KL(P||M)&lt;br&gt;   + 0.5*KL(Q||M)&lt;br&gt;• Build 10x10 Matrix&lt;br&gt;• Compute similarity:&lt;br&gt;  sim = 1 - JS_div" vertex="1">
+          <mxGeometry x="1000" y="190" width="180" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="step3-output" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Output:&lt;br&gt;js_divergence_matrix.npy&lt;br&gt;similarity_matrix.npy&lt;br&gt;similarity_heatmap.png" vertex="1">
+          <mxGeometry x="1000" y="360" width="180" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- JS Div Matrix Preview -->
+        <mxCell id="js-matrix" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Similarity Matrix&lt;br&gt;(10 × 10)&lt;br&gt;━━━━━━━━━&lt;br&gt;weekend_morning ↔&lt;br&gt;weekday_morning&lt;br&gt;sim = 0.89" vertex="1">
+          <mxGeometry x="1000" y="460" width="180" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Step 4: User Segmentation -->
+        <mxCell id="lbl-step4" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontSize=13;" value="STEP 4: User Segmentation" vertex="1">
+          <mxGeometry x="1210" y="160" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="step4-process" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="04_user_segmentation.py&lt;br&gt;━━━━━━━━━━━━&lt;br&gt;• Count interactions/user&lt;br&gt;• Classify segments:&lt;br&gt;  - COLD_START: 1&lt;br&gt;  - REGULAR: 2-4&lt;br&gt;  - POWER: ≥5&lt;br&gt;• Create visualizations" vertex="1">
+          <mxGeometry x="1210" y="190" width="180" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="step4-output" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Output:&lt;br&gt;user_segments.csv&lt;br&gt;segment_stats.json&lt;br&gt;segment_distribution.png" vertex="1">
+          <mxGeometry x="1210" y="340" width="180" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Segment Stats -->
+        <mxCell id="segment-stats" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="User Distribution:&lt;br&gt;━━━━━━━━━━━&lt;br&gt;🔵 Cold-start: 1 user&lt;br&gt;🟢 Regular: 35,251 users&lt;br&gt;🟣 Power: 5,271 users" vertex="1">
+          <mxGeometry x="1210" y="440" width="180" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Step 5: Context Aggregation -->
+        <mxCell id="lbl-step5" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontSize=13;" value="STEP 5: Context Aggregation" vertex="1">
+          <mxGeometry x="1410" y="160" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="step5-process" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="05_context_aggregation.py&lt;br&gt;━━━━━━━━━━━━&lt;br&gt;• Aggregate preferences&lt;br&gt; per context&lt;br&gt;• Build context profiles&lt;br&gt;• Create initial context&lt;br&gt; embeddings (64-dim)&lt;br&gt;• Build vocabulary" vertex="1">
+          <mxGeometry x="1400" y="190" width="150" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="step5-output" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Output:&lt;br&gt;context_profiles.json&lt;br&gt;context_embeddings.npy&lt;br&gt;vocabulary.json&lt;br&gt;train_data.csv" vertex="1">
+          <mxGeometry x="1400" y="350" width="150" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- Preprocessing Flow Arrows -->
+        <mxCell id="arr-raw-step1" edge="1" parent="1" source="raw-reviews" target="step1-process" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-step1-step2" edge="1" parent="1" source="step1-output" target="step2-process" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-step2-step3" edge="1" parent="1" source="step2-output" target="step3-process" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-step3-step4" edge="1" parent="1" source="step3-output" target="step4-process" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-step4-step5" edge="1" parent="1" source="step4-output" target="step5-process" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-step2-grid" edge="1" parent="1" source="step2-output" target="context-grid" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-step3-matrix" edge="1" parent="1" source="step3-output" target="js-matrix" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-step4-stats" edge="1" parent="1" source="step4-output" target="segment-stats" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== PHASE 3: MODEL ARCHITECTURE ===================== -->
+        <mxCell id="sec-model" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;verticalAlign=top;fontStyle=1;fontSize=16;" value="PHASE 3: CoFARS-SPARSE MODEL ARCHITECTURE (src/models/)" vertex="1">
+          <mxGeometry x="160" y="620" width="1400" height="450" as="geometry" />
+        </mxCell>
+
+        <!-- Model Input -->
+        <mxCell id="model-input" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" value="INPUT BATCH&lt;br&gt;━━━━━━━━━━&lt;br&gt;user_segment&lt;br&gt;user_item_ids&lt;br&gt;context_id&lt;br&gt;candidate_item" vertex="1">
+          <mxGeometry x="190" y="700" width="130" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Context Prototypes Module -->
+        <mxCell id="ctx-proto-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;dashed=1;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry x="360" y="670" width="280" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-proto-title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontSize=14;fillColor=#fff2cc;" value="prototypes.py" vertex="1">
+          <mxGeometry x="430" y="680" width="130" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-proto-embed" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="ContextPrototypes&lt;br&gt;━━━━━━━━━━━&lt;br&gt;• 10 Context Embeddings&lt;br&gt;• K=5 Learnable Prototypes&lt;br&gt;• Soft Assignment (Attention)&lt;br&gt;• Prototype-weighted repr" vertex="1">
+          <mxGeometry x="375" y="720" width="170" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-matcher" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="StaticContextMatcher&lt;br&gt;━━━━━━━━━━━&lt;br&gt;• Use JS Similarity Matrix&lt;br&gt;• Get Top-K similar contexts&lt;br&gt;• Aggregate from similar" vertex="1">
+          <mxGeometry x="555" y="720" width="170" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="ind-loss" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" value="IndependenceLoss&lt;br&gt;L_IND = cosine_sim" vertex="1">
+          <mxGeometry x="555" y="820" width="170" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Probability Encoder Module -->
+        <mxCell id="prob-enc-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;dashed=1;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry x="680" y="670" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="prob-enc-title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontSize=14;fillColor=#d5e8d4;" value="probability_encoder.py" vertex="1">
+          <mxGeometry x="700" y="680" width="160" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="prob-encoder" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="ProbabilityEncoder&lt;br&gt;━━━━━━━━━━━&lt;br&gt;MLP: 64 → 128 → 128&lt;br&gt;→ (categories + price&lt;br&gt;   + rating) dims&lt;br&gt;━━━━━━━━━━━&lt;br&gt;Softmax per attribute" vertex="1">
+          <mxGeometry x="695" y="720" width="170" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="js-loss" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" value="JSDivergenceLoss&lt;br&gt;L_MSE = ||JS_est - JS_gt||²" vertex="1">
+          <mxGeometry x="695" y="840" width="170" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- Hybrid User Encoder Module -->
+        <mxCell id="user-enc-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;dashed=1;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry x="920" y="670" width="320" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="user-enc-title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontSize=14;fillColor=#e1d5e7;" value="user_modules.py" vertex="1">
+          <mxGeometry x="1010" y="680" width="140" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="user-power" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="PowerUserModule&lt;br&gt;(≥5 interactions)&lt;br&gt;━━━━━━━━━━━&lt;br&gt;GRU Sequence&lt;br&gt;Modeling" vertex="1">
+          <mxGeometry x="935" y="720" width="90" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="user-regular" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="RegularUserModule&lt;br&gt;(2-4 interactions)&lt;br&gt;━━━━━━━━━━━&lt;br&gt;Weighted Mean&lt;br&gt;+ Context Gate" vertex="1">
+          <mxGeometry x="1035" y="720" width="95" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="user-cold" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="ColdStartModule&lt;br&gt;(1 interaction)&lt;br&gt;━━━━━━━━━━━&lt;br&gt;Pure Context&lt;br&gt;Based" vertex="1">
+          <mxGeometry x="1140" y="720" width="90" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="hybrid-encoder" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="HybridUserEncoder&lt;br&gt;(Routes by segment)" vertex="1">
+          <mxGeometry x="960" y="835" width="200" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- CoFARS-Sparse Main -->
+        <mxCell id="cofars-main" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=14;" value="CoFARSSparse&lt;br&gt;(cofars_sparse.py)&lt;br&gt;━━━━━━━━━━━━━━━━━&lt;br&gt;• Item Embeddings (64-dim)&lt;br&gt;• Score = dot(user_repr, item_emb)&lt;br&gt;• Sigmoid → Probability" vertex="1">
+          <mxGeometry x="1280" y="720" width="250" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Total Loss -->
+        <mxCell id="total-loss" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" value="TOTAL LOSS&lt;br&gt;━━━━━━━━━━━━━━━━━━━━&lt;br&gt;L = L_REC + γ*L_MSE + λ*L_IND&lt;br&gt;(BCE Loss + JS Alignment + Independence)" vertex="1">
+          <mxGeometry x="1280" y="870" width="250" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Model Output -->
+        <mxCell id="model-output" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" value="OUTPUT&lt;br&gt;━━━━━━━━━━&lt;br&gt;probability&lt;br&gt;scores" vertex="1">
+          <mxGeometry x="1280" y="980" width="130" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Model Flow Arrows -->
+        <mxCell id="arr-in-ctx" edge="1" parent="1" source="model-input" target="ctx-proto-embed" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-ctx-prob" edge="1" parent="1" source="ctx-proto-embed" target="prob-encoder" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-ctx-user" edge="1" parent="1" source="ctx-proto-embed" target="hybrid-encoder" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="460" y="895" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arr-user-main" edge="1" parent="1" source="hybrid-encoder" target="cofars-main" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-main-loss" edge="1" parent="1" source="cofars-main" target="total-loss" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-js-loss" edge="1" parent="1" source="js-loss" target="total-loss" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=#82b366;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-ind-loss" edge="1" parent="1" source="ind-loss" target="total-loss" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=#d79b00;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-main-out" edge="1" parent="1" source="total-loss" target="model-output" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== PHASE 4: TRAINING ===================== -->
+        <mxCell id="sec-train" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;verticalAlign=top;fontStyle=1;fontSize=16;" value="PHASE 4: TRAINING LOOP (src/train.py)" vertex="1">
+          <mxGeometry x="160" y="1120" width="700" height="200" as="geometry" />
+        </mxCell>
+
+        <mxCell id="train-load" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Load Data&lt;br&gt;━━━━━━━━━&lt;br&gt;create_dataloaders()&lt;br&gt;train/val split" vertex="1">
+          <mxGeometry x="190" y="1170" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="train-init" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Init Model&lt;br&gt;━━━━━━━━━&lt;br&gt;CoFARSSparse()&lt;br&gt;Adam Optimizer" vertex="1">
+          <mxGeometry x="330" y="1170" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="train-epoch" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="train_epoch()&lt;br&gt;━━━━━━━━━&lt;br&gt;Forward Pass&lt;br&gt;Calculate Loss&lt;br&gt;Backward Pass&lt;br&gt;Optimizer Step" vertex="1">
+          <mxGeometry x="470" y="1160" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="train-eval" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="evaluate()&lt;br&gt;━━━━━━━━━&lt;br&gt;Validation Loss&lt;br&gt;AUC Score" vertex="1">
+          <mxGeometry x="610" y="1170" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="train-save" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Save Best&lt;br&gt;Model&lt;br&gt;(checkpoint)" vertex="1">
+          <mxGeometry x="730" y="1180" width="100" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Training Flow Arrows -->
+        <mxCell id="arr-tr1" edge="1" parent="1" source="train-load" target="train-init" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-tr2" edge="1" parent="1" source="train-init" target="train-epoch" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-tr3" edge="1" parent="1" source="train-epoch" target="train-eval" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-tr4" edge="1" parent="1" source="train-eval" target="train-save" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-tr-loop" edge="1" parent="1" source="train-eval" target="train-epoch" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="1280" />
+              <mxPoint x="530" y="1280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ===================== PHASE 5: OUTPUTS ===================== -->
+        <mxCell id="sec-output" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;align=left;verticalAlign=top;fontStyle=1;fontSize=16;" value="PHASE 5: OUTPUTS (results/)" vertex="1">
+          <mxGeometry x="900" y="1120" width="660" height="200" as="geometry" />
+        </mxCell>
+
+        <mxCell id="out-model" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450;" value="best_model.pt&lt;br&gt;(CoFARS-Sparse&lt;br&gt;Weights)" vertex="1">
+          <mxGeometry x="930" y="1170" width="120" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="out-metrics" parent="1" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Metrics&lt;br&gt;━━━━━━━━━&lt;br&gt;• Train/Val Loss&lt;br&gt;• AUC Score&lt;br&gt;• Precision@K&lt;br&gt;• Recall@K&lt;br&gt;• NDCG@K" vertex="1">
+          <mxGeometry x="1070" y="1160" width="120" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="out-logs" parent="1" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Logs&lt;br&gt;━━━━━━━━━&lt;br&gt;training_log.txt&lt;br&gt;tensorboard/" vertex="1">
+          <mxGeometry x="1210" y="1170" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="out-viz" parent="1" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Visualizations&lt;br&gt;━━━━━━━━━&lt;br&gt;loss_curve.png&lt;br&gt;auc_curve.png" vertex="1">
+          <mxGeometry x="1350" y="1170" width="120" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Training to Output Arrows -->
+        <mxCell id="arr-to-out" edge="1" parent="1" source="train-save" target="out-model" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Preprocessing to Model Arrow -->
+        <mxCell id="arr-prep-model" edge="1" parent="1" source="step5-output" target="model-input" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#0066CC;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1475" y="600" />
+              <mxPoint x="140" y="600" />
+              <mxPoint x="140" y="760" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- JS Matrix to Model Arrow -->
+        <mxCell id="arr-js-model" edge="1" parent="1" source="js-matrix" target="ctx-matcher" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#d79b00;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="640" y="510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend-box" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=top;fontStyle=1;" value="LEGEND" vertex="1">
+          <mxGeometry x="160" y="1360" width="400" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Data/Config" vertex="1">
+          <mxGeometry x="180" y="1390" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Process Step" vertex="1">
+          <mxGeometry x="270" y="1390" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Output File" vertex="1">
+          <mxGeometry x="360" y="1390" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Model Core" vertex="1">
+          <mxGeometry x="180" y="1430" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Training" vertex="1">
+          <mxGeometry x="270" y="1430" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Context Info" vertex="1">
+          <mxGeometry x="360" y="1430" width="80" height="30" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

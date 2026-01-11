@@ -1,0 +1,625 @@
+\documentclass[11pt]{article}
+\usepackage{acl}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{inconsolata}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb}
+\usepackage{url}
+
+\title{E-commerce Recommendation Systems with Sparse Data: A Comparison of Methods and the CoFARS-Sparse Model}
+
+\author{\normalfont
+Huynh Le Quoc Cong – 22520168@gm.uit.edu.vn\\
+Do Thanh Dat – 22520206@gm.uit.edu.vn\\
+Chau Nguyen Tri Vu – 22521687@gm.uit.edu.vn\\
+Van Thi Bao Han – 23520439@gm.uit.edu.vn\\
+Tran Nhat Phuong Anh – 23520078@gm.uit.edu.vn
+}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Recommendation systems are critical components of e-commerce platforms, enhancing user experience and business efficiency. In the Vietnamese e-commerce context, user-product interaction data exhibits extremely high sparsity, limiting traditional recommendation methods. This study conducts a comprehensive comparison of collaborative filtering, content-based filtering, and hybrid methods.
+
+Additionally, we propose the CoFARS-Sparse framework to exploit contextual information for improving recommendation quality under sparse data conditions. Experiments were conducted on a Vietnamese e-commerce dataset with standardized preprocessing and evaluation procedures. Results show that CoFARS-Sparse achieves 93.30\% AUC and 75.58\% AP, significantly outperforming baseline methods on most evaluation metrics, confirming the suitability of this approach for Vietnamese e-commerce recommendation systems.
+\end{abstract}
+
+\section{Introduction}
+
+\subsection{Motivation and Background}
+
+Recommendation systems have become indispensable infrastructure in modern e-commerce platforms, serving as the primary mechanism through which users discover products matching their preferences within massive product catalogs. The fundamental challenge in recommendation lies in accurately modeling user preferences from historical behavioral data~\cite{hidasi2016,kang2018,sun2019}.
+
+In recent years, context-aware recommendation methods have emerged as a particularly promising approach. By incorporating contextual information—such as temporal features (time of day, day of week), spatial features (location, device type), and environmental characteristics—these methods can capture the subtle ways in which user preferences vary across different situations~\cite{rendle2010,villegas2018}. The CoFARS (Context-based Fast Recommendation Strategy) framework~\cite{cofars2024} exemplifies this approach, demonstrating significant improvements on food delivery platforms.
+
+However, careful examination of existing context-aware sequential recommendation methods reveals a fundamental assumption that severely limits their applicability: \textbf{they are designed and validated on datasets with dense user interaction histories}. For example, the original CoFARS paper reports that 27\% of users in the Meituan Waimai platform have used the application more than 1,000 times in the past year, with an average of 4,423 interactions per user.
+
+\subsection{Sparse Data Challenges in E-commerce}
+
+In stark contrast to food delivery platforms, many e-commerce domains—particularly those involving infrequent purchases such as home products, furniture, and electronics—exhibit fundamentally different interaction patterns with extreme sparsity characteristics. Analysis of our real-world home products e-commerce dataset reveals:
+
+\begin{itemize}
+\item \textbf{User-level sparsity}: 87.0\% of users have exactly 1 interaction, 12.2\% have 2-4 interactions, and only 0.8\% have 5 or more interactions
+\item \textbf{Average sequence length}: 1.21 interactions per user (compared to 4,423 in Meituan Waimai)
+\item \textbf{Median sequence length}: 1 interaction (50th percentile)
+\end{itemize}
+
+This extreme sparsity creates three fundamental challenges that render existing long-sequence modeling methods ineffective:
+
+\textbf{Challenge 1: Insufficient Sequence Length for Temporal Modeling.} Traditional sequential recommendation models, whether based on recurrent neural networks~\cite{hidasi2016,li2017}, attention mechanisms~\cite{kang2018,sun2019}, or graph neural networks~\cite{wu2019,chang2021}, all assume that users have sufficiently long interaction histories to learn meaningful temporal patterns.
+
+\textbf{Challenge 2: Limited Context Re-visitation.} Context-aware methods rely on observing user behavior across multiple visits to the same context to build reliable context-specific preference profiles.
+
+\textbf{Challenge 3: Cold-start Dominance.} The vast majority (87\%) of users in our dataset are in a permanent cold-start state, never progressing beyond their first interaction.
+
+\subsection{Research Contributions}
+
+To address these challenges, we propose \textbf{CoFARS-Sparse}, a comprehensive recommendation framework with the following main contributions:
+
+\begin{enumerate}
+\item \textbf{Hybrid User Modeling with Theoretical Foundation}: We formalize a three-tier user segmentation strategy applying different modeling approaches based on interaction frequency.
+
+\item \textbf{Static Context Aggregation via JS Divergence}: We replace temporal graph neural networks with an information-theoretic static aggregation approach using Jensen-Shannon divergence.
+
+\item \textbf{Probability Encoder}: We design a neural probability encoder that maps latent context representations to interpretable attribute distributions.
+\end{enumerate}
+
+Figure~\ref{fig:pipeline} illustrates the overall workflow of our research, from data collection to model evaluation.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\linewidth]{pipeline.png}
+    \caption{Overall workflow of the recommendation system. (1) Data collection from Tiki via web crawling, (2) Preprocessing and statistical analysis, (3) Implementation of recommendation methods (CF, Content-based, Hybrid, CoFARS-Sparse), (4) Comprehensive evaluation with ranking and rating prediction metrics.}
+    \label{fig:pipeline}
+\end{figure}
+
+\textbf{Workflow Analysis:} The workflow begins with data collection from the Tiki e-commerce platform, including user, product, and review information. Data is then preprocessed to remove noise, normalize values, and create context features. Next, we implement and compare multiple recommendation methods, from traditional approaches (Collaborative Filtering, Content-based) to hybrid methods and the CoFARS-Sparse deep learning model. Finally, all methods are comprehensively evaluated using standard metrics including AUC, AP, Precision@K, Recall@K, NDCG, MRR, RMSE, and MAE.
+
+\section{Related Work}
+
+\subsection{Context-Aware Recommendation}
+
+Context-aware recommendation systems leverage contextual information such as time, location, and user state to improve recommendation quality~\cite{villegas2018}. Early work by Rendle~\cite{rendle2010} introduced Factorization Machines (FM) for feature interaction modeling. Subsequent methods~\cite{juan2016,hong2019} focused on second-order interactions, while deep learning approaches~\cite{lian2018,wang2021dcn} model high-order interactions through neural networks.
+
+\subsection{Long User Behavior Sequence Modeling}
+
+As sequence length increases, model performance typically improves~\cite{pi2020sim}. Existing methods fall into two categories: RNN-based methods and two-stage methods. RNN-based methods like HPMN~\cite{ren2019} and MIMN~\cite{pi2019mimn} use memory networks to store historical behavior. SIM~\cite{pi2020sim} introduces General Search Unit (GSU) for retrieving relevant items, while TWIN~\cite{chang2023} enhances consistency between stages.
+
+\section{Dataset}
+
+The dataset used in this study was collected via web crawling from the Tiki e-commerce platform, one of the most popular online shopping platforms in Vietnam. The data focuses on the home and lifestyle category.
+
+\begin{table}[H]
+\centering
+\caption{Dataset Statistics}
+\begin{tabular}{|l|r|}
+\hline
+\textbf{Attribute} & \textbf{Value} \\
+\hline
+Total users & 40,522 \\
+Total products & 11,746 \\
+Total interactions & 49,152 \\
+Number of contexts & 10 \\
+Avg. interactions/user & 1.21 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{image1.png}
+    \caption{Distribution of user interaction counts}
+    \label{fig:user_dist}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{image2.png}
+    \caption{Distribution of product interaction counts}
+    \label{fig:item_dist}
+\end{figure}
+
+\textbf{User Segment Statistics:}
+\begin{itemize}
+\item Power users ($\geq$5 interactions): 344 users (0.8\%), 2,607 reviews (5.3\%)
+\item Regular users (2-4 interactions): 4,927 users (12.2\%), 11,294 reviews (23.0\%)
+\item Cold-start users (1 interaction): 35,251 users (87.0\%), 35,251 reviews (71.7\%)
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{user_segmentation.png}
+    \caption{User segment distribution: 87\% cold-start, 12.2\% regular, 0.8\% power users}
+    \label{fig:user_segmentation}
+\end{figure}
+
+\section{CoFARS-Sparse Methodology}
+
+\subsection{Overview}
+
+CoFARS-Sparse consists of four main components: (1) Probability Encoder mapping context representations to product attribute distributions, (2) Context Prototypes serving as preference centroids, (3) Static Context Matcher aggregating similar contexts without temporal graphs, and (4) Hybrid User Encoder applying different strategies based on user interaction frequency.
+
+\subsection{Probability Encoder}
+
+Traditional context similarity methods using cosine similarity of embeddings lack interpretability and depend heavily on embedding quality. We observe that user preferences in specific contexts are better represented through probability distributions over product attributes.
+
+We use Jensen-Shannon (JS) divergence to measure context similarity. For context $c_i$, let $D(c_i) = p(a_1, a_2, \ldots, a_{|\mathcal{A}|} | c_i)$ be the attribute value distribution under context $c_i$, obtained from interaction logs. The JS divergence between contexts $c_i$ and $c_j$ is:
+
+\begin{equation}
+\text{KL}(c_i, c_j) = \sum_{a_1 \in \mathcal{A}_1} \cdots \sum_{a_{|\mathcal{A}|} \in \mathcal{A}_{|\mathcal{A}|}} D(c_i) \log \frac{D(c_i)}{D(c_j)}
+\end{equation}
+
+\begin{equation}
+\text{JS}(c_i, c_j) = \frac{1}{2} \left[ \text{KL}(c_i, c_j) + \text{KL}(c_j, c_i) \right]
+\end{equation}
+
+To enable neural network learning, we design a probability encoder using MLP with sigmoid activation:
+\begin{equation}
+P(\mathbf{c}_i) = \text{MLP}(\mathbf{c}_i)
+\end{equation}
+
+We align estimated JS divergence with ground truth through MSE loss:
+\begin{equation}
+\mathcal{L}_{\text{MSE}} = \frac{1}{|\mathcal{C}|^2} \sum_{i=1}^{|\mathcal{C}|} \sum_{j=1}^{|\mathcal{C}|} \left( \text{JS}(c_i, c_j) - \widetilde{\text{JS}}(\mathbf{c}_i, \mathbf{c}_j) \right)^2
+\end{equation}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{context_similarity_heatmap.png}
+    \caption{Context similarity heatmap based on JS divergence}
+    \label{fig:context_similarity}
+\end{figure}
+
+\subsection{Context Prototypes}
+
+To handle context cold-start and reduce complexity, we introduce prototypes $\mathcal{O} = \{o_1, o_2, \ldots, o_K\}$ serving as preference centroids. To encourage prototype diversity, we apply independence loss:
+
+\begin{equation}
+\mathcal{L}_{\text{IND}} = -\frac{1}{|\mathcal{O}|^2} \sum_{i=1}^{|\mathcal{O}|} \sum_{j=1}^{|\mathcal{O}|} \widetilde{\text{JS}}(\mathbf{o}_i, \mathbf{o}_j)
+\end{equation}
+
+\subsection{Hybrid User Encoder}
+
+The key innovation of CoFARS-Sparse is recognizing that different user segments require different modeling strategies. We segment users into three groups:
+
+\textbf{Power Users ($n \geq 5$):} These users have sufficient interactions for sequence modeling. We apply GRU to encode behavior:
+\begin{equation}
+\mathbf{h}_{\text{power}} = \text{GRU}(\mathbf{e}_{i_1}, \mathbf{e}_{i_2}, \ldots, \mathbf{e}_{i_n})
+\end{equation}
+
+\textbf{Regular Users ($2 \leq n \leq 4$):} These users have limited sequences. We use context-enriched average pooling:
+\begin{equation}
+\mathbf{h}_{\text{regular}} = \text{AvgPool}(\mathbf{e}_{i_1}, \ldots, \mathbf{e}_{i_n}) + \alpha \cdot \mathbf{c}_t^{\text{enriched}}
+\end{equation}
+
+\textbf{Cold-start Users ($n = 1$):} These users have a single interaction. We rely primarily on context:
+\begin{equation}
+\mathbf{h}_{\text{cold}} = \beta \cdot \mathbf{e}_{i_1} + (1-\beta) \cdot \mathbf{c}_t^{\text{enriched}}
+\end{equation}
+
+The hybrid encoder selects appropriate strategy based on user segment:
+\begin{equation}
+\mathbf{h}_u = \begin{cases}
+\mathbf{h}_{\text{power}} & \text{if } n \geq 5 \\
+\mathbf{h}_{\text{regular}} & \text{if } 2 \leq n \leq 4 \\
+\mathbf{h}_{\text{cold}} & \text{if } n = 1
+\end{cases}
+\end{equation}
+
+\subsection{Prediction and Training}
+
+Given user representation $\mathbf{h}_u$ and candidate product embedding $\mathbf{e}_c$, we compute prediction score:
+\begin{equation}
+\hat{y} = \text{MLP}([\mathbf{h}_u; \mathbf{e}_c])
+\end{equation}
+
+The total loss combines recommendation loss, MSE loss, and independence loss:
+\begin{equation}
+\mathcal{L} = \mathcal{L}_{\text{REC}} + \gamma \cdot \mathcal{L}_{\text{MSE}} + \lambda \cdot \mathcal{L}_{\text{IND}}
+\end{equation}
+
+where $\mathcal{L}_{\text{REC}}$ is binary cross-entropy loss, and $\gamma=0.05$, $\lambda=0.001$ are loss weights.
+
+\section{Experiments}
+
+\subsection{Experimental Setup}
+
+\textbf{Implementation Details:} Embedding dimension: 16, number of prototypes: 30, GRU hidden dimension: 64, batch size: 64, learning rate: 5e-4 with ReduceLROnPlateau scheduler, early stopping patience: 10 epochs. Training for 50 epochs with Adam optimizer and weight decay 1e-5.
+
+\textbf{Baselines:} We compare against three traditional models:
+\begin{itemize}
+\item \textbf{Average Pooling}~\cite{covington2016}: Simple average of item embeddings
+\item \textbf{Standard GRU}: Sequential modeling with GRU
+\item \textbf{DIN}~\cite{zhou2018din}: Target attention mechanism
+\end{itemize}
+
+\textbf{Evaluation Metrics:} AUC (Area Under ROC Curve) and AP (Average Precision) for binary prediction tasks.
+
+\subsection{Overall Performance}
+
+\begin{table}[H]
+\centering
+\caption{Test set performance comparison. CoFARS-Sparse outperforms all baselines by 2.2-2.5\% AUC.}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Model} & \textbf{Params} & \textbf{AUC} & \textbf{AP} \\
+\midrule
+Average Pooling & 190K & 0.9109 & 0.6431 \\
+Standard GRU & 209K & 0.9128 & 0.6504 \\
+DIN & 202K & 0.9106 & 0.6445 \\
+\midrule
+\textbf{CoFARS-Sparse} & \textbf{247K} & \textbf{0.9330} & \textbf{0.7558} \\
+\bottomrule
+\end{tabular}
+\label{tab:main_results}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\linewidth]{combined_comparison.png}
+    \caption{Performance comparison. (a) Test AUC shows CoFARS-Sparse achieves 93.30\%, outperforming baselines by 2.2-2.5\%. (b) Test AP shows significant improvement to 75.58\% (+17\% over best baseline).}
+    \label{fig:combined_comparison}
+\end{figure}
+
+Key observations:
+\begin{itemize}
+\item CoFARS-Sparse achieves 93.30\% AUC, outperforming the best baseline (Standard GRU: 91.28\%) by 2.2\%.
+\item AP improvement is even more significant (75.58\% vs 65.04\%), indicating better top-K ranking capability.
+\item Despite slightly more parameters (247K vs 190-209K), CoFARS-Sparse remains efficient and practical for deployment.
+\end{itemize}
+
+\subsection{Training Progression}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{training_curves.png}
+    \caption{Training progression over 43 epochs with early stopping. (a) Training loss decreases steadily with convergence around epoch 40. (b) Validation AUC peaks at epoch 33 (0.9288). (c) Validation AP peaks at epoch 33 (0.7432).}
+    \label{fig:training_curves}
+\end{figure}
+
+\subsection{Loss Function Ablation Study}
+
+We conduct an ablation study to evaluate the impact of each loss component:
+
+\begin{table}[H]
+\centering
+\caption{Loss Function Ablation Study Results}
+\scriptsize
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Variant} & \textbf{$\gamma$} & \textbf{$\lambda$} & \textbf{Test AUC} & \textbf{Test AP} & \textbf{$\Delta$ AUC} \\
+\midrule
+\textbf{Full Model} & 0.05 & 0.001 & \textbf{0.9330} & \textbf{0.7558} & - \\
+w/o $\mathcal{L}_{\text{IND}}$ & 0.05 & 0 & 0.9301 & 0.7505 & -0.29\% \\
+Only $\mathcal{L}_{\text{REC}}$ & 0 & 0 & 0.9310 & 0.7509 & -0.20\% \\
+w/o $\mathcal{L}_{\text{MSE}}$ & 0 & 0.001 & 0.9258 & 0.7197 & \textbf{-0.72\%} \\
+\bottomrule
+\end{tabular}
+\label{tab:loss_ablation}
+\end{table}
+
+\textbf{Detailed Analysis:}
+\begin{itemize}
+\item \textbf{$\mathcal{L}_{\text{MSE}}$ (JS Divergence Loss)} has the \textbf{largest impact}: removal causes 0.72\% AUC and \textbf{4.78\% AP} decrease (from 0.7558 to 0.7197). This component captures context similarity through Jensen-Shannon divergence, playing a crucial role in learning accurate context representations.
+
+\item \textbf{$\mathcal{L}_{\text{IND}}$ (Independence Loss)} has moderate impact: 0.29\% AUC and 0.70\% AP decrease. This loss encourages prototype diversity, helping the model capture diverse preference patterns.
+
+\item \textbf{Only $\mathcal{L}_{\text{REC}}$} (without both JS and Independence loss): Performance remains reasonably good (0.9310 AUC), showing recommendation loss is the fundamental baseline, but lacking auxiliary losses reduces ranking capability.
+
+\item Full model with all 3 loss components achieves best performance on both AUC and AP, confirming multi-component loss design is necessary.
+\end{itemize}
+
+\subsection{User Segment Analysis}
+
+\begin{table}[H]
+\centering
+\caption{Performance by user segment. Power users benefit most from sequence modeling.}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Segment} & \textbf{Users} & \textbf{AUC} & \textbf{AP} \\
+\midrule
+Power ($\geq$5) & 344 & 0.9521 & 0.8234 \\
+Regular (2-4) & 4,927 & 0.9387 & 0.7689 \\
+Cold-start (1) & 35,251 & 0.9298 & 0.7445 \\
+\midrule
+\textbf{Overall} & \textbf{40,522} & \textbf{0.9330} & \textbf{0.7558} \\
+\bottomrule
+\end{tabular}
+\label{tab:segments}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\linewidth]{segment_performance.png}
+    \caption{Performance by user segment. CoFARS-Sparse maintains strong performance across all segments: power users (95.21\% AUC), regular users (93.87\% AUC), and cold-start users (92.98\% AUC).}
+    \label{fig:segment_performance}
+\end{figure}
+
+Power users achieve highest performance (95.21\% AUC) as they have sufficient interaction history for effective sequence modeling. Regular users show moderate performance (93.87\% AUC) with context-enriched pooling. Even cold-start users achieve reasonable performance (92.98\% AUC) through context-based recommendation, demonstrating the effectiveness of the hybrid approach.
+
+\subsection{Prototype Analysis}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\linewidth]{prototype_distribution.png}
+    \caption{Prototype utilization analysis. The chart shows balanced distribution with 46.7\% low utilization (1 context), 33.3\% medium (2 contexts), 20.0\% high (3 contexts). This balanced distribution indicates successful learning of diverse preference patterns.}
+    \label{fig:prototypes}
+\end{figure}
+
+\subsection{Comprehensive Method Comparison}
+
+To evaluate CoFARS-Sparse's position among implemented recommendation methods, we aggregate results from all experiments using common metrics.
+
+\subsubsection{Ranking Metrics Comparison}
+
+\begin{table}[H]
+\centering
+\caption{Method comparison using Ranking Metrics}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline
+\textbf{Method} & \textbf{P@20} & \textbf{R@20} & \textbf{F1@20} & \textbf{NDCG@20} & \textbf{MRR} \\
+\hline
+\multicolumn{6}{|c|}{\textit{Collaborative Filtering}} \\
+\hline
+User Cosine & 0.00018 & 0.00354 & 0.00034 & 0.00155 & 0.00097 \\
+Item Cosine & 0.00199 & 0.01318 & 0.00329 & 0.00844 & 0.00993 \\
+SVD & 0.00199 & 0.03981 & 0.00379 & 0.01797 & 0.01199 \\
+\hline
+\multicolumn{6}{|c|}{\textit{Content-based Filtering}} \\
+\hline
+TF-IDF & 0.00532 & 0.10646 & 0.01014 & 0.05052 & 0.03478 \\
+MiniLM & 0.00389 & 0.07779 & 0.00741 & 0.03715 & 0.02549 \\
+PhoBERT & 0.00432 & 0.08644 & 0.00823 & 0.04290 & 0.03058 \\
+LSA & 0.00467 & 0.09327 & 0.00888 & 0.04424 & 0.03018 \\
+\hline
+\multicolumn{6}{|c|}{\textit{Hybrid}} \\
+\hline
+Weighted ($\alpha$=0.5) & 0.0005 & 0.0110 & 0.0010 & 0.0110 & 0.0110 \\
+Switching & 0.0011 & 0.0165 & 0.0020 & 0.0152 & 0.0165 \\
+\hline
+\multicolumn{6}{|c|}{\textit{Deep Learning - CoFARS-Sparse}} \\
+\hline
+\textbf{CoFARS-Sparse} & \textbf{0.0818} & \textbf{0.4723} & \textbf{0.1375} & \textbf{0.2430} & \textbf{0.2322} \\
+\hline
+\end{tabular}
+\label{tab:ranking_comparison}
+\end{table}
+
+\subsubsection{Rating Prediction Metrics Comparison}
+
+\begin{table}[H]
+\centering
+\caption{Method comparison using Rating Prediction Metrics}
+\scriptsize
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Method} & \textbf{RMSE} $\downarrow$ & \textbf{MAE} $\downarrow$ & \textbf{NMAE} $\downarrow$ \\
+\hline
+\multicolumn{4}{|c|}{\textit{Collaborative Filtering}} \\
+\hline
+User Cosine & 0.7549 & 0.3221 & 0.0805 \\
+User Pearson & \textbf{0.7489} & \textbf{0.3190} & \textbf{0.0798} \\
+Item Cosine & 0.9379 & 0.5397 & 0.1349 \\
+SVD & 0.6773 & 0.3910 & 0.0978 \\
+\hline
+\multicolumn{4}{|c|}{\textit{Content-based Filtering}} \\
+\hline
+TF-IDF & 3.4648 & 2.9622 & 0.7406 \\
+MiniLM & 2.2479 & 1.8818 & 0.4604 \\
+PhoBERT & 2.5328 & 2.1204 & 0.5301 \\
+LSA & 3.1115 & 2.6106 & 0.6527 \\
+\hline
+\multicolumn{4}{|c|}{\textit{Hybrid}} \\
+\hline
+Switching & 1.2124 & 0.8214 & 0.2053 \\
+\hline
+\multicolumn{4}{|c|}{\textit{Deep Learning - CoFARS-Sparse}} \\
+\hline
+\textbf{CoFARS-Sparse} & \underline{0.3727} & \underline{0.2704} & \underline{0.0676} \\
+\hline
+\end{tabular}
+\label{tab:rating_comparison}
+\end{table}
+
+\subsubsection{Detailed Comparative Analysis}
+
+\textbf{1. Ranking Metrics:} CoFARS-Sparse achieves superior results across all ranking metrics:
+\begin{itemize}
+\item \textbf{Precision@20}: 0.0818, \textbf{15.4 times} TF-IDF (0.00532) - the best traditional method
+\item \textbf{Recall@20}: 0.4723, \textbf{4.4 times} TF-IDF (0.10646)
+\item \textbf{NDCG@20}: 0.2430, \textbf{4.8 times} TF-IDF (0.05052)
+\item \textbf{MRR}: 0.2322, \textbf{6.7 times} TF-IDF (0.03478)
+\end{itemize}
+
+\textbf{2. Rating Prediction Metrics:} CoFARS-Sparse also leads in rating prediction:
+\begin{itemize}
+\item \textbf{RMSE}: 0.3727 - lowest among all methods (45\% lower than SVD)
+\item \textbf{MAE}: 0.2704 - 15.2\% better than User Pearson (0.3190)
+\item \textbf{NMAE}: 0.0676 - lowest, indicating best normalized error
+\end{itemize}
+
+\textbf{3. Comparison between method groups:}
+\begin{itemize}
+\item \textbf{CF vs Content-based}: Content-based (TF-IDF) outperforms CF (SVD) on ranking (NDCG: 0.0505 vs 0.0180), but CF (User Pearson) is better on rating prediction (RMSE: 0.75 vs 3.46)
+\item \textbf{Hybrid}: Switching hybrid improves over single methods but remains much lower than deep learning
+\item \textbf{Deep Learning}: CoFARS-Sparse achieves absolute superiority on both metric groups
+\end{itemize}
+
+\textbf{Comparison Conclusions:}
+\begin{enumerate}
+\item \textbf{CoFARS-Sparse is the best method} across all metrics: ranking (NDCG 4.8x best baseline) and rating (lowest RMSE)
+\item \textbf{Hybrid User Modeling is effective}: Handles both power users (sequence) and cold-start users (context)
+\item \textbf{Context aggregation is important}: JS Divergence Loss contributes 0.72\% AUC and 4.78\% AP
+\item \textbf{Traditional methods are limited} with sparse data: CF faces issues with 87\% cold-start users
+\end{enumerate}
+
+
+\section{Discussion}
+
+\subsection{Adaptation from Dense to Sparse Data}
+
+Our work demonstrates that methods designed for dense sequential data require significant adaptation for sparse e-commerce scenarios. Key differences:
+
+\textbf{Sequence modeling:} While original CoFARS uses GRU for all users, we apply it only to power users (0.8\%), using simpler strategies for the majority.
+
+\textbf{Temporal modeling:} Dense data enables temporal graph construction, but sparse data requires static aggregation based on pre-computed similarity.
+
+\subsection{Generalization to Other Domains}
+
+CoFARS-Sparse can apply to other sparse recommendation scenarios:
+\begin{itemize}
+\item \textbf{Fashion e-commerce:} Seasonal and occasion-based context
+\item \textbf{Travel booking:} Location and time-based preferences
+\item \textbf{Content recommendation:} Device and time-of-day context
+\end{itemize}
+
+\section{Conclusion}
+
+This study conducted a comprehensive comparison of recommendation methods on a Vietnamese e-commerce dataset with extreme sparsity characteristics (87\% of users have only 1 interaction). We present \textbf{CoFARS-Sparse}, a context-based recommendation framework with three key innovations: (1) \textbf{Hybrid User Modeling} segmenting users into power, regular, and cold-start; (2) \textbf{Static Context Aggregation} using Jensen-Shannon divergence; and (3) \textbf{Probability Encoder} mapping contexts to attribute distributions.
+
+\textbf{Key Results:}
+\begin{itemize}
+\item CoFARS-Sparse achieves \textbf{93.30\% AUC} and \textbf{75.58\% AP}, outperforming deep learning baselines by 2.2-2.5\% AUC
+\item On ranking metrics, CoFARS-Sparse outperforms TF-IDF (best baseline) by \textbf{4.8 times} on NDCG@20
+\item On rating prediction, lowest RMSE (0.3727) - \textbf{45\%} better than SVD
+\item Ablation study: JS Divergence Loss contributes \textbf{-0.72\% AUC} and \textbf{-4.78\% AP} when removed
+\end{itemize}
+
+This work bridges the gap between dense sequential recommendation (food delivery with 4,423 interactions/user) and sparse e-commerce scenarios (1.21 interactions/user), providing both theoretical insights and practical solutions for Vietnamese e-commerce recommendation systems.
+
+\section*{Limitations and Future Work}
+
+\textbf{Limitations:} (1) Baseline comparison does not include transformer models like SASRec~\cite{kang2018} or BERT4Rec~\cite{sun2019}; (2) Context definition is limited to 10 time-based slots; (3) Evaluation focuses on a single domain (home products).
+
+\textbf{Future Work:} (1) Extend comparison with transformer-based models; (2) Integrate additional context dimensions (location, device, season); (3) Evaluate on multiple e-commerce domains; (4) Deploy real-time recommendation system.
+
+
+\begin{thebibliography}{99}
+\small
+
+\bibitem[Feng et~al.(2024)]{cofars2024}
+Zhichao Feng, JunJie Xie, Kaiyuan Li, Yu Qin, Pengfei Wang, Qianzhong Li, Bin Yin, Xiang Li, Wei Lin, and Shangguang Wang.
+\newblock 2024.
+\newblock Context-based Fast Recommendation Strategy for Long User Behavior Sequence in Meituan Waimai.
+\newblock In \emph{Proceedings of the ACM Web Conference 2024 (WWW '24 Companion)}.
+
+\bibitem[Villegas et~al.(2018)]{villegas2018}
+Norha M. Villegas, Cristian S{\'a}nchez, Javier D{\'i}az-Cely, and Gabriel Tamura.
+\newblock 2018.
+\newblock Characterizing context-aware recommender systems: A systematic literature review.
+\newblock \emph{Knowledge-Based Systems}, 140:173--200.
+
+\bibitem[Rendle(2010)]{rendle2010}
+Steffen Rendle.
+\newblock 2010.
+\newblock Factorization Machines.
+\newblock In \emph{Proceedings of the IEEE International Conference on Data Mining (ICDM)}, pages 995--1000.
+
+\bibitem[Juan et~al.(2016)]{juan2016}
+Yu-Chin Juan, Yong Zhuang, Wei-Sheng Chin, and Chih-Jen Lin.
+\newblock 2016.
+\newblock Field-aware Factorization Machines for CTR Prediction.
+\newblock In \emph{Proceedings of the ACM Conference on Recommender Systems (RecSys)}, pages 43--50.
+
+\bibitem[Hong et~al.(2019)]{hong2019}
+Fuxing Hong, Dongbo Huang, and Ge Chen.
+\newblock 2019.
+\newblock Interaction-Aware Factorization Machines for Recommender Systems.
+\newblock In \emph{Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)}, pages 3804--3811.
+
+\bibitem[Lian et~al.(2018)]{lian2018}
+Jianxun Lian, Xiaohuan Zhou, Fuzheng Zhang, Zhongxia Chen, Xing Xie, and Guangzhong Sun.
+\newblock 2018.
+\newblock xDeepFM: Combining Explicit and Implicit Feature Interactions for Recommender Systems.
+\newblock In \emph{Proceedings of the ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD)}, pages 1754--1763.
+
+\bibitem[Wang et~al.(2021)]{wang2021dcn}
+Ruoxi Wang, Rakesh Shivanna, Derek Zhiyuan Cheng, Sagar Jain, Dong Lin, Lichan Hong, and Ed H. Chi.
+\newblock 2021.
+\newblock DCN V2: Improved Deep \& Cross Network and Practical Lessons for Web-scale Learning to Rank Systems.
+\newblock In \emph{Proceedings of the ACM Web Conference (WWW)}, pages 1785--1797.
+
+\bibitem[Hidasi et~al.(2016)]{hidasi2016}
+Bal{\'a}zs Hidasi, Alexandros Karatzoglou, Linas Baltrunas, and Domonkos Tikk.
+\newblock 2016.
+\newblock Session-based Recommendations with Recurrent Neural Networks.
+\newblock In \emph{Proceedings of the International Conference on Learning Representations (ICLR)}.
+
+\bibitem[Kang and McAuley(2018)]{kang2018}
+Wang-Cheng Kang and Julian McAuley.
+\newblock 2018.
+\newblock Self-Attentive Sequential Recommendation.
+\newblock In \emph{Proceedings of the IEEE International Conference on Data Mining (ICDM)}, pages 197--206.
+
+\bibitem[Sun et~al.(2019)]{sun2019}
+Fei Sun, Jun Liu, Jian Wu, Changhua Pei, Xiao Lin, Wenwu Ou, and Peng Jiang.
+\newblock 2019.
+\newblock BERT4Rec: Sequential Recommendation with Bidirectional Encoder Representations from Transformer.
+\newblock In \emph{Proceedings of the ACM International Conference on Information and Knowledge Management (CIKM)}, pages 1441--1450.
+
+\bibitem[Li et~al.(2017)]{li2017}
+Jing Li, Pengjie Ren, Zhumin Chen, Zhaochun Ren, Tao Lian, and Jun Ma.
+\newblock 2017.
+\newblock Neural Attentive Session-based Recommendation.
+\newblock In \emph{Proceedings of the ACM International Conference on Information and Knowledge Management (CIKM)}, pages 1419--1428.
+
+\bibitem[Wu et~al.(2019)]{wu2019}
+Shu Wu, Yuyuan Tang, Yanqiao Zhu, Liang Wang, Xing Xie, and Tieniu Tan.
+\newblock 2019.
+\newblock Session-based Recommendation with Graph Neural Networks.
+\newblock In \emph{Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)}, volume 33, pages 346--353.
+
+\bibitem[Chang et~al.(2021)]{chang2021}
+Jianxin Chang, Chen Gao, Yu Zheng, Yiqun Hui, Yanan Niu, Yang Song, Depeng Jin, and Yong Li.
+\newblock 2021.
+\newblock Sequential Recommendation with Graph Neural Networks.
+\newblock In \emph{Proceedings of the ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR)}, pages 378--387.
+
+\bibitem[Pi et~al.(2020)]{pi2020sim}
+Qi Pi, Guorui Zhou, Yujing Zhang, Zhe Wang, Lejian Ren, Ying Fan, Xiaoqiang Zhu, and Kun Gai.
+\newblock 2020.
+\newblock Search-based User Interest Modeling with Lifelong Sequential Behavior Data for Click-Through Rate Prediction.
+\newblock In \emph{Proceedings of the ACM International Conference on Information and Knowledge Management (CIKM)}, pages 2685--2692.
+
+\bibitem[Ren et~al.(2019)]{ren2019}
+Kan Ren, Jiarui Qin, Yuchen Fang, Weinan Zhang, Lei Zheng, Weijie Bian, Guorui Zhou, Jian Xu, Yong Yu, Xiaoqiang Zhu, and Kun Gai.
+\newblock 2019.
+\newblock Lifelong Sequential Modeling with Personalized Memorization for User Response Prediction.
+\newblock In \emph{Proceedings of the ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR)}, pages 565--574.
+
+\bibitem[Pi et~al.(2019)]{pi2019mimn}
+Qi Pi, Weijie Bian, Guorui Zhou, Xiaoqiang Zhu, and Kun Gai.
+\newblock 2019.
+\newblock Practice on Long Sequential User Behavior Modeling for Click-Through Rate Prediction.
+\newblock In \emph{Proceedings of the ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD)}, pages 2671--2679.
+
+\bibitem[Chang et~al.(2023)]{chang2023}
+Jianxin Chang, Chenbin Zhang, Zhiyi Fu, Xiaoxue Zang, Lin Guan, Jing Lu, Yiqun Hui, Dewei Leng, Yanan Niu, Yang Song, and Kun Gai.
+\newblock 2023.
+\newblock TWIN: TWo-stage Interest Network for Lifelong User Behavior Modeling in CTR Prediction at Kuaishou.
+\newblock In \emph{Proceedings of the ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD)}, pages 3785--3794.
+
+\bibitem[Covington et~al.(2016)]{covington2016}
+Paul Covington, Jay Adams, and Emre Sargin.
+\newblock 2016.
+\newblock Deep Neural Networks for YouTube Recommendations.
+\newblock In \emph{Proceedings of the ACM Conference on Recommender Systems (RecSys)}, pages 191--198.
+
+\bibitem[Zhou et~al.(2018)]{zhou2018din}
+Guorui Zhou, Xiaoqiang Zhu, Chengru Song, Ying Fan, Han Zhu, Xiao Ma, Yanghui Yan, Junqi Jin, Han Li, and Kun Gai.
+\newblock 2018.
+\newblock Deep Interest Network for Click-Through Rate Prediction.
+\newblock In \emph{Proceedings of the ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD)}, pages 1059--1068.
+
+\end{thebibliography}
+
+\end{document}

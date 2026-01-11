@@ -1,0 +1,21 @@
+2026-01-04 10:30:24 | INFO     | src.utils.logger:setup_logger:42 - Logger initialized. Logs saved to: logs\cofars_20260104_103024.log
+2026-01-04 10:30:24 | INFO     | __main__:main:214 - ================================================================================
+2026-01-04 10:30:24 | INFO     | __main__:main:215 - LOSS FUNCTION ABLATION STUDY
+2026-01-04 10:30:24 | INFO     | __main__:main:216 - ================================================================================
+2026-01-04 10:30:24 | INFO     | __main__:main:217 - Started at: 2026-01-04 10:30:24
+2026-01-04 10:30:24 | INFO     | __main__:main:220 - Using device: cpu
+2026-01-04 10:30:24 | INFO     | __main__:main:223 - Loading data...
+2026-01-04 10:30:28 | INFO     | __main__:main:232 - Data loaded: Train=196780, Val=24480, Test=24500
+2026-01-04 10:30:28 | INFO     | __main__:train_ablation_variant:104 - 
+================================================================================
+2026-01-04 10:30:28 | INFO     | __main__:train_ablation_variant:105 - TRAINING VARIANT: without_js_loss
+2026-01-04 10:30:28 | INFO     | __main__:train_ablation_variant:106 -   γ (gamma) = 0.0
+2026-01-04 10:30:28 | INFO     | __main__:train_ablation_variant:107 -   λ (lambda) = 0.001
+2026-01-04 10:30:28 | INFO     | __main__:train_ablation_variant:108 - ================================================================================
+2026-01-04 10:31:34 | INFO     | __main__:train_ablation_variant:158 - Epoch 1/50: Train Loss=0.4702, Val AUC=0.8266, Val AP=0.5389
+2026-01-04 10:32:41 | INFO     | __main__:train_ablation_variant:158 - Epoch 2/50: Train Loss=0.3509, Val AUC=0.8884, Val AP=0.6208
+2026-01-04 10:33:48 | INFO     | __main__:train_ablation_variant:158 - Epoch 3/50: Train Loss=0.3054, Val AUC=0.9035, Val AP=0.6408
+2026-01-04 10:34:54 | INFO     | __main__:train_ablation_variant:158 - Epoch 4/50: Train Loss=0.2871, Val AUC=0.9090, Val AP=0.6495
+2026-01-04 10:35:55 | INFO     | __main__:train_ablation_variant:158 - Epoch 5/50: Train Loss=0.2774, Val AUC=0.9118, Val AP=0.6522
+2026-01-04 10:36:57 | INFO     | __main__:train_ablation_variant:158 - Epoch 6/50: Train Loss=0.2708, Val AUC=0.9147, Val AP=0.6613
+2026-01-04 10:37:59 | INFO     | __main__:train_ablation_variant:158 - Epoch 7/50: Train Loss=0.2664, Val AUC=0.9161, Val AP=0.6643

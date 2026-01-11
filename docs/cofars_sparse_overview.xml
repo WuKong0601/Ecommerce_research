@@ -1,0 +1,78 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0" version="29.2.7">
+  <diagram name="CoFARS-Sparse Overview" id="cofars_overview">
+    <mxGraphModel dx="1723" dy="940" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=20;" value="CoFARS-SPARSE: KIẾN TRÚC TỔNG QUAN" vertex="1">
+          <mxGeometry height="50" width="500" x="400" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="raw-data" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" value="RAW DATA&lt;br&gt;━━━━━━━━━&lt;br&gt;products.csv&lt;br&gt;reviews.csv" vertex="1">
+          <mxGeometry height="100" width="120" x="80" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="preprocess" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=12;" value="PREPROCESSING&lt;br&gt;━━━━━━━━━━━━━━━━━&lt;br&gt;1. Clean Data&lt;br&gt;2. Build 10 Contexts&lt;br&gt;3. JS Divergence Matrix&lt;br&gt;4. User Segmentation&lt;br&gt;5. Context Aggregation" vertex="1">
+          <mxGeometry height="140" width="180" x="280" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="processed" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" value="Processed Data:&lt;br&gt;• context_embeddings.npy&lt;br&gt;• similarity_matrix.npy&lt;br&gt;• user_segments.csv&lt;br&gt;• train_data.csv" vertex="1">
+          <mxGeometry height="90" width="180" x="280" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="model-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=14;" value="CoFARS-SPARSE MODEL" vertex="1">
+          <mxGeometry height="300" width="500" x="560" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-module" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="ContextPrototypes&lt;br&gt;━━━━━━━━━━━&lt;br&gt;10 Context Embeddings&lt;br&gt;+ K Prototypes&lt;br&gt;+ StaticContextMatcher" vertex="1">
+          <mxGeometry height="90" width="150" x="560" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="prob-enc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="ProbabilityEncoder&lt;br&gt;━━━━━━━━━━━&lt;br&gt;MLP → Softmax&lt;br&gt;P(category|context)&lt;br&gt;P(price|context)&lt;br&gt;P(rating|context)" vertex="1">
+          <mxGeometry height="100" width="150" x="560" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="user-enc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="HybridUserEncoder&lt;br&gt;━━━━━━━━━━━━━━&lt;br&gt;🟣 Power: GRU (≥5)&lt;br&gt;🟢 Regular: Gate (2-4)&lt;br&gt;🔵 Cold: Context (1)" vertex="1">
+          <mxGeometry height="100" width="160" x="740" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="pred-head" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="Prediction&lt;br&gt;━━━━━━━━━&lt;br&gt;score = dot(user, item)&lt;br&gt;prob = sigmoid(score)" vertex="1">
+          <mxGeometry height="80" width="120" x="930" y="145" as="geometry" />
+        </mxCell>
+        <mxCell id="loss" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;" value="Loss = L_BCE + γ*L_MSE + λ*L_IND" vertex="1">
+          <mxGeometry height="40" width="290" x="770" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="training" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="TRAINING&lt;br&gt;(train.py)&lt;br&gt;━━━━━━━━━&lt;br&gt;Adam Optimizer&lt;br&gt;Early Stopping" vertex="1">
+          <mxGeometry height="100" width="120" x="1100" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="output" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" value="OUTPUT&lt;br&gt;━━━━━━━━━&lt;br&gt;best_model.pt&lt;br&gt;metrics.json" vertex="1">
+          <mxGeometry height="100" width="120" x="1310" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="arr1" edge="1" parent="1" source="raw-data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" target="preprocess">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr2" edge="1" parent="1" source="preprocess" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" target="processed">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr3" edge="1" parent="1" source="processed" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" target="ctx-module">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="500" y="335" />
+              <mxPoint x="500" y="185" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arr4" edge="1" parent="1" source="ctx-module" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" target="prob-enc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr5" edge="1" parent="1" source="ctx-module" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" target="user-enc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr6" edge="1" parent="1" source="user-enc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" target="pred-head">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr7" edge="1" parent="1" source="pred-head" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" target="training">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr8" edge="1" parent="1" source="training" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" target="output">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-loss" edge="1" parent="1" source="prob-enc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" target="loss">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

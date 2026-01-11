@@ -1,0 +1,626 @@
+\documentclass[11pt]{article}
+\usepackage{acl}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T5]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{inconsolata}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb}
+\usepackage{url}
+
+\title{Hệ Khuyến nghị Thương mại Điện tử với Dữ liệu Thưa: So sánh các Phương pháp và Đề xuất Mô hình CoFARS-Sparse}
+
+\author{\normalfont
+Huỳnh Lê Quốc Công – 22520168@gm.uit.edu.vn\\
+Đỗ Thành Đạt – 22520206@gm.uit.edu.vn\\
+Châu Nguyễn Tri Vũ – 22521687@gm.uit.edu.vn\\
+Văn Thị Bảo Hân – 23520439@gm.uit.edu.vn\\
+Trần Nhật Phương Anh – 23520078@gm.uit.edu.vn
+}
+
+\renewcommand{\abstractname}{Tóm tắt}
+\renewcommand{\refname}{Tài liệu tham khảo}
+\begin{document}
+\maketitle
+\begin{abstract}
+Hệ khuyến nghị là thành phần quan trọng trong các nền tảng thương mại điện tử, góp phần nâng cao trải nghiệm người dùng và hiệu quả kinh doanh. Trong bối cảnh thương mại điện tử tại Việt Nam, dữ liệu tương tác người dùng – sản phẩm thường có mức độ thưa cao, gây nhiều hạn chế cho các phương pháp khuyến nghị truyền thống. Nghiên cứu này tiến hành so sánh các phương pháp lọc cộng tác, khuyến nghị dựa trên nội dung và mô hình lai kết hợp hai phương pháp trên.
+
+Đồng thời, nghiên cứu ứng dụng khung CoFARS-Sparse nhằm khai thác thông tin ngữ cảnh để cải thiện chất lượng khuyến nghị trong điều kiện dữ liệu thưa. Thực nghiệm được thực hiện trên bộ dữ liệu thương mại điện tử Việt Nam với quy trình tiền xử lý và đánh giá chuẩn. Kết quả cho thấy mô hình CoFARS-Sparse đạt 93.30\% AUC và 75.58\% AP, vượt trội so với các phương pháp đơn lẻ trên hầu hết các thước đo đánh giá, khẳng định tính phù hợp của hướng tiếp cận này đối với các hệ khuyến nghị thương mại điện tử tại Việt Nam.
+\end{abstract}
+
+\section{Giới thiệu}
+
+\subsection{Động lực và Bối cảnh}
+
+Hệ khuyến nghị đã trở thành cơ sở hạ tầng không thể thiếu trong các nền tảng thương mại điện tử hiện đại, đóng vai trò như cơ chế chính mà qua đó người dùng khám phá các sản phẩm phù hợp với sở thích của họ trong các danh mục sản phẩm khổng lồ. Thách thức cơ bản trong khuyến nghị nằm ở việc mô hình hóa chính xác sở thích người dùng từ dữ liệu hành vi lịch sử~\cite{hidasi2016,kang2018,sun2019}.
+
+Trong những năm gần đây, các phương pháp khuyến nghị nhận biết ngữ cảnh đã nổi lên như một hướng tiếp cận đặc biệt hứa hẹn. Bằng cách tích hợp thông tin ngữ cảnh—như đặc trưng thời gian (thời điểm trong ngày, ngày trong tuần), đặc trưng không gian (vị trí địa lý, loại thiết bị), và đặc trưng môi trường—các phương pháp này có thể nắm bắt những cách thức tinh tế mà sở thích người dùng thay đổi theo các tình huống khác nhau~\cite{rendle2010,villegas2018}. Khung CoFARS (Context-based Fast Recommendation Strategy)~\cite{cofars2024} là ví dụ điển hình cho hướng tiếp cận này, chứng minh sự cải thiện đáng kể trên các nền tảng giao đồ ăn.
+
+Tuy nhiên, kiểm tra kỹ lưỡng các phương pháp khuyến nghị tuần tự nhận biết ngữ cảnh hiện có cho thấy một giả định cơ bản hạn chế nghiêm trọng khả năng áp dụng của chúng: \textbf{chúng được thiết kế và xác nhận trên các bộ dữ liệu có lịch sử tương tác người dùng dày đặc}. Ví dụ, bài báo CoFARS gốc báo cáo rằng 27\% người dùng trong nền tảng Meituan Waimai đã sử dụng ứng dụng hơn 1,000 lần trong năm qua, với trung bình 4,423 tương tác mỗi người dùng.
+
+\subsection{Thách thức Dữ liệu Thưa trong Thương mại Điện tử}
+
+Trái ngược hoàn toàn với các nền tảng giao đồ ăn, nhiều lĩnh vực thương mại điện tử—đặc biệt những lĩnh vực liên quan đến mua hàng không thường xuyên như sản phẩm gia dụng, đồ nội thất, điện tử—thể hiện các mẫu tương tác hoàn toàn khác biệt với đặc điểm thưa cực độ. Phân tích bộ dữ liệu thương mại điện tử sản phẩm gia dụng thực tế của chúng tôi cho thấy:
+
+\begin{itemize}
+\item \textbf{Độ thưa cấp người dùng}: 87.0\% người dùng có đúng 1 tương tác, 12.2\% có 2-4 tương tác, và chỉ 0.8\% có từ 5 tương tác trở lên
+\item \textbf{Độ dài chuỗi trung bình}: 1.21 tương tác mỗi người dùng (so với 4,423 trong Meituan Waimai)
+\item \textbf{Độ dài chuỗi trung vị}: 1 tương tác (phân vị thứ 50)
+\end{itemize}
+
+Độ thưa cực độ này tạo ra ba thách thức cơ bản khiến các phương pháp mô hình hóa chuỗi dài hiện có trở nên không hiệu quả:
+
+\textbf{Thách thức 1: Độ dài Chuỗi Không Đủ cho Mô hình hóa Thời gian.} Các mô hình khuyến nghị tuần tự truyền thống, dù dựa trên mạng neural hồi quy~\cite{hidasi2016,li2017}, cơ chế attention~\cite{kang2018,sun2019}, hay mạng neural đồ thị~\cite{wu2019,chang2021}, đều giả định rằng người dùng có lịch sử tương tác đủ dài để học các mẫu thời gian có ý nghĩa.
+
+\textbf{Thách thức 2: Việc Truy cập lại Ngữ cảnh Hạn chế.} Các phương pháp nhận biết ngữ cảnh dựa vào việc quan sát hành vi người dùng qua nhiều lần truy cập cùng một ngữ cảnh để xây dựng hồ sơ sở thích đặc trưng ngữ cảnh đáng tin cậy.
+
+\textbf{Thách thức 3: Sự Thống trị của Cold-start.} Đại đa số (87\%) người dùng trong bộ dữ liệu của chúng tôi ở trong trạng thái cold-start vĩnh viễn, chưa bao giờ tiến xa hơn tương tác đầu tiên của họ.
+
+\subsection{Đóng góp của Nghiên cứu}
+
+Để giải quyết những thách thức này, chúng tôi đề xuất \textbf{CoFARS-Sparse}, một khung khuyến nghị toàn diện với các đóng góp chính sau:
+
+\begin{enumerate}
+\item \textbf{Mô hình Người dùng Lai với Cơ sở Lý thuyết}: Chúng tôi hình thức hóa chiến lược phân khúc người dùng ba tầng áp dụng các phương pháp mô hình hóa khác nhau dựa trên tần suất tương tác.
+
+\item \textbf{Tổng hợp Ngữ cảnh Tĩnh qua JS Divergence}: Chúng tôi thay thế mạng neural đồ thị thời gian bằng phương pháp tổng hợp tĩnh dựa trên lý thuyết thông tin, sử dụng độ phân kỳ Jensen-Shannon.
+
+\item \textbf{Bộ mã hóa Xác suất}: Chúng tôi thiết kế bộ mã hóa xác suất neural ánh xạ biểu diễn ngữ cảnh ẩn sang phân phối thuộc tính có thể diễn giải.
+\end{enumerate}
+
+Hình~\ref{fig:pipeline} minh họa quy trình tổng thể của nghiên cứu, từ thu thập dữ liệu đến đánh giá mô hình.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\linewidth]{pipeline.png}
+    \caption{Quy trình tổng thể của hệ thống khuyến nghị. (1) Thu thập dữ liệu từ Tiki qua web crawling, (2) Tiền xử lý và phân tích thống kê, (3) Triển khai các phương pháp khuyến nghị (CF, Content-based, Hybrid, CoFARS-Sparse), (4) Đánh giá toàn diện với các độ đo ranking và rating prediction.}
+    \label{fig:pipeline}
+\end{figure}
+
+\textbf{Phân tích quy trình:} Quy trình bắt đầu với việc thu thập dữ liệu từ sàn thương mại điện tử Tiki, bao gồm thông tin người dùng, sản phẩm và đánh giá. Dữ liệu sau đó được tiền xử lý để loại bỏ nhiễu, chuẩn hóa và tạo các đặc trưng ngữ cảnh. Tiếp theo, chúng tôi triển khai và so sánh nhiều phương pháp khuyến nghị, từ các phương pháp truyền thống (Collaborative Filtering, Content-based) đến phương pháp lai và mô hình deep learning CoFARS-Sparse. Cuối cùng, tất cả các phương pháp được đánh giá toàn diện sử dụng các độ đo chuẩn bao gồm AUC, AP, Precision@K, Recall@K, NDCG, MRR, RMSE và MAE.
+
+\section{Công trình Liên quan}
+
+\subsection{Khuyến nghị Nhận biết Ngữ cảnh}
+
+Hệ khuyến nghị nhận biết ngữ cảnh tận dụng thông tin ngữ cảnh như thời gian, vị trí, và trạng thái người dùng để cải thiện chất lượng khuyến nghị~\cite{villegas2018}. Công trình sớm của Rendle~\cite{rendle2010} giới thiệu Factorization Machines (FM) để mô hình hóa tương tác đặc trưng. Các phương pháp tiếp theo~\cite{juan2016,hong2019} tập trung vào tương tác bậc hai, trong khi các phương pháp deep learning~\cite{lian2018,wang2021dcn} mô hình hóa tương tác bậc cao thông qua mạng neural.
+
+\subsection{Mô hình hóa Chuỗi Hành vi Người dùng Dài}
+
+Khi độ dài chuỗi tăng, hiệu suất mô hình thường cải thiện~\cite{pi2020sim}. Các phương pháp hiện có chia thành hai loại: phương pháp dựa trên RNN và phương pháp hai giai đoạn. Các phương pháp dựa trên RNN như HPMN~\cite{ren2019} và MIMN~\cite{pi2019mimn} sử dụng mạng bộ nhớ để lưu trữ hành vi lịch sử. SIM~\cite{pi2020sim} giới thiệu General Search Unit (GSU) để truy xuất các mục liên quan, trong khi TWIN~\cite{chang2023} tăng cường tính nhất quán giữa các giai đoạn.
+
+\section{Bộ dữ liệu}
+
+Bộ dữ liệu được sử dụng trong nghiên cứu này được thu thập bằng phương pháp web crawling từ sàn thương mại điện tử Tiki, một trong những nền tảng mua sắm trực tuyến phổ biến tại Việt Nam. Dữ liệu tập trung vào lĩnh vực đồ gia dụng (home and lifestyle).
+
+\begin{table}[H]
+\centering
+\caption{Thống kê bộ dữ liệu}
+\begin{tabular}{|l|r|}
+\hline
+\textbf{Thuộc tính} & \textbf{Giá trị} \\
+\hline
+Tổng số người dùng & 40,522 \\
+Tổng số sản phẩm & 11,746 \\
+Tổng số tương tác & 49,152 \\
+Số ngữ cảnh & 10 \\
+Trung bình tương tác/người dùng & 1.21 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{image1.png}
+    \caption{Phân bố số lượng tương tác của người dùng}
+    \label{fig:user_dist}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{image2.png}
+    \caption{Phân bố số lượng tương tác của sản phẩm}
+    \label{fig:item_dist}
+\end{figure}
+
+\textbf{Thống kê Phân khúc Người dùng:}
+\begin{itemize}
+\item Power users ($\geq$5 tương tác): 344 người dùng (0.8\%), 2,607 reviews (5.3\%)
+\item Regular users (2-4 tương tác): 4,927 người dùng (12.2\%), 11,294 reviews (23.0\%)
+\item Cold-start users (1 tương tác): 35,251 người dùng (87.0\%), 35,251 reviews (71.7\%)
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{user_segmentation.png}
+    \caption{Phân bố phân khúc người dùng: 87\% cold-start, 12.2\% regular, 0.8\% power users}
+    \label{fig:user_segmentation}
+\end{figure}
+
+\section{Phương pháp CoFARS-Sparse}
+
+\subsection{Tổng quan}
+
+CoFARS-Sparse bao gồm bốn thành phần chính: (1) Bộ mã hóa Xác suất ánh xạ biểu diễn ngữ cảnh sang phân phối thuộc tính sản phẩm, (2) Context Prototypes đóng vai trò là tâm sở thích, (3) Static Context Matcher tổng hợp các ngữ cảnh tương tự mà không cần đồ thị thời gian, và (4) Hybrid User Encoder áp dụng các chiến lược khác nhau dựa trên tần suất tương tác người dùng.
+
+\subsection{Bộ mã hóa Xác suất}
+
+Các phương pháp đo độ tương đồng ngữ cảnh truyền thống sử dụng cosine similarity của embeddings thiếu tính diễn giải và phụ thuộc nhiều vào chất lượng embedding. Chúng tôi quan sát rằng sở thích người dùng trong các ngữ cảnh cụ thể được biểu diễn tốt hơn thông qua phân phối xác suất trên thuộc tính sản phẩm.
+
+Chúng tôi sử dụng độ phân kỳ Jensen-Shannon (JS) để đo độ tương đồng ngữ cảnh. Cho ngữ cảnh $c_i$, gọi $D(c_i) = p(a_1, a_2, \ldots, a_{|\mathcal{A}|} | c_i)$ là phân phối giá trị thuộc tính dưới ngữ cảnh $c_i$, thu được từ nhật ký tương tác. Độ phân kỳ JS giữa ngữ cảnh $c_i$ và $c_j$ là:
+
+\begin{equation}
+\text{KL}(c_i, c_j) = \sum_{a_1 \in \mathcal{A}_1} \cdots \sum_{a_{|\mathcal{A}|} \in \mathcal{A}_{|\mathcal{A}|}} D(c_i) \log \frac{D(c_i)}{D(c_j)}
+\end{equation}
+
+\begin{equation}
+\text{JS}(c_i, c_j) = \frac{1}{2} \left[ \text{KL}(c_i, c_j) + \text{KL}(c_j, c_i) \right]
+\end{equation}
+
+Để cho phép học mạng neural, chúng tôi thiết kế bộ mã hóa xác suất sử dụng MLP với activation sigmoid:
+\begin{equation}
+P(\mathbf{c}_i) = \text{MLP}(\mathbf{c}_i)
+\end{equation}
+
+Chúng tôi căn chỉnh JS divergence ước lượng với ground truth thông qua MSE loss:
+\begin{equation}
+\mathcal{L}_{\text{MSE}} = \frac{1}{|\mathcal{C}|^2} \sum_{i=1}^{|\mathcal{C}|} \sum_{j=1}^{|\mathcal{C}|} \left( \text{JS}(c_i, c_j) - \widetilde{\text{JS}}(\mathbf{c}_i, \mathbf{c}_j) \right)^2
+\end{equation}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{context_similarity_heatmap.png}
+    \caption{Heatmap độ tương đồng ngữ cảnh dựa trên JS divergence}
+    \label{fig:context_similarity}
+\end{figure}
+
+\subsection{Context Prototypes}
+
+Để xử lý context cold-start và giảm độ phức tạp, chúng tôi giới thiệu prototypes $\mathcal{O} = \{o_1, o_2, \ldots, o_K\}$ đóng vai trò là tâm sở thích. Để khuyến khích đa dạng prototype, chúng tôi áp dụng independence loss:
+
+\begin{equation}
+\mathcal{L}_{\text{IND}} = -\frac{1}{|\mathcal{O}|^2} \sum_{i=1}^{|\mathcal{O}|} \sum_{j=1}^{|\mathcal{O}|} \widetilde{\text{JS}}(\mathbf{o}_i, \mathbf{o}_j)
+\end{equation}
+
+\subsection{Hybrid User Encoder}
+
+Đổi mới chính của CoFARS-Sparse là nhận ra rằng các phân khúc người dùng khác nhau đòi hỏi các chiến lược mô hình hóa khác nhau. Chúng tôi phân khúc người dùng thành ba nhóm:
+
+\textbf{Power Users ($n \geq 5$):} Những người dùng này có đủ tương tác cho mô hình hóa chuỗi. Chúng tôi áp dụng GRU để mã hóa hành vi:
+\begin{equation}
+\mathbf{h}_{\text{power}} = \text{GRU}(\mathbf{e}_{i_1}, \mathbf{e}_{i_2}, \ldots, \mathbf{e}_{i_n})
+\end{equation}
+
+\textbf{Regular Users ($2 \leq n \leq 4$):} Những người dùng này có chuỗi hạn chế. Chúng tôi sử dụng average pooling được làm giàu bởi ngữ cảnh:
+\begin{equation}
+\mathbf{h}_{\text{regular}} = \text{AvgPool}(\mathbf{e}_{i_1}, \ldots, \mathbf{e}_{i_n}) + \alpha \cdot \mathbf{c}_t^{\text{enriched}}
+\end{equation}
+
+\textbf{Cold-start Users ($n = 1$):} Những người dùng này có một tương tác duy nhất. Chúng tôi dựa chủ yếu vào ngữ cảnh:
+\begin{equation}
+\mathbf{h}_{\text{cold}} = \beta \cdot \mathbf{e}_{i_1} + (1-\beta) \cdot \mathbf{c}_t^{\text{enriched}}
+\end{equation}
+
+Hybrid encoder chọn chiến lược phù hợp dựa trên phân khúc người dùng:
+\begin{equation}
+\mathbf{h}_u = \begin{cases}
+\mathbf{h}_{\text{power}} & \text{nếu } n \geq 5 \\
+\mathbf{h}_{\text{regular}} & \text{nếu } 2 \leq n \leq 4 \\
+\mathbf{h}_{\text{cold}} & \text{nếu } n = 1
+\end{cases}
+\end{equation}
+
+\subsection{Dự đoán và Huấn luyện}
+
+Cho biểu diễn người dùng $\mathbf{h}_u$ và embedding sản phẩm ứng viên $\mathbf{e}_c$, chúng tôi tính điểm dự đoán:
+\begin{equation}
+\hat{y} = \text{MLP}([\mathbf{h}_u; \mathbf{e}_c])
+\end{equation}
+
+Tổng loss kết hợp recommendation loss, MSE loss, và independence loss:
+\begin{equation}
+\mathcal{L} = \mathcal{L}_{\text{REC}} + \gamma \cdot \mathcal{L}_{\text{MSE}} + \lambda \cdot \mathcal{L}_{\text{IND}}
+\end{equation}
+
+trong đó $\mathcal{L}_{\text{REC}}$ là binary cross-entropy loss, và $\gamma=0.05$, $\lambda=0.001$ là trọng số loss.
+
+\section{Thực nghiệm}
+
+\subsection{Thiết lập Thực nghiệm}
+
+\textbf{Chi tiết Triển khai:} Embedding dimension: 16, số prototypes: 30, GRU hidden dimension: 64, batch size: 64, learning rate: 5e-4 với ReduceLROnPlateau scheduler, early stopping patience: 10 epochs. Huấn luyện 50 epochs với Adam optimizer và weight decay 1e-5.
+
+\textbf{Baselines:} Chúng tôi so sánh với ba mô hình truyền thống:
+\begin{itemize}
+\item \textbf{Average Pooling}~\cite{covington2016}: Trung bình đơn giản của item embeddings
+\item \textbf{Standard GRU}: Mô hình hóa tuần tự với GRU
+\item \textbf{DIN}~\cite{zhou2018din}: Cơ chế target attention
+\end{itemize}
+
+\textbf{Độ đo Đánh giá:} AUC (Area Under ROC Curve) và AP (Average Precision) cho các tác vụ dự đoán nhị phân.
+
+\subsection{Hiệu suất Tổng thể}
+
+\begin{table}[H]
+\centering
+\caption{So sánh hiệu suất trên tập test. CoFARS-Sparse vượt trội hơn tất cả baselines 2.2-2.5\% AUC.}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Mô hình} & \textbf{Params} & \textbf{AUC} & \textbf{AP} \\
+\midrule
+Average Pooling & 190K & 0.9109 & 0.6431 \\
+Standard GRU & 209K & 0.9128 & 0.6504 \\
+DIN & 202K & 0.9106 & 0.6445 \\
+\midrule
+\textbf{CoFARS-Sparse} & \textbf{247K} & \textbf{0.9330} & \textbf{0.7558} \\
+\bottomrule
+\end{tabular}
+\label{tab:main_results}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\linewidth]{combined_comparison.png}
+    \caption{So sánh hiệu suất. (a) Test AUC cho thấy CoFARS-Sparse đạt 93.30\%, vượt trội hơn baselines 2.2-2.5\%. (b) Test AP cho thấy cải thiện đáng kể lên 75.58\% (+17\% so với baseline tốt nhất).}
+    \label{fig:combined_comparison}
+\end{figure}
+
+Các quan sát chính:
+\begin{itemize}
+\item CoFARS-Sparse đạt 93.30\% AUC, vượt trội hơn baseline tốt nhất (Standard GRU: 91.28\%) 2.2\%.
+\item Cải thiện AP còn đáng kể hơn (75.58\% so với 65.04\%), cho thấy khả năng xếp hạng top-K tốt hơn.
+\item Dù có nhiều tham số hơn một chút (247K so với 190-209K), CoFARS-Sparse vẫn hiệu quả và thực tế cho triển khai.
+\end{itemize}
+
+\subsection{Tiến trình Huấn luyện}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{training_curves.png}
+    \caption{Tiến trình huấn luyện qua 43 epochs với early stopping. (a) Training loss giảm đều với hội tụ quanh epoch 40. (b) Validation AUC đạt đỉnh ở epoch 33 (0.9288). (c) Validation AP đạt đỉnh ở epoch 33 (0.7432).}
+    \label{fig:training_curves}
+\end{figure}
+
+\subsection{Ablation Study - Ảnh hưởng của Hàm Loss}
+
+Chúng tôi tiến hành nghiên cứu ablation để đánh giá ảnh hưởng của từng thành phần hàm loss:
+
+\begin{table}[H]
+\centering
+\caption{Kết quả Ablation Study - Ảnh hưởng của Hàm Loss}
+\scriptsize
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Biến thể} & \textbf{$\gamma$} & \textbf{$\lambda$} & \textbf{Test AUC} & \textbf{Test AP} & \textbf{$\Delta$ AUC} \\
+\midrule
+\textbf{Full Model} & 0.05 & 0.001 & \textbf{0.9330} & \textbf{0.7558} & - \\
+w/o $\mathcal{L}_{\text{IND}}$ & 0.05 & 0 & 0.9301 & 0.7505 & -0.29\% \\
+Only $\mathcal{L}_{\text{REC}}$ & 0 & 0 & 0.9310 & 0.7509 & -0.20\% \\
+w/o $\mathcal{L}_{\text{MSE}}$ & 0 & 0.001 & 0.9258 & 0.7197 & \textbf{-0.72\%} \\
+\bottomrule
+\end{tabular}
+\label{tab:loss_ablation}
+\end{table}
+
+\textbf{Phân tích chi tiết:}
+\begin{itemize}
+\item \textbf{$\mathcal{L}_{\text{MSE}}$ (JS Divergence Loss)} có ảnh hưởng \textbf{lớn nhất}: loại bỏ gây giảm 0.72\% AUC và \textbf{4.78\% AP} (từ 0.7558 xuống 0.7197). Thành phần này nắm bắt độ tương đồng ngữ cảnh qua độ phân kỳ Jensen-Shannon, đóng vai trò then chốt trong việc học biểu diễn ngữ cảnh chính xác.
+
+\item \textbf{$\mathcal{L}_{\text{IND}}$ (Independence Loss)} có ảnh hưởng vừa phải: giảm 0.29\% AUC và 0.70\% AP. Loss này khuyến khích đa dạng prototype, giúp mô hình nắm bắt các mẫu sở thích đa dạng.
+
+\item \textbf{Only $\mathcal{L}_{\text{REC}}$} (không có cả JS và Independence loss): Hiệu suất vẫn khá tốt (0.9310 AUC), cho thấy recommendation loss là nền tảng cơ bản, nhưng thiếu các auxiliary losses làm giảm khả năng xếp hạng.
+
+\item Full model với đầy đủ 3 thành phần loss đạt hiệu suất tốt nhất trên cả AUC và AP, xác nhận thiết kế loss đa thành phần là cần thiết.
+\end{itemize}
+
+\subsection{Phân tích theo Phân khúc Người dùng}
+
+\begin{table}[H]
+\centering
+\caption{Hiệu suất theo phân khúc người dùng. Power users hưởng lợi nhiều nhất từ mô hình hóa chuỗi.}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Phân khúc} & \textbf{Users} & \textbf{AUC} & \textbf{AP} \\
+\midrule
+Power ($\geq$5) & 344 & 0.9521 & 0.8234 \\
+Regular (2-4) & 4,927 & 0.9387 & 0.7689 \\
+Cold-start (1) & 35,251 & 0.9298 & 0.7445 \\
+\midrule
+\textbf{Overall} & \textbf{40,522} & \textbf{0.9330} & \textbf{0.7558} \\
+\bottomrule
+\end{tabular}
+\label{tab:segments}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\linewidth]{segment_performance.png}
+    \caption{Hiệu suất theo phân khúc người dùng. CoFARS-Sparse duy trì hiệu suất mạnh mẽ trên tất cả phân khúc: power users (95.21\% AUC), regular users (93.87\% AUC), và cold-start users (92.98\% AUC).}
+    \label{fig:segment_performance}
+\end{figure}
+
+Power users đạt hiệu suất cao nhất (95.21\% AUC) vì họ có đủ lịch sử tương tác cho mô hình hóa chuỗi hiệu quả. Regular users cho thấy hiệu suất ở mức vừa (93.87\% AUC) với context-enriched pooling. Ngay cả cold-start users cũng đạt hiệu suất hợp lý (92.98\% AUC) thông qua khuyến nghị dựa trên ngữ cảnh, chứng minh hiệu quả của phương pháp lai.
+
+\subsection{Phân tích Prototype}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\linewidth]{prototype_distribution.png}
+    \caption{Phân tích sử dụng prototype. Biểu đồ cho thấy phân phối cân bằng với 46.7\% low utilization (1 context), 33.3\% medium (2 contexts), 20.0\% high (3 contexts). Phân phối cân bằng này cho thấy việc học thành công các mẫu sở thích đa dạng.}
+    \label{fig:prototypes}
+\end{figure}
+
+\subsection{Tổng hợp và So sánh Toàn diện các Phương pháp}
+
+Để đánh giá vị trí của CoFARS-Sparse trong bối cảnh các phương pháp khuyến nghị đã triển khai, chúng tôi tổng hợp kết quả từ tất cả các thực nghiệm sử dụng các độ đo chung.
+
+\subsubsection{So sánh Độ đo Ranking (Offline có thứ tự)}
+
+\begin{table}[H]
+\centering
+\caption{So sánh các phương pháp qua độ đo Ranking}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline
+\textbf{Phương pháp} & \textbf{P@20} & \textbf{R@20} & \textbf{F1@20} & \textbf{NDCG@20} & \textbf{MRR} \\
+\hline
+\multicolumn{6}{|c|}{\textit{Collaborative Filtering}} \\
+\hline
+User Cosine & 0.00018 & 0.00354 & 0.00034 & 0.00155 & 0.00097 \\
+Item Cosine & 0.00199 & 0.01318 & 0.00329 & 0.00844 & 0.00993 \\
+SVD & 0.00199 & 0.03981 & 0.00379 & 0.01797 & 0.01199 \\
+\hline
+\multicolumn{6}{|c|}{\textit{Content-based Filtering}} \\
+\hline
+TF-IDF & 0.00532 & 0.10646 & 0.01014 & 0.05052 & 0.03478 \\
+MiniLM & 0.00389 & 0.07779 & 0.00741 & 0.03715 & 0.02549 \\
+PhoBERT & 0.00432 & 0.08644 & 0.00823 & 0.04290 & 0.03058 \\
+LSA & 0.00467 & 0.09327 & 0.00888 & 0.04424 & 0.03018 \\
+\hline
+\multicolumn{6}{|c|}{\textit{Hybrid}} \\
+\hline
+Weighted ($\alpha$=0.5) & 0.0005 & 0.0110 & 0.0010 & 0.0110 & 0.0110 \\
+Switching & 0.0011 & 0.0165 & 0.0020 & 0.0152 & 0.0165 \\
+\hline
+\multicolumn{6}{|c|}{\textit{Deep Learning - CoFARS-Sparse}} \\
+\hline
+\textbf{CoFARS-Sparse} & \textbf{0.0818} & \textbf{0.4723} & \textbf{0.1375} & \textbf{0.2430} & \textbf{0.2322} \\
+\hline
+\end{tabular}
+\label{tab:ranking_comparison}
+\end{table}
+
+\subsubsection{So sánh Độ đo Rating Prediction (Offline không thứ tự)}
+
+\begin{table}[H]
+\centering
+\caption{So sánh các phương pháp qua độ đo Rating Prediction}
+\scriptsize
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Phương pháp} & \textbf{RMSE} $\downarrow$ & \textbf{MAE} $\downarrow$ & \textbf{NMAE} $\downarrow$ \\
+\hline
+\multicolumn{4}{|c|}{\textit{Collaborative Filtering}} \\
+\hline
+User Cosine & 0.7549 & 0.3221 & 0.0805 \\
+User Pearson & \textbf{0.7489} & \textbf{0.3190} & \textbf{0.0798} \\
+Item Cosine & 0.9379 & 0.5397 & 0.1349 \\
+SVD & 0.6773 & 0.3910 & 0.0978 \\
+\hline
+\multicolumn{4}{|c|}{\textit{Content-based Filtering}} \\
+\hline
+TF-IDF & 3.4648 & 2.9622 & 0.7406 \\
+MiniLM & 2.2479 & 1.8818 & 0.4604 \\
+PhoBERT & 2.5328 & 2.1204 & 0.5301 \\
+LSA & 3.1115 & 2.6106 & 0.6527 \\
+\hline
+\multicolumn{4}{|c|}{\textit{Hybrid}} \\
+\hline
+Switching & 1.2124 & 0.8214 & 0.2053 \\
+\hline
+\multicolumn{4}{|c|}{\textit{Deep Learning - CoFARS-Sparse}} \\
+\hline
+\textbf{CoFARS-Sparse} & \underline{0.3727} & \underline{0.2704} & \underline{0.0676} \\
+\hline
+\end{tabular}
+\label{tab:rating_comparison}
+\end{table}
+
+\subsubsection{Phân tích So sánh Chi tiết}
+
+\textbf{1. Độ đo Ranking:} CoFARS-Sparse đạt kết quả vượt trội trên tất cả các độ đo ranking:
+\begin{itemize}
+\item \textbf{Precision@20}: 0.0818, gấp \textbf{15.4 lần} TF-IDF (0.00532) - phương pháp truyền thống tốt nhất
+\item \textbf{Recall@20}: 0.4723, gấp \textbf{4.4 lần} TF-IDF (0.10646)
+\item \textbf{NDCG@20}: 0.2430, gấp \textbf{4.8 lần} TF-IDF (0.05052)
+\item \textbf{MRR}: 0.2322, gấp \textbf{6.7 lần} TF-IDF (0.03478)
+\end{itemize}
+
+\textbf{2. Độ đo Rating Prediction:} CoFARS-Sparse cũng dẫn đầu về dự đoán rating:
+\begin{itemize}
+\item \textbf{RMSE}: 0.3727 - thấp nhất trong tất cả các phương pháp (thấp hơn 45\% so với SVD)
+\item \textbf{MAE}: 0.2704 - tốt hơn User Pearson (0.3190) 15.2\%
+\item \textbf{NMAE}: 0.0676 - thấp nhất, cho thấy sai số chuẩn hóa tốt nhất
+\end{itemize}
+
+\textbf{3. So sánh giữa các nhóm phương pháp:}
+\begin{itemize}
+\item \textbf{CF vs Content-based}: Content-based (TF-IDF) vượt CF (SVD) về ranking (NDCG: 0.0505 vs 0.0180), nhưng CF (User Pearson) tốt hơn về rating prediction (RMSE: 0.75 vs 3.46)
+\item \textbf{Hybrid}: Switching hybrid cải thiện so với các phương pháp đơn lẻ nhưng vẫn thấp hơn nhiều so với deep learning
+\item \textbf{Deep Learning}: CoFARS-Sparse vượt trội tuyệt đối trên cả hai nhóm độ đo
+\end{itemize}
+
+\textbf{Kết luận so sánh:}
+\begin{enumerate}
+\item \textbf{CoFARS-Sparse là phương pháp tốt nhất} trên tất cả các độ đo: ranking (NDCG gấp 4.8x best baseline) và rating (RMSE thấp nhất)
+\item \textbf{Hybrid User Modeling hiệu quả}: Xử lý được cả power users (sequence) và cold-start users (context)
+\item \textbf{Context aggregation quan trọng}: JS Divergence Loss đóng góp 0.72\% AUC và 4.78\% AP
+\item \textbf{Phương pháp truyền thống hạn chế} với dữ liệu thưa: CF gặp vấn đề với 87\% cold-start users
+\end{enumerate}
+
+
+\section{Thảo luận}
+
+\subsection{Thích ứng từ Dữ liệu Dày đặc sang Thưa}
+
+Công trình của chúng tôi chứng minh rằng các phương pháp được thiết kế cho dữ liệu tuần tự dày đặc đòi hỏi sự thích ứng đáng kể cho các kịch bản thương mại điện tử thưa. Các khác biệt chính:
+
+\textbf{Mô hình hóa chuỗi:} Trong khi CoFARS gốc sử dụng GRU cho tất cả người dùng, chúng tôi chỉ áp dụng cho power users (0.8\%), sử dụng các chiến lược đơn giản hơn cho đa số.
+
+\textbf{Mô hình hóa thời gian:} Dữ liệu dày đặc cho phép xây dựng đồ thị thời gian, nhưng dữ liệu thưa đòi hỏi tổng hợp tĩnh dựa trên độ tương đồng được tính trước.
+
+\subsection{Tổng quát hóa sang các Lĩnh vực khác}
+
+CoFARS-Sparse có thể áp dụng cho các kịch bản khuyến nghị thưa khác:
+\begin{itemize}
+\item \textbf{Thương mại điện tử thời trang:} Ngữ cảnh theo mùa và dịp
+\item \textbf{Đặt vé du lịch:} Sở thích dựa trên vị trí và thời gian
+\item \textbf{Khuyến nghị nội dung:} Ngữ cảnh thiết bị và thời điểm trong ngày
+\end{itemize}
+
+\section{Kết luận}
+
+Nghiên cứu này đã thực hiện so sánh toàn diện các phương pháp khuyến nghị trên bộ dữ liệu thương mại điện tử Việt Nam với đặc điểm dữ liệu thưa cực độ (87\% người dùng chỉ có 1 tương tác). Chúng tôi trình bày \textbf{CoFARS-Sparse}, một khung khuyến nghị dựa trên ngữ cảnh với ba đổi mới chính: (1) \textbf{Mô hình Người dùng Lai} phân khúc người dùng thành power, regular và cold-start; (2) \textbf{Tổng hợp Ngữ cảnh Tĩnh} sử dụng Jensen-Shannon divergence; và (3) \textbf{Bộ mã hóa Xác suất} ánh xạ ngữ cảnh sang phân phối thuộc tính.
+
+\textbf{Kết quả chính:}
+\begin{itemize}
+\item CoFARS-Sparse đạt \textbf{93.30\% AUC} và \textbf{75.58\% AP}, vượt trội hơn deep learning baselines 2.2-2.5\% AUC
+\item Về ranking metrics, CoFARS-Sparse vượt TF-IDF (best baseline) \textbf{4.8 lần} về NDCG@20
+\item Về rating prediction, RMSE thấp nhất (0.3727) - tốt hơn SVD \textbf{45\%}
+\item Ablation study: JS Divergence Loss đóng góp \textbf{-0.72\% AUC} và \textbf{-4.78\% AP} khi loại bỏ
+\end{itemize}
+
+Công trình thu hẹp khoảng cách giữa khuyến nghị tuần tự dày đặc (giao đồ ăn với 4,423 tương tác/user) và các kịch bản thương mại điện tử thưa (1.21 tương tác/user), cung cấp cả hiểu biết lý thuyết và giải pháp thực tiễn cho hệ khuyến nghị thương mại điện tử Việt Nam.
+
+\section*{Hạn chế và Hướng Phát triển}
+
+\textbf{Hạn chế:} (1) So sánh baseline chưa bao gồm các mô hình transformer như SASRec~\cite{kang2018} hay BERT4Rec~\cite{sun2019}; (2) Định nghĩa ngữ cảnh giới hạn ở 10 time slots dựa trên thời gian; (3) Đánh giá tập trung vào một lĩnh vực duy nhất (sản phẩm gia dụng).
+
+\textbf{Hướng phát triển:} (1) Mở rộng so sánh với các mô hình transformer-based; (2) Tích hợp thêm các chiều ngữ cảnh (vị trí, thiết bị, mùa); (3) Đánh giá trên nhiều lĩnh vực thương mại điện tử khác; (4) Triển khai hệ thống khuyến nghị thời gian thực.
+
+\begin{thebibliography}{99}
+\small
+
+\bibitem[Feng et~al.(2024)]{cofars2024}
+Zhichao Feng, JunJie Xie, Kaiyuan Li, Yu Qin, Pengfei Wang, Qianzhong Li, Bin Yin, Xiang Li, Wei Lin, and Shangguang Wang.
+\newblock 2024.
+\newblock Context-based Fast Recommendation Strategy for Long User Behavior Sequence in Meituan Waimai.
+\newblock In \emph{Proceedings of the ACM Web Conference 2024 (WWW '24 Companion)}.
+
+\bibitem[Villegas et~al.(2018)]{villegas2018}
+Norha M. Villegas, Cristian S{\'a}nchez, Javier D{\'i}az-Cely, and Gabriel Tamura.
+\newblock 2018.
+\newblock Characterizing context-aware recommender systems: A systematic literature review.
+\newblock \emph{Knowledge-Based Systems}, 140:173--200.
+
+\bibitem[Rendle(2010)]{rendle2010}
+Steffen Rendle.
+\newblock 2010.
+\newblock Factorization Machines.
+\newblock In \emph{Proceedings of the IEEE International Conference on Data Mining (ICDM)}, pages 995--1000.
+
+\bibitem[Juan et~al.(2016)]{juan2016}
+Yu-Chin Juan, Yong Zhuang, Wei-Sheng Chin, and Chih-Jen Lin.
+\newblock 2016.
+\newblock Field-aware Factorization Machines for CTR Prediction.
+\newblock In \emph{Proceedings of the ACM Conference on Recommender Systems (RecSys)}, pages 43--50.
+
+\bibitem[Hong et~al.(2019)]{hong2019}
+Fuxing Hong, Dongbo Huang, and Ge Chen.
+\newblock 2019.
+\newblock Interaction-Aware Factorization Machines for Recommender Systems.
+\newblock In \emph{Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)}, pages 3804--3811.
+
+\bibitem[Lian et~al.(2018)]{lian2018}
+Jianxun Lian, Xiaohuan Zhou, Fuzheng Zhang, Zhongxia Chen, Xing Xie, and Guangzhong Sun.
+\newblock 2018.
+\newblock xDeepFM: Combining Explicit and Implicit Feature Interactions for Recommender Systems.
+\newblock In \emph{Proceedings of the ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD)}, pages 1754--1763.
+
+\bibitem[Wang et~al.(2021)]{wang2021dcn}
+Ruoxi Wang, Rakesh Shivanna, Derek Zhiyuan Cheng, Sagar Jain, Dong Lin, Lichan Hong, and Ed H. Chi.
+\newblock 2021.
+\newblock DCN V2: Improved Deep \& Cross Network and Practical Lessons for Web-scale Learning to Rank Systems.
+\newblock In \emph{Proceedings of the ACM Web Conference (WWW)}, pages 1785--1797.
+
+\bibitem[Hidasi et~al.(2016)]{hidasi2016}
+Bal{\'a}zs Hidasi, Alexandros Karatzoglou, Linas Baltrunas, and Domonkos Tikk.
+\newblock 2016.
+\newblock Session-based Recommendations with Recurrent Neural Networks.
+\newblock In \emph{Proceedings of the International Conference on Learning Representations (ICLR)}.
+
+\bibitem[Kang and McAuley(2018)]{kang2018}
+Wang-Cheng Kang and Julian McAuley.
+\newblock 2018.
+\newblock Self-Attentive Sequential Recommendation.
+\newblock In \emph{Proceedings of the IEEE International Conference on Data Mining (ICDM)}, pages 197--206.
+
+\bibitem[Sun et~al.(2019)]{sun2019}
+Fei Sun, Jun Liu, Jian Wu, Changhua Pei, Xiao Lin, Wenwu Ou, and Peng Jiang.
+\newblock 2019.
+\newblock BERT4Rec: Sequential Recommendation with Bidirectional Encoder Representations from Transformer.
+\newblock In \emph{Proceedings of the ACM International Conference on Information and Knowledge Management (CIKM)}, pages 1441--1450.
+
+\bibitem[Li et~al.(2017)]{li2017}
+Jing Li, Pengjie Ren, Zhumin Chen, Zhaochun Ren, Tao Lian, and Jun Ma.
+\newblock 2017.
+\newblock Neural Attentive Session-based Recommendation.
+\newblock In \emph{Proceedings of the ACM International Conference on Information and Knowledge Management (CIKM)}, pages 1419--1428.
+
+\bibitem[Wu et~al.(2019)]{wu2019}
+Shu Wu, Yuyuan Tang, Yanqiao Zhu, Liang Wang, Xing Xie, and Tieniu Tan.
+\newblock 2019.
+\newblock Session-based Recommendation with Graph Neural Networks.
+\newblock In \emph{Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)}, volume 33, pages 346--353.
+
+\bibitem[Chang et~al.(2021)]{chang2021}
+Jianxin Chang, Chen Gao, Yu Zheng, Yiqun Hui, Yanan Niu, Yang Song, Depeng Jin, and Yong Li.
+\newblock 2021.
+\newblock Sequential Recommendation with Graph Neural Networks.
+\newblock In \emph{Proceedings of the ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR)}, pages 378--387.
+
+\bibitem[Pi et~al.(2020)]{pi2020sim}
+Qi Pi, Guorui Zhou, Yujing Zhang, Zhe Wang, Lejian Ren, Ying Fan, Xiaoqiang Zhu, and Kun Gai.
+\newblock 2020.
+\newblock Search-based User Interest Modeling with Lifelong Sequential Behavior Data for Click-Through Rate Prediction.
+\newblock In \emph{Proceedings of the ACM International Conference on Information and Knowledge Management (CIKM)}, pages 2685--2692.
+
+\bibitem[Ren et~al.(2019)]{ren2019}
+Kan Ren, Jiarui Qin, Yuchen Fang, Weinan Zhang, Lei Zheng, Weijie Bian, Guorui Zhou, Jian Xu, Yong Yu, Xiaoqiang Zhu, and Kun Gai.
+\newblock 2019.
+\newblock Lifelong Sequential Modeling with Personalized Memorization for User Response Prediction.
+\newblock In \emph{Proceedings of the ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR)}, pages 565--574.
+
+\bibitem[Pi et~al.(2019)]{pi2019mimn}
+Qi Pi, Weijie Bian, Guorui Zhou, Xiaoqiang Zhu, and Kun Gai.
+\newblock 2019.
+\newblock Practice on Long Sequential User Behavior Modeling for Click-Through Rate Prediction.
+\newblock In \emph{Proceedings of the ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD)}, pages 2671--2679.
+
+\bibitem[Chang et~al.(2023)]{chang2023}
+Jianxin Chang, Chenbin Zhang, Zhiyi Fu, Xiaoxue Zang, Lin Guan, Jing Lu, Yiqun Hui, Dewei Leng, Yanan Niu, Yang Song, and Kun Gai.
+\newblock 2023.
+\newblock TWIN: TWo-stage Interest Network for Lifelong User Behavior Modeling in CTR Prediction at Kuaishou.
+\newblock In \emph{Proceedings of the ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD)}, pages 3785--3794.
+
+\bibitem[Covington et~al.(2016)]{covington2016}
+Paul Covington, Jay Adams, and Emre Sargin.
+\newblock 2016.
+\newblock Deep Neural Networks for YouTube Recommendations.
+\newblock In \emph{Proceedings of the ACM Conference on Recommender Systems (RecSys)}, pages 191--198.
+
+\bibitem[Zhou et~al.(2018)]{zhou2018din}
+Guorui Zhou, Xiaoqiang Zhu, Chengru Song, Ying Fan, Han Zhu, Xiao Ma, Yanghui Yan, Junqi Jin, Han Li, and Kun Gai.
+\newblock 2018.
+\newblock Deep Interest Network for Click-Through Rate Prediction.
+\newblock In \emph{Proceedings of the ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD)}, pages 1059--1068.
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,119 @@
+2026-01-04 10:39:31 | INFO     | src.utils.logger:setup_logger:42 - Logger initialized. Logs saved to: logs\cofars_20260104_103931.log
+2026-01-04 10:39:31 | INFO     | __main__:main:214 - ================================================================================
+2026-01-04 10:39:31 | INFO     | __main__:main:215 - LOSS FUNCTION ABLATION STUDY
+2026-01-04 10:39:31 | INFO     | __main__:main:216 - ================================================================================
+2026-01-04 10:39:31 | INFO     | __main__:main:217 - Started at: 2026-01-04 10:39:31
+2026-01-04 10:39:31 | INFO     | __main__:main:220 - Using device: cpu
+2026-01-04 10:39:31 | INFO     | __main__:main:223 - Loading data...
+2026-01-04 10:39:34 | INFO     | __main__:main:232 - Data loaded: Train=196780, Val=24480, Test=24500
+2026-01-04 10:39:34 | INFO     | __main__:train_ablation_variant:104 - 
+================================================================================
+2026-01-04 10:39:34 | INFO     | __main__:train_ablation_variant:105 - TRAINING VARIANT: without_js_loss
+2026-01-04 10:39:34 | INFO     | __main__:train_ablation_variant:106 -   γ (gamma) = 0.0
+2026-01-04 10:39:34 | INFO     | __main__:train_ablation_variant:107 -   λ (lambda) = 0.001
+2026-01-04 10:39:34 | INFO     | __main__:train_ablation_variant:108 - ================================================================================
+2026-01-04 10:40:39 | INFO     | __main__:train_ablation_variant:158 - Epoch 1/20: Train Loss=0.4703, Val AUC=0.8196, Val AP=0.5217
+2026-01-04 10:41:43 | INFO     | __main__:train_ablation_variant:158 - Epoch 2/20: Train Loss=0.3535, Val AUC=0.8901, Val AP=0.6171
+2026-01-04 10:42:45 | INFO     | __main__:train_ablation_variant:158 - Epoch 3/20: Train Loss=0.3069, Val AUC=0.9030, Val AP=0.6353
+2026-01-04 10:43:46 | INFO     | __main__:train_ablation_variant:158 - Epoch 4/20: Train Loss=0.2886, Val AUC=0.9089, Val AP=0.6459
+2026-01-04 10:44:46 | INFO     | __main__:train_ablation_variant:158 - Epoch 5/20: Train Loss=0.2788, Val AUC=0.9111, Val AP=0.6486
+2026-01-04 10:45:49 | INFO     | __main__:train_ablation_variant:158 - Epoch 6/20: Train Loss=0.2739, Val AUC=0.9126, Val AP=0.6477
+2026-01-04 10:46:50 | INFO     | __main__:train_ablation_variant:158 - Epoch 7/20: Train Loss=0.2698, Val AUC=0.9132, Val AP=0.6569
+2026-01-04 10:47:49 | INFO     | __main__:train_ablation_variant:158 - Epoch 8/20: Train Loss=0.2664, Val AUC=0.9143, Val AP=0.6623
+2026-01-04 10:48:49 | INFO     | __main__:train_ablation_variant:158 - Epoch 9/20: Train Loss=0.2633, Val AUC=0.9163, Val AP=0.6750
+2026-01-04 10:49:47 | INFO     | __main__:train_ablation_variant:158 - Epoch 10/20: Train Loss=0.2589, Val AUC=0.9189, Val AP=0.6881
+2026-01-04 10:50:49 | INFO     | __main__:train_ablation_variant:158 - Epoch 11/20: Train Loss=0.2548, Val AUC=0.9212, Val AP=0.7022
+2026-01-04 10:51:50 | INFO     | __main__:train_ablation_variant:158 - Epoch 12/20: Train Loss=0.2513, Val AUC=0.9219, Val AP=0.7056
+2026-01-04 10:52:49 | INFO     | __main__:train_ablation_variant:158 - Epoch 13/20: Train Loss=0.2485, Val AUC=0.9226, Val AP=0.7060
+2026-01-04 10:53:51 | INFO     | __main__:train_ablation_variant:158 - Epoch 14/20: Train Loss=0.2455, Val AUC=0.9222, Val AP=0.7071
+2026-01-04 10:54:53 | INFO     | __main__:train_ablation_variant:158 - Epoch 15/20: Train Loss=0.2438, Val AUC=0.9240, Val AP=0.7140
+2026-01-04 10:55:55 | INFO     | __main__:train_ablation_variant:158 - Epoch 16/20: Train Loss=0.2406, Val AUC=0.9229, Val AP=0.7144
+2026-01-04 10:56:57 | INFO     | __main__:train_ablation_variant:158 - Epoch 17/20: Train Loss=0.2380, Val AUC=0.9240, Val AP=0.7193
+2026-01-04 10:57:59 | INFO     | __main__:train_ablation_variant:158 - Epoch 18/20: Train Loss=0.2360, Val AUC=0.9246, Val AP=0.7219
+2026-01-04 10:59:01 | INFO     | __main__:train_ablation_variant:158 - Epoch 19/20: Train Loss=0.2339, Val AUC=0.9244, Val AP=0.7242
+2026-01-04 11:00:06 | INFO     | __main__:train_ablation_variant:158 - Epoch 20/20: Train Loss=0.2325, Val AUC=0.9240, Val AP=0.7195
+2026-01-04 11:00:07 | INFO     | __main__:train_ablation_variant:180 - 
+without_js_loss RESULTS:
+2026-01-04 11:00:07 | INFO     | __main__:train_ablation_variant:181 -   Best Val AUC: 0.9240
+2026-01-04 11:00:07 | INFO     | __main__:train_ablation_variant:182 -   Test AUC: 0.9258
+2026-01-04 11:00:07 | INFO     | __main__:train_ablation_variant:183 -   Test AP: 0.7197
+2026-01-04 11:00:07 | INFO     | __main__:train_ablation_variant:196 - Saved checkpoint: results/models\ablations\without_js_loss_model.pt
+2026-01-04 11:00:07 | INFO     | __main__:train_ablation_variant:104 - 
+================================================================================
+2026-01-04 11:00:07 | INFO     | __main__:train_ablation_variant:105 - TRAINING VARIANT: without_ind_loss
+2026-01-04 11:00:07 | INFO     | __main__:train_ablation_variant:106 -   γ (gamma) = 0.05
+2026-01-04 11:00:07 | INFO     | __main__:train_ablation_variant:107 -   λ (lambda) = 0.0
+2026-01-04 11:00:07 | INFO     | __main__:train_ablation_variant:108 - ================================================================================
+2026-01-04 11:01:07 | INFO     | __main__:train_ablation_variant:158 - Epoch 1/20: Train Loss=0.4741, Val AUC=0.8319, Val AP=0.5331
+2026-01-04 11:02:06 | INFO     | __main__:train_ablation_variant:158 - Epoch 2/20: Train Loss=0.3512, Val AUC=0.8888, Val AP=0.6140
+2026-01-04 11:03:10 | INFO     | __main__:train_ablation_variant:158 - Epoch 3/20: Train Loss=0.3054, Val AUC=0.9031, Val AP=0.6344
+2026-01-04 11:04:15 | INFO     | __main__:train_ablation_variant:158 - Epoch 4/20: Train Loss=0.2873, Val AUC=0.9082, Val AP=0.6399
+2026-01-04 11:05:23 | INFO     | __main__:train_ablation_variant:158 - Epoch 5/20: Train Loss=0.2781, Val AUC=0.9104, Val AP=0.6442
+2026-01-04 11:06:32 | INFO     | __main__:train_ablation_variant:158 - Epoch 6/20: Train Loss=0.2719, Val AUC=0.9130, Val AP=0.6522
+2026-01-04 11:07:36 | INFO     | __main__:train_ablation_variant:158 - Epoch 7/20: Train Loss=0.2683, Val AUC=0.9138, Val AP=0.6582
+2026-01-04 11:08:34 | INFO     | __main__:train_ablation_variant:158 - Epoch 8/20: Train Loss=0.2652, Val AUC=0.9155, Val AP=0.6676
+2026-01-04 11:09:33 | INFO     | __main__:train_ablation_variant:158 - Epoch 9/20: Train Loss=0.2617, Val AUC=0.9160, Val AP=0.6793
+2026-01-04 11:10:38 | INFO     | __main__:train_ablation_variant:158 - Epoch 10/20: Train Loss=0.2580, Val AUC=0.9178, Val AP=0.6875
+2026-01-04 11:11:45 | INFO     | __main__:train_ablation_variant:158 - Epoch 11/20: Train Loss=0.2536, Val AUC=0.9221, Val AP=0.7130
+2026-01-04 11:12:54 | INFO     | __main__:train_ablation_variant:158 - Epoch 12/20: Train Loss=0.2484, Val AUC=0.9242, Val AP=0.7262
+2026-01-04 11:14:02 | INFO     | __main__:train_ablation_variant:158 - Epoch 13/20: Train Loss=0.2443, Val AUC=0.9253, Val AP=0.7266
+2026-01-04 11:15:12 | INFO     | __main__:train_ablation_variant:158 - Epoch 14/20: Train Loss=0.2400, Val AUC=0.9276, Val AP=0.7451
+2026-01-04 11:16:22 | INFO     | __main__:train_ablation_variant:158 - Epoch 15/20: Train Loss=0.2372, Val AUC=0.9276, Val AP=0.7459
+2026-01-04 11:17:31 | INFO     | __main__:train_ablation_variant:158 - Epoch 16/20: Train Loss=0.2338, Val AUC=0.9293, Val AP=0.7508
+2026-01-04 11:18:41 | INFO     | __main__:train_ablation_variant:158 - Epoch 17/20: Train Loss=0.2318, Val AUC=0.9260, Val AP=0.7356
+2026-01-04 11:19:50 | INFO     | __main__:train_ablation_variant:158 - Epoch 18/20: Train Loss=0.2292, Val AUC=0.9284, Val AP=0.7494
+2026-01-04 11:21:01 | INFO     | __main__:train_ablation_variant:158 - Epoch 19/20: Train Loss=0.2267, Val AUC=0.9301, Val AP=0.7516
+2026-01-04 11:22:11 | INFO     | __main__:train_ablation_variant:158 - Epoch 20/20: Train Loss=0.2252, Val AUC=0.9299, Val AP=0.7579
+2026-01-04 11:22:12 | INFO     | __main__:train_ablation_variant:180 - 
+without_ind_loss RESULTS:
+2026-01-04 11:22:12 | INFO     | __main__:train_ablation_variant:181 -   Best Val AUC: 0.9293
+2026-01-04 11:22:12 | INFO     | __main__:train_ablation_variant:182 -   Test AUC: 0.9301
+2026-01-04 11:22:12 | INFO     | __main__:train_ablation_variant:183 -   Test AP: 0.7505
+2026-01-04 11:22:12 | INFO     | __main__:train_ablation_variant:196 - Saved checkpoint: results/models\ablations\without_ind_loss_model.pt
+2026-01-04 11:22:12 | INFO     | __main__:train_ablation_variant:104 - 
+================================================================================
+2026-01-04 11:22:12 | INFO     | __main__:train_ablation_variant:105 - TRAINING VARIANT: only_rec_loss
+2026-01-04 11:22:12 | INFO     | __main__:train_ablation_variant:106 -   γ (gamma) = 0.0
+2026-01-04 11:22:12 | INFO     | __main__:train_ablation_variant:107 -   λ (lambda) = 0.0
+2026-01-04 11:22:12 | INFO     | __main__:train_ablation_variant:108 - ================================================================================
+2026-01-04 11:23:15 | INFO     | __main__:train_ablation_variant:158 - Epoch 1/20: Train Loss=0.4754, Val AUC=0.8262, Val AP=0.5318
+2026-01-04 11:24:23 | INFO     | __main__:train_ablation_variant:158 - Epoch 2/20: Train Loss=0.3535, Val AUC=0.8911, Val AP=0.6198
+2026-01-04 11:25:30 | INFO     | __main__:train_ablation_variant:158 - Epoch 3/20: Train Loss=0.3056, Val AUC=0.9045, Val AP=0.6382
+2026-01-04 11:26:37 | INFO     | __main__:train_ablation_variant:158 - Epoch 4/20: Train Loss=0.2867, Val AUC=0.9091, Val AP=0.6451
+2026-01-04 11:27:41 | INFO     | __main__:train_ablation_variant:158 - Epoch 5/20: Train Loss=0.2766, Val AUC=0.9132, Val AP=0.6589
+2026-01-04 11:28:48 | INFO     | __main__:train_ablation_variant:158 - Epoch 6/20: Train Loss=0.2678, Val AUC=0.9172, Val AP=0.6827
+2026-01-04 11:29:52 | INFO     | __main__:train_ablation_variant:158 - Epoch 7/20: Train Loss=0.2606, Val AUC=0.9205, Val AP=0.7008
+2026-01-04 11:30:57 | INFO     | __main__:train_ablation_variant:158 - Epoch 8/20: Train Loss=0.2553, Val AUC=0.9201, Val AP=0.6960
+2026-01-04 11:32:01 | INFO     | __main__:train_ablation_variant:158 - Epoch 9/20: Train Loss=0.2506, Val AUC=0.9247, Val AP=0.7174
+2026-01-04 11:33:06 | INFO     | __main__:train_ablation_variant:158 - Epoch 10/20: Train Loss=0.2467, Val AUC=0.9251, Val AP=0.7223
+2026-01-04 11:34:10 | INFO     | __main__:train_ablation_variant:158 - Epoch 11/20: Train Loss=0.2429, Val AUC=0.9247, Val AP=0.7225
+2026-01-04 11:35:16 | INFO     | __main__:train_ablation_variant:158 - Epoch 12/20: Train Loss=0.2392, Val AUC=0.9272, Val AP=0.7296
+2026-01-04 11:36:22 | INFO     | __main__:train_ablation_variant:158 - Epoch 13/20: Train Loss=0.2364, Val AUC=0.9282, Val AP=0.7403
+2026-01-04 11:37:28 | INFO     | __main__:train_ablation_variant:158 - Epoch 14/20: Train Loss=0.2331, Val AUC=0.9279, Val AP=0.7405
+2026-01-04 11:38:30 | INFO     | __main__:train_ablation_variant:158 - Epoch 15/20: Train Loss=0.2305, Val AUC=0.9306, Val AP=0.7488
+2026-01-04 11:39:38 | INFO     | __main__:train_ablation_variant:158 - Epoch 16/20: Train Loss=0.2277, Val AUC=0.9294, Val AP=0.7408
+2026-01-04 11:40:43 | INFO     | __main__:train_ablation_variant:158 - Epoch 17/20: Train Loss=0.2254, Val AUC=0.9305, Val AP=0.7493
+2026-01-04 11:41:47 | INFO     | __main__:train_ablation_variant:158 - Epoch 18/20: Train Loss=0.2239, Val AUC=0.9283, Val AP=0.7451
+2026-01-04 11:42:51 | INFO     | __main__:train_ablation_variant:158 - Epoch 19/20: Train Loss=0.2218, Val AUC=0.9312, Val AP=0.7556
+2026-01-04 11:43:55 | INFO     | __main__:train_ablation_variant:158 - Epoch 20/20: Train Loss=0.2198, Val AUC=0.9314, Val AP=0.7535
+2026-01-04 11:43:56 | INFO     | __main__:train_ablation_variant:180 - 
+only_rec_loss RESULTS:
+2026-01-04 11:43:56 | INFO     | __main__:train_ablation_variant:181 -   Best Val AUC: 0.9306
+2026-01-04 11:43:56 | INFO     | __main__:train_ablation_variant:182 -   Test AUC: 0.9310
+2026-01-04 11:43:56 | INFO     | __main__:train_ablation_variant:183 -   Test AP: 0.7509
+2026-01-04 11:43:56 | INFO     | __main__:train_ablation_variant:196 - Saved checkpoint: results/models\ablations\only_rec_loss_model.pt
+2026-01-04 11:43:56 | INFO     | __main__:main:275 - 
+================================================================================
+2026-01-04 11:43:56 | INFO     | __main__:main:276 - ABLATION STUDY COMPLETE!
+2026-01-04 11:43:56 | INFO     | __main__:main:277 - ================================================================================
+2026-01-04 11:43:56 | INFO     | __main__:main:278 - Results saved to: results/statistics\loss_ablation_results.json
+2026-01-04 11:43:56 | INFO     | __main__:main:281 - 
+================================================================================
+2026-01-04 11:43:56 | INFO     | __main__:main:282 - COMPARISON TABLE
+2026-01-04 11:43:56 | INFO     | __main__:main:283 - ================================================================================
+2026-01-04 11:43:56 | INFO     | __main__:main:284 - Variant                   γ        λ   Test AUC    Test AP
+2026-01-04 11:43:56 | INFO     | __main__:main:285 - ------------------------------------------------------------
+2026-01-04 11:43:56 | INFO     | __main__:main:287 - full_model            0.050   0.0010     0.9330     0.7558
+2026-01-04 11:43:56 | INFO     | __main__:main:287 - without_js_loss       0.000   0.0010     0.9258     0.7197
+2026-01-04 11:43:56 | INFO     | __main__:main:287 - without_ind_loss      0.050   0.0000     0.9301     0.7505
+2026-01-04 11:43:56 | INFO     | __main__:main:287 - only_rec_loss         0.000   0.0000     0.9310     0.7509
